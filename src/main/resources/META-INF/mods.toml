@@ -29,7 +29,7 @@ displayName="BGames API" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java" #optional
+credits="InTeractiOn Research Lab" #optional
 # A text field displayed in the mod UI
 authors="GSimken" #optional
 # Display Test controls the display for your mod in the server connection screen
@@ -42,7 +42,7 @@ authors="GSimken" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-This is a mod develeped by InTeractiOn Research Lab to integrate the bGames project into Minecraft}
+This is a mod developed by InTeractiOn Research Lab to integrate the bGames project into Minecraft
 The present API consume Bgames Points to use it into the game, this mod can be use to integrate in other mods and use the points
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.

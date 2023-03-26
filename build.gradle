@@ -2,9 +2,10 @@ plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
-version = '0.1-1.19.3'
+version = '0.2-1.19.3'
 group = 'net.gsimken.bgamesapi' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'bgamesapi'
 
@@ -130,7 +131,7 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.19.3-44.1.23'
-
+    shadow 'org.apache.httpcomponents:httpclient'
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
 

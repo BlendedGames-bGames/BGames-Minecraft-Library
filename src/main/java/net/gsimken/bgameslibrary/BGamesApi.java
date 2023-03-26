@@ -1,16 +1,21 @@
-package net.gsimken.examplemod;
+package net.gsimken.bgameslibrary;
 
 import com.mojang.logging.LogUtils;
+import net.gsimken.bgameslibrary.core.config.BgamesCommonConfigs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+
+import static net.minecraftforge.fml.config.ModConfig.*;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BGamesApi.MOD_ID)
@@ -33,6 +38,10 @@ public class BGamesApi
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        //Register the config files
+        ModLoadingContext.get().registerConfig(Type.COMMON, BgamesCommonConfigs.SPEC,"bgames-common-application.toml");
+        ModLoadingContext.get().registerConfig(Type.CLIENT, BgamesCommonConfigs.SPEC,"bgames-client-application.toml");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event){
