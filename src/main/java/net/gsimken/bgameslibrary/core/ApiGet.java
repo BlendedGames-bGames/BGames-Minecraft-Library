@@ -1,23 +1,21 @@
 package net.gsimken.bgameslibrary.core;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 
+import com.google.gson.Gson;
 import net.gsimken.bgameslibrary.core.config.BgamesCommonConfigs;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.SocketTimeoutException;
+import java.util.ArrayList;
 
 public class ApiGet {
     private static final String API_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.GET_PORT.get()+"/";
@@ -48,6 +46,7 @@ public class ApiGet {
 
     }
     public ApiResponse getPlayerAttributes(Integer id) throws IOException {
+
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
         ArrayList<Object> jsonResponseArray = new ArrayList<>(); //manage the http response
         if(!this.checkConnection()){ //the API is not available
@@ -57,7 +56,7 @@ public class ApiGet {
         String url = API_BASE_URL + "player_all_attributes/" + id;
         HttpEntity entity=null;
         try{ //executes the request with 10s to get the responses, else gives an excepción for timeout
-             entity = this.makeRequest(url);
+            entity = this.makeRequest(url);
         }
         catch(Exception e){
             System.out.println(e);
@@ -84,3 +83,4 @@ public class ApiGet {
     }
 
 }
+

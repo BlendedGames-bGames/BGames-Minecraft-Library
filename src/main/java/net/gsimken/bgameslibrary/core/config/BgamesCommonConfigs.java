@@ -1,5 +1,4 @@
 package net.gsimken.bgameslibrary.core.config;
-
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BgamesCommonConfigs {
