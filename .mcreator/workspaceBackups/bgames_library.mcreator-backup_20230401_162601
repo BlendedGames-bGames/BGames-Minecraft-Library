@@ -32,7 +32,6 @@
       "locked_code": false,
       "registry_name": "get_player_locale_id",
       "metadata": {
-        "return_type": "number",
         "dependencies": [
           {
             "name": "entity",

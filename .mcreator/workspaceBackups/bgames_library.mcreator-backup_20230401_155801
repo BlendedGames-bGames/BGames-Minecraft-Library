@@ -24,30 +24,26 @@
           "src/main/java/net/gsimken/bgameslibrary/world/inventory/LoginMenu.java"
         ]
       }
-    },
-    {
-      "name": "GetPlayerLocaleId",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "get_player_locale_id",
-      "metadata": {
-        "return_type": "number",
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
     }
   ],
   "variable_elements": [
     {
+      "name": "email",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
       "name": "bgames_player_id",
       "type": "number",
-      "scope": "player_persistent",
-      "value": "-1.0"
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [],

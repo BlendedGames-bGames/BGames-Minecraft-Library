@@ -11,25 +11,39 @@
           "src/main/java/net/gsimken/bgameslibrary/command/GetAttributesCommand.java"
         ]
       }
+    },
+    {
+      "name": "Login",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "login",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/client/gui/LoginScreen.java",
+          "src/main/java/net/gsimken/bgameslibrary/world/inventory/LoginMenu.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
     {
-      "name": "email",
-      "type": "string",
+      "name": "bgames_player_id",
+      "type": "number",
       "scope": "player_persistent",
-      "value": "\"\""
-    },
-    {
-      "name": "password",
-      "type": "string",
-      "scope": "player_persistent",
-      "value": "\"\""
+      "value": "-1.0"
     }
   ],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "gui.bgames_library.login.label_password": "Password",
+      "gui.bgames_library.login.Email": "",
+      "gui.bgames_library.login.label_blended_games": "Blended Games",
+      "gui.bgames_library.login.label_email": "Email",
+      "gui.bgames_library.login.Password": "",
+      "gui.bgames_library.login.button_login": "Login"
+    }
   },
   "foldersRoot": {
     "name": "~",

@@ -21,33 +21,34 @@
       "metadata": {
         "files": [
           "src/main/java/net/gsimken/bgameslibrary/client/gui/LoginScreen.java",
+          "src/main/java/net/gsimken/bgameslibrary/network/LoginButtonMessage.java",
           "src/main/java/net/gsimken/bgameslibrary/world/inventory/LoginMenu.java"
         ]
       }
     },
     {
-      "name": "GetPlayerLocaleId",
+      "name": "TestButtonAction",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_player_locale_id",
+      "registry_name": "test_button_action",
       "metadata": {
-        "return_type": "number",
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       }
     }
   ],
   "variable_elements": [
     {
-      "name": "bgames_player_id",
-      "type": "number",
+      "name": "email",
+      "type": "string",
       "scope": "player_persistent",
-      "value": "-1.0"
+      "value": "\"\""
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],

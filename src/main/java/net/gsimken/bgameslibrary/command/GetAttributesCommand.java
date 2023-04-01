@@ -3,8 +3,8 @@ package net.gsimken.bgameslibrary.command;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import net.gsimken.bgameslibrary.core.ApiGet;
-import net.gsimken.bgameslibrary.core.ApiResponse;
+import net.gsimken.bgameslibrary.core.api.ApiGet;
+import net.gsimken.bgameslibrary.core.api.ApiResponse;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
@@ -13,8 +13,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 
 import net.minecraft.commands.Commands;
-
-import com.mojang.brigadier.arguments.DoubleArgumentType;
 
 import java.io.IOException;
 

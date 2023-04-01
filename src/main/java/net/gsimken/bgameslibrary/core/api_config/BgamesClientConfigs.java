@@ -1,4 +1,4 @@
-package net.gsimken.bgameslibrary.core.config;
+package net.gsimken.bgameslibrary.core.api_config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 

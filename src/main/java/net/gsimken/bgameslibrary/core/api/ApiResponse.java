@@ -1,4 +1,4 @@
-package net.gsimken.bgameslibrary.core;
+package net.gsimken.bgameslibrary.core.api;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class ApiResponse {
         this.errorDescription = errorDescription;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 
