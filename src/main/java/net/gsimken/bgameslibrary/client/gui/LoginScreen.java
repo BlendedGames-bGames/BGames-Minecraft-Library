@@ -11,6 +11,8 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import net.gsimken.bgameslibrary.world.inventory.LoginMenu;
+import net.gsimken.bgameslibrary.network.LoginButtonMessage;
+import net.gsimken.bgameslibrary.BgamesLibraryMod;
 
 import java.util.HashMap;
 
@@ -103,11 +105,15 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 		Password.setMaxLength(32767);
 		guistate.put("text:Password", Password);
 		this.addWidget(this.Password);
-		Email = new EditBox(this.font, this.leftPos + 26, this.topPos + 47, 120, 20, Component.translatable("gui.bgames_library.login.Email"));
+		Email = new EditBox(this.font, this.leftPos + 26, this.topPos + 51, 120, 20, Component.translatable("gui.bgames_library.login.Email"));
 		Email.setMaxLength(32767);
 		guistate.put("text:Email", Email);
 		this.addWidget(this.Email);
 		button_login = new Button(this.leftPos + 58, this.topPos + 130, 51, 20, Component.translatable("gui.bgames_library.login.button_login"), e -> {
+			if (true) {
+				BgamesLibraryMod.PACKET_HANDLER.sendToServer(new LoginButtonMessage(0, x, y, z));
+				LoginButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
 		});
 		guistate.put("button:button_login", button_login);
 		this.addRenderableWidget(button_login);

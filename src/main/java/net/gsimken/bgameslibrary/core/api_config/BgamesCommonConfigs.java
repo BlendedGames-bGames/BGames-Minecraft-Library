@@ -16,7 +16,7 @@ public class BgamesCommonConfigs {
         URL= BUILDER.comment("This is the url to make the request. Default: http://localhost:").define("API URL","http://localhost:");
         GET_PORT= BUILDER.comment("This is the port to make get requets. Default: 3001").define("API GET PORT",3001);
         POST_PORT= BUILDER.comment("This is the port to make post requets. Default: 3002").define("API POST PORT",3002);
-        USER_PORT= BUILDER.comment("This is the port to make user management requets. Default: 3010").define("API POST PORT",3010);
+        USER_PORT= BUILDER.comment("This is the port to make user management requets. Default: 3010").define("API USER PORT",3010);
         BUILDER.pop();
         SPEC = BUILDER.build();
     }

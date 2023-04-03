@@ -17,6 +17,9 @@ out
 build
 .gradle
 
+#mcreator
+.mcreator
+
 # other
 eclipse
 run

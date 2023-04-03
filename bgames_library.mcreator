@@ -1,18 +1,6 @@
 {
   "mod_elements": [
     {
-      "name": "GetAttributes",
-      "type": "command",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "get_attributes",
-      "metadata": {
-        "files": [
-          "src/main/java/net/gsimken/bgameslibrary/command/GetAttributesCommand.java"
-        ]
-      }
-    },
-    {
       "name": "Login",
       "type": "gui",
       "compiles": true,
@@ -21,6 +9,7 @@
       "metadata": {
         "files": [
           "src/main/java/net/gsimken/bgameslibrary/client/gui/LoginScreen.java",
+          "src/main/java/net/gsimken/bgameslibrary/network/LoginButtonMessage.java",
           "src/main/java/net/gsimken/bgameslibrary/world/inventory/LoginMenu.java"
         ]
       }
@@ -28,6 +17,7 @@
     {
       "name": "GetPlayerLocaleId",
       "type": "procedure",
+      "sortid": 2,
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_player_locale_id",
@@ -39,7 +29,298 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/LoginProcedures"
+    },
+    {
+      "name": "GetIdLogin",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_id_login",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/GetIdLoginProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug_commands/ShowPlayerIdOnLogin"
+    },
+    {
+      "name": "DebugEmailPassGetId",
+      "type": "command",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_email_pass_get_id",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/command/DebugEmailPassGetIdCommand.java"
+        ]
+      },
+      "path": "~/Debug_commands/ShowPlayerIdOnLogin"
+    },
+    {
+      "name": "DebugAttributesId",
+      "type": "command",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_attributes_id",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/command/DebugAttributesIdCommand.java"
+        ]
+      },
+      "path": "~/Debug_commands/GetAttributes"
+    },
+    {
+      "name": "GetAttributeId",
+      "type": "procedure",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_attribute_id",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/GetAttributeIdProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug_commands/GetAttributes"
+    },
+    {
+      "name": "OpenGuiLogin",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_gui_login",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/OpenGuiLoginProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/LoginProcedures"
+    },
+    {
+      "name": "GetIdByEmail",
+      "type": "procedure",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_id_by_email",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/GetIdByEmailProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/LoginProcedures"
+    },
+    {
+      "name": "GetIdByEmailGlobal",
+      "type": "procedure",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_id_by_email_global",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/GetIdByEmailGlobalProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/LoginProcedures"
+    },
+    {
+      "name": "LoginOnWorldSpawn",
+      "type": "procedure",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "login_on_world_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/LoginOnWorldSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LoginProcedures"
+    },
+    {
+      "name": "LoginButtonProcedure",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "login_button_procedure",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/LoginButtonProcedureProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/LoginProcedures"
+    },
+    {
+      "name": "OpenGui",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/OpenGuiProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Debug_commands/OpenGui"
+    },
+    {
+      "name": "DebugOpenLoginGui",
+      "type": "command",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_open_login_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/command/DebugOpenLoginGuiCommand.java"
+        ]
+      },
+      "path": "~/Debug_commands/OpenGui"
+    },
+    {
+      "name": "ShowPersistentData",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "show_persistent_data",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/ShowPersistentDataProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug_commands/ShowPersistenData"
+    },
+    {
+      "name": "DebugShowPersistentData",
+      "type": "command",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_show_persistent_data",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/command/DebugShowPersistentDataCommand.java"
+        ]
+      },
+      "path": "~/Debug_commands/ShowPersistenData"
     }
   ],
   "variable_elements": [
@@ -48,6 +329,18 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "-1.0"
+    },
+    {
+      "name": "bgames_email",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "bgames_password",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -63,7 +356,33 @@
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Debug_commands",
+        "children": [
+          {
+            "name": "ShowPlayerIdOnLogin",
+            "children": []
+          },
+          {
+            "name": "GetAttributes",
+            "children": []
+          },
+          {
+            "name": "OpenGui",
+            "children": []
+          },
+          {
+            "name": "ShowPersistenData",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "LoginProcedures",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "bgames_library",

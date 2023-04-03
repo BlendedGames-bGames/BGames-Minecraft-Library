@@ -14,17 +14,18 @@ import java.util.ArrayList;
 public class ApiGet extends Api {
     private static final String API_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.GET_PORT.get()+"/";
 
-    public ApiResponse getPlayerAttributes(Integer id) throws IOException {
+    public ApiResponse getPlayerAttributes(Integer id) {
 
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
-
         String url = API_BASE_URL + "player_all_attributes/" + id;
         requestResponse= this.makeRequest(url);
-        if(requestResponse.getCode()!=null){ //an error has occured in request
+
+        if(requestResponse.getCode()!=200){ //an error has occured in request
             return requestResponse;
         }
         if(requestResponse.getResponse().size()==0){
             requestResponse.setCodeError(404,"Player id not found");
+            return requestResponse;
         }
 
         requestResponse.setCode(200);

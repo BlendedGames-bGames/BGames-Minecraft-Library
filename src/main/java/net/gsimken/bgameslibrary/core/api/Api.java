@@ -26,23 +26,20 @@ public class Api {
             .build();
     protected HttpClient CLIENT = HttpClientBuilder.create().build();
 
-    public ApiResponse makeRequest(String url) throws IOException, SocketTimeoutException {
+    public ApiResponse makeRequest(String url){
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
         ArrayList<Object> jsonResponseArray = new ArrayList<>(); //manage the http response
-        if(!this.checkConnection(url)){ //the API is not available
-            requestResponse.setCodeError(500,"API Connection Error"); //server error
-            return requestResponse;
-        }
         HttpEntity entity=null;
+
         try{ //executes the request with 10s to get the responses, else gives an excepción for timeout
             HttpGet request = new HttpGet(url);
             request.setConfig(this.requestConfig);
             HttpResponse response = CLIENT.execute(request);
+            requestResponse.setCode(response.getStatusLine().getStatusCode());
             entity = response.getEntity();
         }
         catch(Exception e){
-            System.out.println(e);
-            requestResponse.setCodeError(500,"API TimeOut Error"); //server error
+            requestResponse.setCodeError(503,"API service unavailable"); //server error
             return requestResponse;
         }
 
@@ -50,25 +47,31 @@ public class Api {
             requestResponse.setCodeError(500, "Error in request"); //player id not found
             return requestResponse;
         }
-        BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
-        JsonElement element = GSON.fromJson(reader, JsonElement.class);
-        JsonArray jsonArray = element.getAsJsonArray();
-        for (JsonElement jsonElement : jsonArray) {
-            Object object = new Gson().fromJson(jsonElement, Object.class);
-            jsonResponseArray.add(object);
+        try{
+            BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
+            JsonElement element = GSON.fromJson(reader, JsonElement.class);
+            if(element!=null) {
+                if (!element.isJsonArray()) {
+                    Object object = new Gson().fromJson(element, Object.class);
+                    jsonResponseArray.add(object);
+                } else {
+                    JsonArray jsonArray = element.getAsJsonArray();
+                    for (JsonElement jsonElement : jsonArray) {
+                        Object object = new Gson().fromJson(jsonElement, Object.class);
+                        jsonResponseArray.add(object);
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+            requestResponse.setCodeError(500,"API Content error"); //server error
+            return requestResponse;
         }
         requestResponse.setResponse(jsonResponseArray);
         return  requestResponse;
 
     }
-    public boolean checkConnection(String url){
-        try{
-            this.makeRequest(url);
-            return true;
 
-        }catch (Exception e){
 
-            return false;
-        }
-    }
 }

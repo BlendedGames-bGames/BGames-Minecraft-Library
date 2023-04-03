@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.gsimken.bgameslibrary.procedures.OpenGuiLoginProcedure;
 import net.gsimken.bgameslibrary.init.BgamesLibraryModMenus;
 
 import java.util.function.Supplier;
@@ -40,6 +41,7 @@ public class LoginMenu extends AbstractContainerMenu implements Supplier<Map<Int
 			this.y = pos.getY();
 			this.z = pos.getZ();
 		}
+		OpenGuiLoginProcedure.execute(entity, guistate);
 	}
 
 	@Override

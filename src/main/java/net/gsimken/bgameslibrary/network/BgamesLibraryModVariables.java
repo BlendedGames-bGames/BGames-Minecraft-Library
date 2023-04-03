@@ -67,6 +67,8 @@ public class BgamesLibraryModVariables {
 			PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			clone.bgames_player_id = original.bgames_player_id;
+			clone.bgames_email = original.bgames_email;
+			clone.bgames_password = original.bgames_password;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -104,6 +106,8 @@ public class BgamesLibraryModVariables {
 
 	public static class PlayerVariables {
 		public double bgames_player_id = -1.0;
+		public String bgames_email = "\"\"";
+		public String bgames_password = "\"\"";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -113,12 +117,16 @@ public class BgamesLibraryModVariables {
 		public Tag writeNBT() {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putDouble("bgames_player_id", bgames_player_id);
+			nbt.putString("bgames_email", bgames_email);
+			nbt.putString("bgames_password", bgames_password);
 			return nbt;
 		}
 
 		public void readNBT(Tag Tag) {
 			CompoundTag nbt = (CompoundTag) Tag;
 			bgames_player_id = nbt.getDouble("bgames_player_id");
+			bgames_email = nbt.getString("bgames_email");
+			bgames_password = nbt.getString("bgames_password");
 		}
 	}
 
@@ -144,6 +152,8 @@ public class BgamesLibraryModVariables {
 				if (!context.getDirection().getReceptionSide().isServer()) {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 					variables.bgames_player_id = message.data.bgames_player_id;
+					variables.bgames_email = message.data.bgames_email;
+					variables.bgames_password = message.data.bgames_password;
 				}
 			});
 			context.setPacketHandled(true);

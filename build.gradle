@@ -24,7 +24,19 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+            args '--username','Fisicklix'
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
 
+            mods {
+                examplemod {
+                    source sourceSets.main
+                }
+            }
+        }
+        client2 {
+            workingDirectory project.file('run')
+            args '--username','NotFisicklix'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
