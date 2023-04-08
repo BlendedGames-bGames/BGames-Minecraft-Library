@@ -1,13 +1,7 @@
 package net.gsimken.bgameslibrary.core.api;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.gsimken.bgameslibrary.core.api_config.BgamesCommonConfigs;
-import org.apache.http.HttpEntity;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class ApiUserManagement extends Api{
     private static final String API_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.USER_PORT.get()+"/";
@@ -17,7 +11,7 @@ public class ApiUserManagement extends Api{
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
         System.out.println(email+" " +password);
         String url = API_BASE_URL + "player_by_email/" + email;
-        requestResponse= this.makeRequest(url);
+        requestResponse= this.makeGetRequest(url);
         if(requestResponse.getCode()!=200){ //an error has occured in request
             return requestResponse;
         }

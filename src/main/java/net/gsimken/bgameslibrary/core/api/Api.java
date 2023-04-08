@@ -11,9 +11,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
 public class Api {
@@ -26,7 +24,7 @@ public class Api {
             .build();
     protected HttpClient CLIENT = HttpClientBuilder.create().build();
 
-    public ApiResponse makeRequest(String url){
+    public ApiResponse makeGetRequest(String url){
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
         ArrayList<Object> jsonResponseArray = new ArrayList<>(); //manage the http response
         HttpEntity entity=null;

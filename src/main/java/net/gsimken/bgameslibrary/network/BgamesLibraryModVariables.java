@@ -31,6 +31,12 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BgamesLibraryModVariables {
+	public static String bgames_afective_name = "\"Afectivo\"";
+	public static String bgames_social_name = "\"Social\"";
+	public static String bgames_physical_name = "\"F\u00EDsica\"";
+	public static String bgames_cognitive_name = "\"Cognitivo\"";
+	public static String bgames_linguistic_name = "\"Lingu\u00EFstico\"";
+
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		BgamesLibraryMod.addNetworkMessage(PlayerVariablesSyncMessage.class, PlayerVariablesSyncMessage::buffer, PlayerVariablesSyncMessage::new, PlayerVariablesSyncMessage::handler);

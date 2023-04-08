@@ -1,25 +1,20 @@
 package net.gsimken.bgameslibrary.core.api;
 
-import com.google.gson.Gson;
 import net.gsimken.bgameslibrary.core.api_config.BgamesCommonConfigs;
-import org.apache.http.HttpEntity;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class ApiGet extends Api {
     private static final String API_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.GET_PORT.get()+"/";
 
-    public ApiResponse getPlayerAttributes(Integer id) {
+    public ApiResponse getPlayerAttributesById(Integer id) {
 
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
-        String url = API_BASE_URL + "player_all_attributes/" + id;
-        requestResponse= this.makeRequest(url);
 
+        String url = API_BASE_URL + "player_all_attributes/" + id;
+        if(id==-1){
+            requestResponse.setCodeError(401,"Invalid credentials");
+            return requestResponse;
+        }
+        requestResponse= this.makeGetRequest(url);
         if(requestResponse.getCode()!=200){ //an error has occured in request
             return requestResponse;
         }
