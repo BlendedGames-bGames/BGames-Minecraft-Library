@@ -181,9 +181,6 @@
       "locked_code": false,
       "registry_name": "login_on_world_spawn",
       "metadata": {
-        "files": [
-          "src/main/java/net/gsimken/bgameslibrary/procedures/LoginOnWorldSpawnProcedure.java"
-        ],
         "dependencies": [
           {
             "name": "entity",
@@ -330,7 +327,7 @@
           "src/main/java/net/gsimken/bgameslibrary/world/inventory/DisplayAttributesMenu.java"
         ]
       },
-      "path": "~/Attributes display"
+      "path": "~/Attributes/Attributes display"
     },
     {
       "name": "GetAttributes",
@@ -341,6 +338,9 @@
       "registry_name": "get_attributes",
       "metadata": {
         "return_type": "arraylist",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/GetAttributesProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "entity",
@@ -348,7 +348,7 @@
           }
         ]
       },
-      "path": "~/Attributes display"
+      "path": "~/Attributes"
     },
     {
       "name": "VerifyLoggedIn",
@@ -411,7 +411,7 @@
           }
         ]
       },
-      "path": "~/Attributes display"
+      "path": "~/Attributes/Attributes display"
     },
     {
       "name": "BGamesDisplayAttributes",
@@ -426,7 +426,7 @@
           "src/main/java/net/gsimken/bgameslibrary/client/gui/BGamesDisplayAttributesScreen.java"
         ]
       },
-      "path": "~/Attributes display"
+      "path": "~/Attributes/Attributes display"
     },
     {
       "name": "OpenDisplayAttributesOnKeyPressed",
@@ -462,7 +462,7 @@
           }
         ]
       },
-      "path": "~/Attributes display"
+      "path": "~/Attributes/Attributes display"
     },
     {
       "name": "OpenDisplayAttributes",
@@ -476,7 +476,128 @@
           "src/main/java/net/gsimken/bgameslibrary/network/OpenDisplayAttributesMessage.java"
         ]
       },
-      "path": "~/Attributes display"
+      "path": "~/Attributes/Attributes display"
+    },
+    {
+      "name": "AttributeRefresh",
+      "type": "procedure",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "attribute_refresh",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes"
+    },
+    {
+      "name": "Resetattributes",
+      "type": "procedure",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "resetattributes",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/ResetattributesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes"
+    },
+    {
+      "name": "BGamesAttributesSocialValue",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "b_games_attributes_social_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/BGamesAttributesSocialValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes/Attributes display"
+    },
+    {
+      "name": "BGamesAttributesPhysicalValue",
+      "type": "procedure",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "b_games_attributes_physical_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/BGamesAttributesPhysicalValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes/Attributes display"
+    },
+    {
+      "name": "BGamesAttributesLinguisticValue",
+      "type": "procedure",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "b_games_attributes_linguistic_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/BGamesAttributesLinguisticValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes/Attributes display"
+    },
+    {
+      "name": "BGamesAttributesCognitiveValue",
+      "type": "procedure",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "b_games_attributes_cognitive_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/BGamesAttributesCognitiveValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes/Attributes display"
     }
   ],
   "variable_elements": [
@@ -502,31 +623,61 @@
       "name": "bgames_afective_name",
       "type": "string",
       "scope": "global",
-      "value": "\"Afectivo\""
+      "value": "Afectivo"
     },
     {
       "name": "bgames_social_name",
       "type": "string",
       "scope": "global",
-      "value": "\"Social\""
+      "value": "Social"
     },
     {
       "name": "bgames_physical_name",
       "type": "string",
       "scope": "global",
-      "value": "\"Física\""
+      "value": "Fisica"
     },
     {
       "name": "bgames_cognitive_name",
       "type": "string",
       "scope": "global",
-      "value": "\"Cognitivo\""
+      "value": "Cognitivo"
     },
     {
       "name": "bgames_linguistic_name",
       "type": "string",
       "scope": "global",
-      "value": "\"Linguïstico\""
+      "value": "Linguistico"
+    },
+    {
+      "name": "bgames_afective_points",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "-1.0"
+    },
+    {
+      "name": "bgames_social_points",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "-1.0"
+    },
+    {
+      "name": "bgames_physical_points",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "-1.0"
+    },
+    {
+      "name": "bgames_cognitive_points",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "-1.0"
+    },
+    {
+      "name": "bgames_linguistic_points",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "-1.0"
     }
   ],
   "sound_elements": [],
@@ -540,9 +691,14 @@
       "gui.bgames_library.display_attributes.label_fisico": "Physical",
       "gui.bgames_library.display_attributes.label_social": "Social",
       "gui.bgames_library.display_attributes.label_consume_points": "Consume points",
+      "gui.bgames_library.b_games_display_attributes.label_afective": "Afective",
+      "gui.bgames_library.b_games_display_attributes.label_cognitive": "Cognitive",
       "gui.bgames_library.b_games_attributes_error.label_stats": "Stats",
+      "gui.bgames_library.b_games_display_attributes.label_linguistic": "Linguistic",
+      "gui.bgames_library.b_games_display_attributes.label_physical": "Physical",
       "gui.bgames_library.b_games_attributes.label_bgames_stats": "bGames",
       "gui.bgames_library.display_attributes.label_linguistic": "Linguistic",
+      "gui.bgames_library.b_games_display_attributes.label_bgames_points": "Bgames points",
       "gui.bgames_library.display_attributes.label_cognitive": "Cognitive",
       "gui.bgames_library.b_games_attributes.label_error": "Error",
       "gui.bgames_library.b_games_attributes_error.label_bgames_stats": "bGames",
@@ -553,7 +709,8 @@
       "gui.bgames_library.b_games_attributes.label_you_are_not": "You are not",
       "gui.bgames_library.login.label_email": "Email",
       "gui.bgames_library.b_games_attributes_error.label_you_are_not": "You\u0027re not",
-      "gui.bgames_library.login.Password": ""
+      "gui.bgames_library.login.Password": "",
+      "gui.bgames_library.b_games_display_attributes.label_social": "Social"
     },
     "es_cl": {
       "gui.bgames_library.b_games_attributes.label_logged_in": "logged in",
@@ -564,9 +721,14 @@
       "gui.bgames_library.display_attributes.label_fisico": "Físico",
       "gui.bgames_library.display_attributes.label_social": "Social",
       "gui.bgames_library.display_attributes.label_consume_points": "Consumir puntos",
+      "gui.bgames_library.b_games_display_attributes.label_afective": "Afective",
+      "gui.bgames_library.b_games_display_attributes.label_cognitive": "Cognitive",
       "gui.bgames_library.b_games_attributes_error.label_stats": "Stats",
+      "gui.bgames_library.b_games_display_attributes.label_linguistic": "Linguistic",
+      "gui.bgames_library.b_games_display_attributes.label_physical": "Physical",
       "gui.bgames_library.b_games_attributes.label_bgames_stats": "bGames",
       "gui.bgames_library.display_attributes.label_linguistic": "Linguistico",
+      "gui.bgames_library.b_games_display_attributes.label_bgames_points": "Bgames points",
       "gui.bgames_library.display_attributes.label_cognitive": "Cognitivo",
       "gui.bgames_library.b_games_attributes.label_error": "Error",
       "gui.bgames_library.b_games_attributes_error.label_bgames_stats": "bGames",
@@ -577,7 +739,8 @@
       "gui.bgames_library.b_games_attributes.label_you_are_not": "You are not",
       "gui.bgames_library.login.label_email": "Correo",
       "gui.bgames_library.b_games_attributes_error.label_you_are_not": "You are not",
-      "gui.bgames_library.login.Password": ""
+      "gui.bgames_library.login.Password": "",
+      "gui.bgames_library.b_games_display_attributes.label_social": "Social"
     }
   },
   "foldersRoot": {
@@ -609,8 +772,13 @@
         "children": []
       },
       {
-        "name": "Attributes display",
-        "children": []
+        "name": "Attributes",
+        "children": [
+          {
+            "name": "Attributes display",
+            "children": []
+          }
+        ]
       }
     ]
   },

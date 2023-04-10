@@ -18,18 +18,13 @@ public class GetAttributesProcedure {
 		ArrayList<Object> response = new ArrayList<>();
 		ApiGet user_api = new ApiGet();
 		ApiResponse message = new ApiResponse();
-		System.out.println("ANTES DEL LOGIN");
 		id_player = (entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_player_id;
-		System.out.println("id_player_local: " + id_player);
 		if (id_player == -1) {
-			System.out.println("NO LOGEADO ");
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(Component.literal("§4Not logged, please login before play"), (false));
 			return response;
 		}
-		System.out.println("PASOLOGEADO ");
 		message = user_api.getPlayerAttributesById((int) id_player);
-		System.out.println(message.getResponse().toString() + "\n" + message.getErrorDescription());
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(Component.literal(("Message: " + message.getResponse().toString())), (false));
 		if (message.getCode() != 200) {

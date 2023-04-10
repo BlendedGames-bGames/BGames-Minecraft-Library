@@ -9,7 +9,6 @@ public class ApiUserManagement extends Api{
 
     public ApiResponse getPlayerByLogin(String email,String password){
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
-        System.out.println(email+" " +password);
         String url = API_BASE_URL + "player_by_email/" + email;
         requestResponse= this.makeGetRequest(url);
         if(requestResponse.getCode()!=200){ //an error has occured in request

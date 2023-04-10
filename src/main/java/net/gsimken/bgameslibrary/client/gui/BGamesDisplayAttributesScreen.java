@@ -9,6 +9,10 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.Minecraft;
 
 import net.gsimken.bgameslibrary.world.inventory.BGamesDisplayAttributesMenu;
+import net.gsimken.bgameslibrary.procedures.BGamesAttributesSocialValueProcedure;
+import net.gsimken.bgameslibrary.procedures.BGamesAttributesPhysicalValueProcedure;
+import net.gsimken.bgameslibrary.procedures.BGamesAttributesLinguisticValueProcedure;
+import net.gsimken.bgameslibrary.procedures.BGamesAttributesCognitiveValueProcedure;
 import net.gsimken.bgameslibrary.procedures.BGamesAttributesAfectiveValueProcedure;
 
 import java.util.HashMap;
@@ -70,7 +74,25 @@ public class BGamesDisplayAttributesScreen extends AbstractContainerScreen<BGame
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack,
 
-				BGamesAttributesAfectiveValueProcedure.execute(entity), -124, 1, -12829636);
+				BGamesAttributesAfectiveValueProcedure.execute(entity), -132, 8, -12829636);
+		this.font.draw(poseStack,
+
+				BGamesAttributesSocialValueProcedure.execute(entity), -11, 8, -12829636);
+		this.font.draw(poseStack,
+
+				BGamesAttributesPhysicalValueProcedure.execute(entity), 97, 8, -12829636);
+		this.font.draw(poseStack,
+
+				BGamesAttributesLinguisticValueProcedure.execute(entity), 42, 8, -12829636);
+		this.font.draw(poseStack,
+
+				BGamesAttributesCognitiveValueProcedure.execute(entity), -71, 8, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_afective"), -128, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_cognitive"), -73, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_social"), -8, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_linguistic"), 37, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_physical"), 98, -2, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_bgames_points"), -27, -43, -12829636);
 	}
 
 	@Override

@@ -31,11 +31,11 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BgamesLibraryModVariables {
-	public static String bgames_afective_name = "\"Afectivo\"";
-	public static String bgames_social_name = "\"Social\"";
-	public static String bgames_physical_name = "\"F\u00EDsica\"";
-	public static String bgames_cognitive_name = "\"Cognitivo\"";
-	public static String bgames_linguistic_name = "\"Lingu\u00EFstico\"";
+	public static String bgames_afective_name = "Afectivo";
+	public static String bgames_social_name = "Social";
+	public static String bgames_physical_name = "Fisica";
+	public static String bgames_cognitive_name = "Cognitivo";
+	public static String bgames_linguistic_name = "Linguistico";
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
@@ -75,6 +75,11 @@ public class BgamesLibraryModVariables {
 			clone.bgames_player_id = original.bgames_player_id;
 			clone.bgames_email = original.bgames_email;
 			clone.bgames_password = original.bgames_password;
+			clone.bgames_afective_points = original.bgames_afective_points;
+			clone.bgames_social_points = original.bgames_social_points;
+			clone.bgames_physical_points = original.bgames_physical_points;
+			clone.bgames_cognitive_points = original.bgames_cognitive_points;
+			clone.bgames_linguistic_points = original.bgames_linguistic_points;
 			if (!event.isWasDeath()) {
 			}
 		}
@@ -114,6 +119,11 @@ public class BgamesLibraryModVariables {
 		public double bgames_player_id = -1.0;
 		public String bgames_email = "\"\"";
 		public String bgames_password = "\"\"";
+		public double bgames_afective_points = -1.0;
+		public double bgames_social_points = -1.0;
+		public double bgames_physical_points = -1.0;
+		public double bgames_cognitive_points = -1.0;
+		public double bgames_linguistic_points = -1.0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -125,6 +135,11 @@ public class BgamesLibraryModVariables {
 			nbt.putDouble("bgames_player_id", bgames_player_id);
 			nbt.putString("bgames_email", bgames_email);
 			nbt.putString("bgames_password", bgames_password);
+			nbt.putDouble("bgames_afective_points", bgames_afective_points);
+			nbt.putDouble("bgames_social_points", bgames_social_points);
+			nbt.putDouble("bgames_physical_points", bgames_physical_points);
+			nbt.putDouble("bgames_cognitive_points", bgames_cognitive_points);
+			nbt.putDouble("bgames_linguistic_points", bgames_linguistic_points);
 			return nbt;
 		}
 
@@ -133,6 +148,11 @@ public class BgamesLibraryModVariables {
 			bgames_player_id = nbt.getDouble("bgames_player_id");
 			bgames_email = nbt.getString("bgames_email");
 			bgames_password = nbt.getString("bgames_password");
+			bgames_afective_points = nbt.getDouble("bgames_afective_points");
+			bgames_social_points = nbt.getDouble("bgames_social_points");
+			bgames_physical_points = nbt.getDouble("bgames_physical_points");
+			bgames_cognitive_points = nbt.getDouble("bgames_cognitive_points");
+			bgames_linguistic_points = nbt.getDouble("bgames_linguistic_points");
 		}
 	}
 
@@ -160,6 +180,11 @@ public class BgamesLibraryModVariables {
 					variables.bgames_player_id = message.data.bgames_player_id;
 					variables.bgames_email = message.data.bgames_email;
 					variables.bgames_password = message.data.bgames_password;
+					variables.bgames_afective_points = message.data.bgames_afective_points;
+					variables.bgames_social_points = message.data.bgames_social_points;
+					variables.bgames_physical_points = message.data.bgames_physical_points;
+					variables.bgames_cognitive_points = message.data.bgames_cognitive_points;
+					variables.bgames_linguistic_points = message.data.bgames_linguistic_points;
 				}
 			});
 			context.setPacketHandled(true);

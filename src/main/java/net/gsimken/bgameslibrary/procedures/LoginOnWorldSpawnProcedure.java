@@ -46,6 +46,7 @@ public class LoginOnWorldSpawnProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		ResetattributesProcedure.execute(entity);
 		if (!((entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_email).equals("")
 				&& !((entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_password).equals("")) {
 			player_id = GetIdByEmailGlobalProcedure.execute(entity);
@@ -57,6 +58,7 @@ public class LoginOnWorldSpawnProcedure {
 						capability.syncPlayerVariables(entity);
 					});
 				}
+				AttributeRefreshProcedure.execute(entity);
 				if (entity instanceof Player _player && !_player.level.isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A72Login Succesfully"), (false));
 			} else {

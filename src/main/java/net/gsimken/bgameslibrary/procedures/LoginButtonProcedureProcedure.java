@@ -37,6 +37,7 @@ public class LoginButtonProcedureProcedure {
 					capability.syncPlayerVariables(entity);
 				});
 			}
+			AttributeRefreshProcedure.execute(entity);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(Component.literal("\u00A72Login Succesfully"), (false));
 		} else {

@@ -7,9 +7,14 @@
   "gui.bgames_library.display_attributes.label_fisico": "Físico",
   "gui.bgames_library.display_attributes.label_social": "Social",
   "gui.bgames_library.display_attributes.label_consume_points": "Consumir puntos",
+  "gui.bgames_library.b_games_display_attributes.label_afective": "Afective",
+  "gui.bgames_library.b_games_display_attributes.label_cognitive": "Cognitive",
   "gui.bgames_library.b_games_attributes_error.label_stats": "Stats",
+  "gui.bgames_library.b_games_display_attributes.label_linguistic": "Linguistic",
+  "gui.bgames_library.b_games_display_attributes.label_physical": "Physical",
   "gui.bgames_library.b_games_attributes.label_bgames_stats": "bGames",
   "gui.bgames_library.display_attributes.label_linguistic": "Linguistico",
+  "gui.bgames_library.b_games_display_attributes.label_bgames_points": "Bgames points",
   "gui.bgames_library.display_attributes.label_cognitive": "Cognitivo",
   "gui.bgames_library.b_games_attributes.label_error": "Error",
   "gui.bgames_library.b_games_attributes_error.label_bgames_stats": "bGames",
@@ -20,5 +25,6 @@
   "gui.bgames_library.b_games_attributes.label_you_are_not": "You are not",
   "gui.bgames_library.login.label_email": "Correo",
   "gui.bgames_library.b_games_attributes_error.label_you_are_not": "You are not",
-  "gui.bgames_library.login.Password": ""
+  "gui.bgames_library.login.Password": "",
+  "gui.bgames_library.b_games_display_attributes.label_social": "Social"
 }
