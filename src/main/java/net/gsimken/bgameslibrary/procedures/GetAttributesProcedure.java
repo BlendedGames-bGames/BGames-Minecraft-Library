@@ -25,8 +25,6 @@ public class GetAttributesProcedure {
 			return response;
 		}
 		message = user_api.getPlayerAttributesById((int) id_player);
-		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(Component.literal(("Message: " + message.getResponse().toString())), (false));
 		if (message.getCode() != 200) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(Component.literal("§4Error: " + message.getErrorDescription()), (false));
