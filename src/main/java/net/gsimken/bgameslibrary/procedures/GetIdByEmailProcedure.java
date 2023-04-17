@@ -5,7 +5,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.EditBox;
 
-import net.gsimken.bgameslibrary.core.api.ApiUserManagement;
+import net.gsimken.bgameslibrary.core.api.BGamesApi;
 import net.gsimken.bgameslibrary.core.api.ApiResponse;
 
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class GetIdByEmailProcedure {
 			return 0;
 		String email = "";
 		String password = "";
-		ApiUserManagement user_api = new ApiUserManagement();
+		BGamesApi user_api = new BGamesApi();
 		email = guistate.containsKey("text:Email") ? ((EditBox) guistate.get("text:Email")).getValue() : "";
 		password = guistate.containsKey("text:Password") ? ((EditBox) guistate.get("text:Password")).getValue() : "";
 		ApiResponse message = user_api.getPlayerByLogin(email, password);

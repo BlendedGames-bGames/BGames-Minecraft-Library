@@ -5,7 +5,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.commands.CommandSourceStack;
 
-import net.gsimken.bgameslibrary.core.api.ApiUserManagement;
+import net.gsimken.bgameslibrary.core.api.BGamesApi;
 import net.gsimken.bgameslibrary.core.api.ApiResponse;
 
 import com.mojang.brigadier.context.CommandContext;
@@ -17,7 +17,7 @@ public class GetIdLoginProcedure {
 			return;
 		String password = "";
 		String email = "";
-		ApiUserManagement user_api = new ApiUserManagement();
+		BGamesApi user_api = new BGamesApi();
 		email = StringArgumentType.getString(arguments, "email");
 		password = StringArgumentType.getString(arguments, "password");
 		ApiResponse message = user_api.getPlayerByLogin(email, password);

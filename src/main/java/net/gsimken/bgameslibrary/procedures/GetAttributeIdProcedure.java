@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.commands.CommandSourceStack;
 
 import net.gsimken.bgameslibrary.core.api.ApiResponse;
-import net.gsimken.bgameslibrary.core.api.ApiGet;
+import net.gsimken.bgameslibrary.core.api.BGamesApi;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
@@ -16,7 +16,7 @@ public class GetAttributeIdProcedure {
 		if (entity == null)
 			return;
 		double id_player = 0;
-		ApiGet user_api = new ApiGet();
+		BGamesApi user_api = new BGamesApi();
 		id_player = DoubleArgumentType.getDouble(arguments, "id_player");
 		ApiResponse message = user_api.getPlayerAttributesById((int) id_player);
 		if (message.getCode() == 200) {

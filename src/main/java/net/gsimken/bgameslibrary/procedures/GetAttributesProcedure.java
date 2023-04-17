@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 
 import net.gsimken.bgameslibrary.network.BgamesLibraryModVariables;
 import net.gsimken.bgameslibrary.core.api.ApiResponse;
-import net.gsimken.bgameslibrary.core.api.ApiGet;
+import net.gsimken.bgameslibrary.core.api.BGamesApi;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ public class GetAttributesProcedure {
 			return new ArrayList<>();
 		double id_player = 0;
 		ArrayList<Object> response = new ArrayList<>();
-		ApiGet user_api = new ApiGet();
+		BGamesApi user_api = new BGamesApi();
 		ApiResponse message = new ApiResponse();
 		id_player = (entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_player_id;
 		if (id_player == -1) {

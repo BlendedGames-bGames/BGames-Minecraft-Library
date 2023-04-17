@@ -16,6 +16,9 @@
           "name": "imagebutton_logo_social_v2",
           "image": "logo_social_v2.png",
           "hoveredImage": "logo_social_hovered_v2.png",
+          "onClick": {
+            "name": "OpenDisplayAttributesOnKeyPressed"
+          },
           "x": 118,
           "y": 88
         }
@@ -31,7 +34,7 @@
             "value": -12829636,
             "falpha": 0.0
           },
-          "x": 119,
+          "x": 118,
           "y": 120
         }
       },

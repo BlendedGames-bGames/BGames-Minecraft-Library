@@ -5,7 +5,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
 import net.gsimken.bgameslibrary.network.BgamesLibraryModVariables;
-import net.gsimken.bgameslibrary.core.api.ApiUserManagement;
+import net.gsimken.bgameslibrary.core.api.BGamesApi;
 import net.gsimken.bgameslibrary.core.api.ApiResponse;
 
 import com.google.gson.JsonObject;
@@ -17,7 +17,7 @@ public class GetIdByEmailGlobalProcedure {
 			return 0;
 		String email = "";
 		String password = "";
-		ApiUserManagement user_api = new ApiUserManagement();
+		BGamesApi user_api = new BGamesApi();
 		email = (entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_email;
 		password = (entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_password;
 		ApiResponse message = user_api.getPlayerByLogin(email, password);

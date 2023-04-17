@@ -10,6 +10,8 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.Minecraft;
 
 import net.gsimken.bgameslibrary.world.inventory.DisplayAttributesMenu;
+import net.gsimken.bgameslibrary.network.DisplayAttributesButtonMessage;
+import net.gsimken.bgameslibrary.BgamesLibraryMod;
 
 import java.util.HashMap;
 
@@ -73,7 +75,7 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.display_attributes.label_social"), 35, 67, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgames_library.display_attributes.label_social"), 34, 67, -12829636);
 		this.font.draw(poseStack, Component.translatable("gui.bgames_library.display_attributes.label_fisico"), 110, 68, -12829636);
 		this.font.draw(poseStack, Component.translatable("gui.bgames_library.display_attributes.label_consume_points"), 90, 11, -12829636);
 		this.font.draw(poseStack, Component.translatable("gui.bgames_library.display_attributes.label_afective"), 189, 67, -12829636);
@@ -92,6 +94,10 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 		imagebutton_logo_social_v2 = new ImageButton(this.leftPos + 34, this.topPos + 35, 32, 32, 0, 0, 32, new ResourceLocation("bgames_library:textures/screens/atlas/imagebutton_logo_social_v2.png"), 32, 64, e -> {
+			if (true) {
+				BgamesLibraryMod.PACKET_HANDLER.sendToServer(new DisplayAttributesButtonMessage(0, x, y, z));
+				DisplayAttributesButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
 		});
 		guistate.put("button:imagebutton_logo_social_v2", imagebutton_logo_social_v2);
 		this.addRenderableWidget(imagebutton_logo_social_v2);

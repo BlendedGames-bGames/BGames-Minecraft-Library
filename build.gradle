@@ -24,7 +24,7 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            args '--username','Fisicklix'
+            args '--username', 'Fisicklix'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
@@ -34,9 +34,10 @@ minecraft {
                 }
             }
         }
+
         client2 {
             workingDirectory project.file('run')
-            args '--username','NotFisicklix'
+            args '--username', 'NotFisicklix'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 

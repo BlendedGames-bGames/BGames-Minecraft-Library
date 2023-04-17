@@ -25,37 +25,36 @@ public class AttributeRefreshProcedure {
 		cognitive_name = BgamesLibraryModVariables.bgames_cognitive_name;
 		linguistic_name = BgamesLibraryModVariables.bgames_linguistic_name;
 		Utils compare = new Utils();
-
 		{
-			double _setval = compare.getDataAttributeFromJson(attributes_value, afective_name);
+			double _setval = compare.getDataPlayerAttributeFromJson(attributes_value, afective_name);
 			entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.bgames_afective_points = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = compare.getDataAttributeFromJson(attributes_value, social_name);
+			double _setval = compare.getDataPlayerAttributeFromJson(attributes_value, social_name);
 			entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.bgames_social_points = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = compare.getDataAttributeFromJson(attributes_value, physical_name);
+			double _setval = compare.getDataPlayerAttributeFromJson(attributes_value, physical_name);
 			entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.bgames_physical_points = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = compare.getDataAttributeFromJson(attributes_value, cognitive_name);
+			double _setval = compare.getDataPlayerAttributeFromJson(attributes_value, cognitive_name);
 			entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.bgames_cognitive_points = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = compare.getDataAttributeFromJson(attributes_value, linguistic_name);
+			double _setval = compare.getDataPlayerAttributeFromJson(attributes_value, linguistic_name);
 			entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.bgames_linguistic_points = _setval;
 				capability.syncPlayerVariables(entity);

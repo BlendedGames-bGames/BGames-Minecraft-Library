@@ -323,6 +323,7 @@
       "registry_name": "display_attributes",
       "metadata": {
         "files": [
+          "src/main/java/net/gsimken/bgameslibrary/network/DisplayAttributesButtonMessage.java",
           "src/main/java/net/gsimken/bgameslibrary/client/gui/DisplayAttributesScreen.java",
           "src/main/java/net/gsimken/bgameslibrary/world/inventory/DisplayAttributesMenu.java"
         ]
@@ -486,6 +487,9 @@
       "locked_code": false,
       "registry_name": "attribute_refresh",
       "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/AttributeRefreshProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "entity",
@@ -598,6 +602,54 @@
         ]
       },
       "path": "~/Attributes/Attributes display"
+    },
+    {
+      "name": "SpentAttribute",
+      "type": "procedure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spent_attribute",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes"
+    },
+    {
+      "name": "SpentAttributeCommand",
+      "type": "command",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spent_attribute_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/command/SpentAttributeCommandCommand.java"
+        ]
+      },
+      "path": "~/Attributes"
+    },
+    {
+      "name": "DisplayAttributeButtonInventory",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "display_attribute_button_inventory",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/client/screens/DisplayAttributeButtonInventoryOverlay.java"
+        ]
+      },
+      "path": "~/Attributes"
     }
   ],
   "variable_elements": [
@@ -763,6 +815,10 @@
           },
           {
             "name": "ShowPersistenData",
+            "children": []
+          },
+          {
+            "name": "spent_attribute",
             "children": []
           }
         ]
