@@ -611,6 +611,9 @@
       "locked_code": false,
       "registry_name": "spent_attribute",
       "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/SpentAttributeProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "arguments",

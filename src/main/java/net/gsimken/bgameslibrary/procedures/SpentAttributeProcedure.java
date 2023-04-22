@@ -24,13 +24,13 @@ public class SpentAttributeProcedure {
 		ammount = DoubleArgumentType.getDouble(arguments, "point_spent");
 		id_player = (entity.getCapability(BgamesLibraryModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new BgamesLibraryModVariables.PlayerVariables())).bgames_player_id;
 		if (VerifyLoggedInProcedure.execute(entity)) {
-			GetAttributeIdProcedure.execute(arguments, entity);
 			ApiResponse data = new BGamesApi().spendAttribute((int) id_player, attribute_name, (int) ammount);
 			if (data.getCode() != 200) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
 					_player.displayClientMessage(Component.literal("§4Error: " + data.getErrorDescription()), (false));
 			} else {
-				GetAttributeIdProcedure.execute(arguments, entity);
+				if (entity instanceof Player _player && !_player.level.isClientSide())
+					_player.displayClientMessage(Component.literal("§aSuccess"), (false));
 			}
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())

@@ -4,6 +4,8 @@ package net.gsimken.bgameslibrary.client.screens;
 import net.gsimken.bgameslibrary.BgamesLibraryMod;
 import net.gsimken.bgameslibrary.network.DisplayAttributesButtonMessage;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
+import net.minecraft.world.entity.player.Inventory;
 import org.checkerframework.checker.units.qual.h;
 
 import net.minecraftforge.fml.common.Mod;
@@ -25,8 +27,9 @@ import com.mojang.blaze3d.platform.GlStateManager;
 @Mod.EventBusSubscriber({Dist.CLIENT})
 public class DisplayAttributeButtonInventoryOverlay {
 	@SubscribeEvent(priority = EventPriority.NORMAL)
-	public static void eventHandler(ScreenEvent.Init.Post event) {
+	public static void inventoryEventHandler(ScreenEvent.Init.Post event) {
 		if (event.getScreen() instanceof InventoryScreen) {
+			ResourceLocation BGAMES_BUTTON_LOCATION=new ResourceLocation("bgames_library:textures/screens/bgames8bitlogo20x18.png");
 			int w = event.getScreen().width;
 			int h = event.getScreen().height;
 			int posX = w / 2;
@@ -36,14 +39,14 @@ public class DisplayAttributeButtonInventoryOverlay {
 			Player entity = Minecraft.getInstance().player;
 			if (entity != null) {
 				world = entity.level;
-
-				ImageButton bgames_logo= new ImageButton(posX + 64, posY + -74, 16, 16, 0, 0, 16, new ResourceLocation("bgames_library:textures/screens/b_games_logo_16x16_v2.png"), 32, 64,
+				ImageButton bgames_logo= new ImageButton(posX + 64, posY + -101, 20, 18, 0, 0, 19,  BGAMES_BUTTON_LOCATION,
 						e -> {
 							int x = (int)entity.getX();
 							int y = (int)entity.getY();
 							int z = (int)entity.getZ();
 							BgamesLibraryMod.PACKET_HANDLER.sendToServer(new DisplayAttributesButtonMessage(0, x, y, z));
 							DisplayAttributesButtonMessage.handleButtonAction(entity, 0, x, y, z);
+
 						});
 				event.addListener(bgames_logo);
 			}

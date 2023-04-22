@@ -43,7 +43,6 @@ public class BGamesApi {
      * @return attributes of the player in bGames (The response has code, error_description, response)
      */
     public ApiResponse getPlayerAttributesById(Integer id) {
-
         ApiResponse requestResponse = new ApiResponse();//manage the mod response
 
         String url = API_GET_BASE_URL + "player_all_attributes/" + id;
@@ -51,7 +50,6 @@ public class BGamesApi {
             requestResponse.setCodeError(401,"Invalid credentials");
             return requestResponse;
         }
-
         requestResponse= this.makeGetRequest(url);
 
         if(requestResponse.getCode()!=200){ //an error has occured in request
@@ -124,8 +122,7 @@ public class BGamesApi {
             requestResponse.setCodeError(400,"You dont have enough points ");
             return requestResponse;
         }
-
-        List<NameValuePair> payload= new ArrayList<NameValuePair>();
+        List<NameValuePair> payload= new ArrayList<>();
         payload.add(new BasicNameValuePair("id_player", String.valueOf(player_id) ));
         payload.add(new BasicNameValuePair("id_videogame", String.valueOf(MINECRAFT_BGAMES_ID)) );
         payload.add(new BasicNameValuePair("id_attributes", String.valueOf(id_attribute) ));

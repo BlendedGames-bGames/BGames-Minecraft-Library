@@ -17,6 +17,7 @@ public class GetAttributeIdProcedure {
 			return;
 		double id_player = 0;
 		BGamesApi user_api = new BGamesApi();
+
 		id_player = DoubleArgumentType.getDouble(arguments, "id_player");
 		ApiResponse message = user_api.getPlayerAttributesById((int) id_player);
 		if (message.getCode() == 200) {
