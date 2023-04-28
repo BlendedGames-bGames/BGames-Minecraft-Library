@@ -11,13 +11,17 @@
     "sources": ""
   },
   "license": "Academic Free License v3.0",
+  "accessWidener": "bgameslibrary.accesswidener",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.mcreator.bgameslibrary.BgameslibraryMod"
+      "net.gsimken.bgameslibrary.BgameslibraryMod"
     ],
     "client": [
-      "net.mcreator.bgameslibrary.ClientInit"
+      "net.gsimken.bgameslibrary.ClientInit"
+    ],
+    "terrablender": [
+      "net.gsimken.bgameslibrary.TerraBlenderInit"
     ]
   },
   "depends": {

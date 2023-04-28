@@ -1,9 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.0-SNAPSHOT'
 }
-repositories {
-    maven { url 'https://maven.wispforest.io' }
-}
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
@@ -23,8 +20,9 @@ dependencies {
     minecraft "com.mojang:minecraft:1.19.2"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:0.14.9"
+
     //Fabric api
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.67.1+1.19.2"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.68.0+1.19.2"
 }
 
 processResources {
@@ -51,12 +49,6 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 jar {
     from "LICENSE"
-}
-
-loom {
-	mixin {
-		defaultRefmapName = actualmodid + ".refmap.json"
-	}
 }
 
 apply from: 'mcreator.gradle'

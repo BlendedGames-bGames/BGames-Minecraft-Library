@@ -1,0 +1,22 @@
+repositories {
+  maven {
+    url = "https://maven.minecraftforge.net/"
+  }
+}
+dependencies {
+  modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.19.2-2.0.1.127'
+}
+
+repositories {
+  maven { url = "https://mvn.devos.one/snapshots/" }
+  maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+  modImplementation(include("io.github.fabricators_of_create.Porting-Lib:porting-lib:2.1.627+1.19.2"))
+}
+
+loom {
+  accessWidenerPath = file("src/main/resources/" + actualmodid + ".accesswidener")
+}
+

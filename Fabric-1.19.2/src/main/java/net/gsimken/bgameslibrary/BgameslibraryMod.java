@@ -12,22 +12,31 @@
  */
 package net.gsimken.bgameslibrary;
 
-
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import net.minecraft.nbt.CompoundTag;
+
+import net.gsimken.bgameslibrary.init.BgameslibraryModMenus;
+
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.api.ModInitializer;
 
 public class BgameslibraryMod implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "bgameslibrary";
 
-
-
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing BgameslibraryMod");
 
+		BgameslibraryModMenus.load();
 
+		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			if (handler.getPlayer().getExtraCustomData().getCompound("PlayerPersisted").isEmpty()) {
+				handler.getPlayer().getExtraCustomData().put("PlayerPersisted", new CompoundTag());
+			}
+			BgameslibraryMod.LOGGER.info(handler.getPlayer().getExtraCustomData());
+		});
 	}
 }

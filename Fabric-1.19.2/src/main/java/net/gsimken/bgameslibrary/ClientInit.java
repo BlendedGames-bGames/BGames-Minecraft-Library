@@ -12,15 +12,18 @@
 */
 package net.gsimken.bgameslibrary;
 
+import net.gsimken.bgameslibrary.init.BgameslibraryModScreens;
+
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ClientModInitializer;
-import net.gsimken.bgameslibrary.core.api_config.BGamesApiConfigsModel;
 
 @Environment(EnvType.CLIENT)
 public class ClientInit implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		BGamesApiConfigsModel CONFIGS= new BGamesApiConfigsModel();
+
+		BgameslibraryModScreens.load();
+
 	}
 }

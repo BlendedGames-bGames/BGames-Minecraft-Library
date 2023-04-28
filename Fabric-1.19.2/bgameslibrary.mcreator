@@ -1,9 +1,30 @@
 {
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "Login",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "login",
+      "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/client/gui/LoginScreen.java",
+          "src/main/java/net/gsimken/bgameslibrary/world/inventory/LoginMenu.java"
+        ]
+      }
+    }
+  ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "gui.bgameslibrary.login.label_email": "Email",
+      "gui.bgameslibrary.login.Email": "",
+      "gui.bgameslibrary.login.password": "",
+      "gui.bgameslibrary.login.button_login": "Login",
+      "gui.bgameslibrary.login.label_password": "Password",
+      "gui.bgameslibrary.login.label_blended_games": "Blended Games"
+    }
   },
   "foldersRoot": {
     "name": "~",
@@ -13,7 +34,7 @@
     "modid": "bgameslibrary",
     "modName": "bGamesLibrary",
     "version": "1.0.0",
-    "author": "simke, MCreator",
+    "author": "Gsimken",
     "websiteURL": "https://mcreator.net",
     "license": "Academic Free License v3.0",
     "disableForgeVersionCheck": true,
@@ -21,8 +42,12 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "terrablender",
+      "portinglib"
+    ],
     "currentGenerator": "fabric-1.19.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.gsimken.bgameslibrary",
     "lockBaseModFiles": false
   },
