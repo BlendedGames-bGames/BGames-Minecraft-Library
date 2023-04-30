@@ -17,10 +17,12 @@ import org.apache.logging.log4j.LogManager;
 
 import net.minecraft.nbt.CompoundTag;
 
+import net.gsimken.bgameslibrary.init.BgameslibraryModProcedures;
 import net.gsimken.bgameslibrary.init.BgameslibraryModMenus;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.api.ModInitializer;
+import net.gsimken.bgameslibrary.core.api_config.BGamesApiConfigsModel;
 
 public class BgameslibraryMod implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
@@ -29,6 +31,12 @@ public class BgameslibraryMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing BgameslibraryMod");
+		BGamesApiConfigsModel init = new BGamesApiConfigsModel(); // load the config
+		init.loadConfigs();
+		init.printConfigs();
+
+
+		BgameslibraryModProcedures.load();
 
 		BgameslibraryModMenus.load();
 

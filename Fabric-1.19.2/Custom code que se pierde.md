@@ -16,6 +16,6 @@ public class BgameslibraryMod implements ModInitializer {
 		BGamesApiConfigsModel init = new BGamesApiConfigsModel(); // load the config
 		init.loadConfigs();
 		init.printConfigs();
-	}
+	
 ~~~
 

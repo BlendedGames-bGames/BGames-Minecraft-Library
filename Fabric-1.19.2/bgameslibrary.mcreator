@@ -12,6 +12,26 @@
           "src/main/java/net/gsimken/bgameslibrary/world/inventory/LoginMenu.java"
         ]
       }
+    },
+    {
+      "name": "GetAttributes",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_attributes",
+      "metadata": {
+        "return_type": "arraylist",
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/GetAttributesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Attributes"
     }
   ],
   "variable_elements": [],
@@ -28,7 +48,12 @@
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Attributes",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "bgameslibrary",
