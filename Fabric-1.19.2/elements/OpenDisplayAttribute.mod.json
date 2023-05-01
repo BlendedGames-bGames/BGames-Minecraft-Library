@@ -1,0 +1,12 @@
+{
+  "_fv": 39,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "L",
+    "keyBindingName": "Open Display Attribute",
+    "keyBindingCategoryKey": "bgames",
+    "onKeyPressed": {
+      "name": "OpenDisplayAttributeGui"
+    }
+  }
+}

@@ -19,6 +19,7 @@ import net.minecraft.nbt.CompoundTag;
 
 import net.gsimken.bgameslibrary.init.BgameslibraryModProcedures;
 import net.gsimken.bgameslibrary.init.BgameslibraryModMenus;
+import net.gsimken.bgameslibrary.init.BgameslibraryModKeyMappings;
 import net.gsimken.bgameslibrary.init.BgameslibraryModCommands;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -35,11 +36,11 @@ public class BgameslibraryMod implements ModInitializer {
 		BGamesApiConfigsModel init = new BGamesApiConfigsModel(); // load the config
 		init.loadConfigs();
 		init.printConfigs();
-		
 		BgameslibraryModProcedures.load();
 		BgameslibraryModCommands.load();
 
 		BgameslibraryModMenus.load();
+		BgameslibraryModKeyMappings.serverLoad();
 
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			if (handler.getPlayer().getExtraCustomData().getCompound("PlayerPersisted").isEmpty()) {

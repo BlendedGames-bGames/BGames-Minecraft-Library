@@ -13,6 +13,7 @@
 package net.gsimken.bgameslibrary;
 
 import net.gsimken.bgameslibrary.init.BgameslibraryModScreens;
+import net.gsimken.bgameslibrary.init.BgameslibraryModKeyMappings;
 
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
@@ -22,6 +23,7 @@ import net.fabricmc.api.ClientModInitializer;
 public class ClientInit implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
+		BgameslibraryModKeyMappings.load();
 
 		BgameslibraryModScreens.load();
 

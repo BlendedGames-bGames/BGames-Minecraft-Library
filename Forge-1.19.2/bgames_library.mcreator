@@ -323,9 +323,9 @@
       "registry_name": "display_attributes",
       "metadata": {
         "files": [
-          "src/main/java/net/gsimken/bgameslibrary/network/DisplayAttributesButtonMessage.java",
           "src/main/java/net/gsimken/bgameslibrary/client/gui/DisplayAttributesScreen.java",
-          "src/main/java/net/gsimken/bgameslibrary/world/inventory/DisplayAttributesMenu.java"
+          "src/main/java/net/gsimken/bgameslibrary/world/inventory/DisplayAttributesMenu.java",
+          "src/main/java/net/gsimken/bgameslibrary/network/DisplayAttributesButtonMessage.java"
         ]
       },
       "path": "~/Attributes/Attributes display"
@@ -419,7 +419,7 @@
       "type": "gui",
       "sortid": 25,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "b_games_display_attributes",
       "metadata": {
         "files": [

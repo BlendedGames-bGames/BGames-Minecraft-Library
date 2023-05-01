@@ -1,9 +1,16 @@
 {
-  "gui.bgameslibrary.login.Password": "",
+  "gui.bgameslibrary.bgames_display_attributes.label_bgames_points": "BGames Points",
   "gui.bgameslibrary.login.label_email": "Email",
   "gui.bgameslibrary.login.Email": "",
-  "gui.bgameslibrary.login.password": "",
+  "gui.bgameslibrary.bgames_display_attributes.label_social": "Social",
   "gui.bgameslibrary.login.button_login": "Login",
+  "gui.bgameslibrary.login.label_blended_games": "Blended Games",
+  "gui.bgameslibrary.bgames_display_attributes.label_afective": "Afective",
+  "gui.bgameslibrary.login.Password": "",
+  "gui.bgameslibrary.bgames_display_attributes.label_cognitive": "Cognitive",
+  "gui.bgameslibrary.login.password": "",
+  "gui.bgameslibrary.bgames_display_attributes.label_linguistic": "Linguistic",
+  "gui.bgameslibrary.bgames_display_attributes.label_physical": "Physical",
   "gui.bgameslibrary.login.label_password": "Password",
-  "gui.bgameslibrary.login.label_blended_games": "Blended Games"
+  "key.bgameslibrary.open_display_attribute": "Open Display Attribute"
 }
