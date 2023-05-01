@@ -15,6 +15,7 @@ public class LoginButtonProcedureProcedure {
 			return;
 		double id = 0;
 		id = GetIdByEmailProcedure.execute(entity, guistate);
+		ResetattributesProcedure.execute(entity);
 		if (id != -1) {
 			{
 				double _setval = id;

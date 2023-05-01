@@ -39,11 +39,6 @@ import java.util.List;
 import java.util.Collection;
 import java.util.ArrayList;
 import java.util.AbstractMap;
-//IMPORTS
-import net.gsimken.bgameslibrary.core.api_config.BgamesCommonConfigs;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
-
 
 @Mod("bgames_library")
 public class BgamesLibraryMod {
@@ -56,9 +51,6 @@ public class BgamesLibraryMod {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		BgamesLibraryModMenus.REGISTRY.register(bus);
-		//LOAD CONFIGS
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BgamesCommonConfigs.SPEC,"bgames-common-application.toml");
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, BgamesCommonConfigs.SPEC,"bgames-client-application.toml");
 
 	}
 

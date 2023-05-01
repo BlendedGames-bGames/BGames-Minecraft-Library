@@ -337,7 +337,12 @@
     "children": [
       {
         "name": "Attributes",
-        "children": []
+        "children": [
+          {
+            "name": "AttributesDisplay",
+            "children": []
+          }
+        ]
       },
       {
         "name": "LoginProcedures",
