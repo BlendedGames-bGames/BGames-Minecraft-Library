@@ -161,9 +161,6 @@
       "registry_name": "get_id_by_email_global",
       "metadata": {
         "return_type": "number",
-        "files": [
-          "src/main/java/net/gsimken/bgameslibrary/procedures/GetIdByEmailGlobalProcedure.java"
-        ],
         "dependencies": [
           {
             "name": "entity",
@@ -181,6 +178,9 @@
       "locked_code": false,
       "registry_name": "login_on_world_spawn",
       "metadata": {
+        "files": [
+          "src/main/java/net/gsimken/bgameslibrary/procedures/LoginOnWorldSpawnProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "entity",

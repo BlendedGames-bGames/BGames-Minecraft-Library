@@ -19,6 +19,7 @@ import net.minecraft.nbt.CompoundTag;
 
 import net.gsimken.bgameslibrary.init.BgameslibraryModProcedures;
 import net.gsimken.bgameslibrary.init.BgameslibraryModMenus;
+import net.gsimken.bgameslibrary.init.BgameslibraryModCommands;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.api.ModInitializer;
@@ -34,9 +35,9 @@ public class BgameslibraryMod implements ModInitializer {
 		BGamesApiConfigsModel init = new BGamesApiConfigsModel(); // load the config
 		init.loadConfigs();
 		init.printConfigs();
-
-
+		
 		BgameslibraryModProcedures.load();
+		BgameslibraryModCommands.load();
 
 		BgameslibraryModMenus.load();
 

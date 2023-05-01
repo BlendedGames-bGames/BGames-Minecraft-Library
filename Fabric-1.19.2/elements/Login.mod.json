@@ -14,7 +14,7 @@
         "type": "textfield",
         "data": {
           "placeholder": "",
-          "name": "password",
+          "name": "Password",
           "width": 120,
           "height": 20,
           "x": 154,
@@ -91,10 +91,13 @@
         "data": {
           "name": "button_login",
           "text": "Login",
+          "onClick": {
+            "name": "LoginButtonAction"
+          },
           "width": 51,
           "height": 20,
-          "x": 185,
-          "y": 165
+          "x": 182,
+          "y": 167
         }
       }
     ],

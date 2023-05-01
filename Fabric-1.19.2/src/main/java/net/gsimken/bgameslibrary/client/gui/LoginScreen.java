@@ -12,6 +12,11 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import net.gsimken.bgameslibrary.world.inventory.LoginMenu;
+import net.gsimken.bgameslibrary.network.LoginButtonMessage;
+import net.gsimken.bgameslibrary.BgameslibraryMod;
+
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import java.util.HashMap;
 
@@ -23,7 +28,7 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	EditBox password;
+	EditBox Password;
 	EditBox Email;
 	Button button_login;
 
@@ -45,7 +50,7 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 		this.renderBackground(ms);
 		super.render(ms, mouseX, mouseY, partialTicks);
 		this.renderTooltip(ms, mouseX, mouseY);
-		password.render(ms, mouseX, mouseY, partialTicks);
+		Password.render(ms, mouseX, mouseY, partialTicks);
 		Email.render(ms, mouseX, mouseY, partialTicks);
 	}
 
@@ -69,8 +74,8 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 			this.minecraft.player.closeContainer();
 			return true;
 		}
-		if (password.isFocused())
-			return password.keyPressed(key, b, c);
+		if (Password.isFocused())
+			return Password.keyPressed(key, b, c);
 		if (Email.isFocused())
 			return Email.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
@@ -79,7 +84,7 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 	@Override
 	public void containerTick() {
 		super.containerTick();
-		password.tick();
+		Password.tick();
 		Email.tick();
 	}
 
@@ -100,20 +105,24 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		password = new EditBox(this.font, this.leftPos + 28, this.topPos + 92, 120, 20, Component.translatable("gui.bgameslibrary.login.password"));
-		password.setMaxLength(32767);
-		guistate.put("text:password", password);
-		this.addWidget(this.password);
+		Password = new EditBox(this.font, this.leftPos + 28, this.topPos + 92, 120, 20, Component.translatable("gui.bgameslibrary.login.Password"));
+		Password.setMaxLength(32767);
+		guistate.put("text:Password", Password);
+		this.addWidget(this.Password);
 		Email = new EditBox(this.font, this.leftPos + 27, this.topPos + 48, 120, 20, Component.translatable("gui.bgameslibrary.login.Email"));
 		Email.setMaxLength(32767);
 		guistate.put("text:Email", Email);
 		this.addWidget(this.Email);
-		button_login = new Button(this.leftPos + 59, this.topPos + 128, 51, 20, Component.translatable("gui.bgameslibrary.login.button_login"), e -> {
+		button_login = new Button(this.leftPos + 56, this.topPos + 130, 51, 20, Component.translatable("gui.bgameslibrary.login.button_login"), e -> {
+			if (true) {
+				ClientPlayNetworking.send(new ResourceLocation("bgameslibrary:login_button_" + 0), new LoginButtonMessage(0, x, y, z));
+			}
 		});
 		guistate.put("button:button_login", button_login);
 		this.addRenderableWidget(button_login);
 	}
 
 	public static void screenInit() {
+		ServerPlayNetworking.registerGlobalReceiver(new ResourceLocation(BgameslibraryMod.MODID, "login_button_0"), LoginButtonMessage::apply);
 	}
 }

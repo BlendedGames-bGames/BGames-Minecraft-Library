@@ -1,10 +1,10 @@
 package net.gsimken.bgameslibrary.procedures;
 
-import net.gsimken.bgameslibrary.core.api.BGamesApi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
+import net.gsimken.bgameslibrary.core.api.BGamesApi;
 import net.gsimken.bgameslibrary.core.api.ApiResponse;
 import net.gsimken.bgameslibrary.BgameslibraryMod;
 
