@@ -312,9 +312,6 @@
       "registry_name": "get_social_attribute",
       "metadata": {
         "return_type": "string",
-        "files": [
-          "src/main/java/net/gsimken/bgameslibrary/procedures/GetSocialAttributeProcedure.java"
-        ],
         "dependencies": [
           {
             "name": "entity",
@@ -333,9 +330,6 @@
       "registry_name": "get_cognitive_attribute",
       "metadata": {
         "return_type": "string",
-        "files": [
-          "src/main/java/net/gsimken/bgameslibrary/procedures/GetCognitiveAttributeProcedure.java"
-        ],
         "dependencies": [
           {
             "name": "entity",

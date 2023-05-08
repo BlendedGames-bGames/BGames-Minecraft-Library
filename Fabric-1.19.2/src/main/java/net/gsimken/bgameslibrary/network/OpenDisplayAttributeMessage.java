@@ -13,7 +13,7 @@ import net.fabricmc.fabric.api.networking.v1.PacketSender;
 
 import io.netty.buffer.Unpooled;
 
-public class <OpenDisplayAttributeMessage extends FriendlyByteBuf {
+public class OpenDisplayAttributeMessage extends FriendlyByteBuf {
 	public OpenDisplayAttributeMessage(boolean pressed, boolean released) {
 		super(Unpooled.buffer());
 		writeBoolean(pressed);
@@ -32,7 +32,7 @@ public class <OpenDisplayAttributeMessage extends FriendlyByteBuf {
 			if (!world.hasChunkAt(entity.blockPosition()))
 				return;
 			if (pressed) {
-
+				System.out.println("EN KEY: "+ entity);
 				OpenDisplayAttributeGuiProcedure.execute(com.google.common.collect.ImmutableMap.<String, Object>builder().put("world", world).put("x", x).put("y", y).put("z", z).put("entity", entity).build());
 			}
 		});

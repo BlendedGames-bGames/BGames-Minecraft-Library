@@ -47,8 +47,7 @@ public class BgamesDisplayAttributesScreen extends AbstractContainerScreen<Bgame
 		RenderSystem.defaultBlendFunc();
 
 		RenderSystem.setShaderTexture(0, new ResourceLocation("bgameslibrary:textures/screens/container_button_v4.png"));
-		this.blit(ms, this.leftPos + -135, this.topPos + -46, 0, 0, 283, 68, 283, 68);
-
+		this.blit(ms, this.leftPos + -144, this.topPos + -40, 0, 0, 283, 68, 283, 68);
 
 		RenderSystem.disableBlend();
 	}
@@ -69,28 +68,12 @@ public class BgamesDisplayAttributesScreen extends AbstractContainerScreen<Bgame
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack,
-
-				.execute(entity), -132, 8, -12829636);
-		this.font.draw(poseStack,
-
-				BGamesAttributesSocialValueProcedure.execute(entity), -11, 8, -12829636);
-		this.font.draw(poseStack,
-
-				BGamesAttributesPhysicalValueProcedure.execute(entity), 97, 8, -12829636);
-		this.font.draw(poseStack,
-
-				BGamesAttributesLinguisticValueProcedure.execute(entity), 42, 8, -12829636);
-		this.font.draw(poseStack,
-
-				BGamesAttributesCognitiveValueProcedure.execute(entity), -71, 8, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_afective"), -128, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_cognitive"), -73, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_social"), -8, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_linguistic"), 37, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_physical"), 98, -2, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgames_library.b_games_display_attributes.label_bgames_points"), -27, -43, -12829636);
-
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_afective"), -137, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_cognitive"), -83, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_social"), -18, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_linguistic"), 25, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_physical"), 89, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_bgames_points"), -37, -36, -12829636);
 	}
 
 	@Override

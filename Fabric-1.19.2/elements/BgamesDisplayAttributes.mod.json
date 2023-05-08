@@ -108,22 +108,6 @@
           "x": 176,
           "y": 84
         }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_proc_get_social_attribute",
-          "text": {
-            "fixedValue": "",
-            "name": "GetSocialAttribute"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "x": 194,
-          "y": 134
-        }
       }
     ],
     "onOpen": {

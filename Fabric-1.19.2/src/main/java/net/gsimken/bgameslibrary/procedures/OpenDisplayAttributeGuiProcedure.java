@@ -47,11 +47,13 @@ public class OpenDisplayAttributeGuiProcedure {
 				BgameslibraryMod.LOGGER.warn("Failed to load dependency entity for procedure OpenDisplayAttributeGui!");
 			return;
 		}
+
 		LevelAccessor world = (LevelAccessor) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+		System.out.println("EN PROCEDURE: "+ entity);
 		{
 			if (entity instanceof ServerPlayer _ent) {
 				_ent.openMenu(new ExtendedScreenHandlerFactory() {

@@ -4,7 +4,8 @@
   "package": "net.gsimken.bgameslibrary.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-	"BgameslibraryModRepairItemRecipeMixin"  ],
+"MixinInventoryScreen"
+  ],
   "injectors": {
 	"defaultRequire": 1
   }
