@@ -16,6 +16,7 @@ public class GetCognitiveAttributeProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		double points = 0;
+		System.out.println("entity:"+entity+" data: "+entity.getExtraCustomData());
 		points = entity.getExtraCustomData().getCompound("PlayerPersisted").getDouble("bgames_cognitive_points");
 		if (points == -1) {
 			points = 0;

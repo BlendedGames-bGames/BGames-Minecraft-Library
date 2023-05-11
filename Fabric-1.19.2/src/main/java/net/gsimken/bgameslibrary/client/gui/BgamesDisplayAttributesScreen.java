@@ -1,5 +1,13 @@
 
+
 package net.gsimken.bgameslibrary.client.gui;
+
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.gsimken.bgameslibrary.BgameslibraryMod;
+import net.gsimken.bgameslibrary.network.OpenDisplayAttributeC2S;
+import net.gsimken.bgameslibrary.network.LoginButtonMessage;
+import net.gsimken.bgameslibrary.procedures.*;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
@@ -12,6 +20,7 @@ import net.minecraft.client.Minecraft;
 import net.gsimken.bgameslibrary.world.inventory.BgamesDisplayAttributesMenu;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -31,6 +40,8 @@ public class BgamesDisplayAttributesScreen extends AbstractContainerScreen<Bgame
 		this.entity = container.entity;
 		this.imageWidth = 0;
 		this.imageHeight = 0;
+
+
 	}
 
 	@Override
@@ -47,7 +58,7 @@ public class BgamesDisplayAttributesScreen extends AbstractContainerScreen<Bgame
 		RenderSystem.defaultBlendFunc();
 
 		RenderSystem.setShaderTexture(0, new ResourceLocation("bgameslibrary:textures/screens/container_button_v4.png"));
-		this.blit(ms, this.leftPos + -144, this.topPos + -40, 0, 0, 283, 68, 283, 68);
+		this.blit(ms, this.leftPos + -135, this.topPos + -46, 0, 0, 283, 68, 283, 68);
 
 		RenderSystem.disableBlend();
 	}
@@ -68,12 +79,30 @@ public class BgamesDisplayAttributesScreen extends AbstractContainerScreen<Bgame
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_afective"), -137, 5, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_cognitive"), -83, 5, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_social"), -18, 5, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_linguistic"), 25, 5, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_physical"), 89, 5, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_bgames_points"), -37, -36, -12829636);
+
+		Map<String, Object> dependencies=  com.google.common.collect.ImmutableMap.<String, Object>builder().put("entity", entity).build();
+		this.font.draw(poseStack,
+
+				GetAfectiveAttributeProcedure.execute(dependencies), -132, 8, -12829636);
+		this.font.draw(poseStack,
+
+				GetSocialAttributeProcedure.execute(dependencies), -11, 8, -12829636);
+		this.font.draw(poseStack,
+
+				GetPhysicalAttributeProcedure.execute(dependencies), 97, 8, -12829636);
+		this.font.draw(poseStack,
+
+				GetLinguisticAttributeProcedure.execute(dependencies), 42, 8, -12829636);
+		this.font.draw(poseStack,
+
+				GetCognitiveAttributeProcedure.execute(dependencies), -71, 8, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_afective"), -128, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_cognitive"), -73, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_social"), -8, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_linguistic"), 37, -1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_physical"), 98, -2, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.bgames_display_attributes.label_bgames_points"), -27, -43, -12829636);
+
 	}
 
 	@Override
@@ -86,8 +115,12 @@ public class BgamesDisplayAttributesScreen extends AbstractContainerScreen<Bgame
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
+		ClientPlayNetworking.registerGlobalReceiver(new ResourceLocation(BgameslibraryMod.MODID, "sync_data"), new LoginButtonMessage(0, x, y, z));
+
+
 	}
 
 	public static void screenInit() {
+		ServerPlayNetworking.registerGlobalReceiver(new ResourceLocation(BgameslibraryMod.MODID, "open_display_attribute"), OpenDisplayAttributeC2S::apply);
 	}
 }

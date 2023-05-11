@@ -1,14 +1,14 @@
 package net.gsimken.bgameslibrary.mixins;
 
-import net.gsimken.bgameslibrary.procedures.OpenDisplayAttributeGuiProcedure;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.gsimken.bgameslibrary.BgameslibraryMod;
+import net.gsimken.bgameslibrary.network.OpenDisplayAttributeC2S;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,14 +33,7 @@ public class MixinInventoryScreen extends Screen {
             int posY = this.height / 2;
             bGamesButton = new ImageButton(posX + 64, posY + -101, 20, 18, 0, 0, 19, BGAMES_BUTTON_LOCATION,
                     e -> {
-
-                        Level world = this.minecraft.level;
-                        Player entity = this.minecraft.player;
-                        double x = entity.getX();
-                        double y = entity.getY();
-                        double z = entity.getZ();
-
-                        OpenDisplayAttributeGuiProcedure.execute(com.google.common.collect.ImmutableMap.<String, Object>builder().put("world", world).put("x", x).put("y", y).put("z", z).put("entity", entity).build());
+                        ClientPlayNetworking.send(new ResourceLocation(BgameslibraryMod.MODID,"open_display_attribute"),new OpenDisplayAttributeC2S(1));
                     });
 
             this.addRenderableWidget(bGamesButton);

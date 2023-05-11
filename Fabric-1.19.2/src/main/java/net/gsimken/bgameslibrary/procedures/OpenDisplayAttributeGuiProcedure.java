@@ -53,7 +53,7 @@ public class OpenDisplayAttributeGuiProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		System.out.println("EN PROCEDURE: "+ entity);
+		System.out.println("EN PROCEDURE: "+ entity+" data: "+entity.getExtraCustomData());
 		{
 			if (entity instanceof ServerPlayer _ent) {
 				_ent.openMenu(new ExtendedScreenHandlerFactory() {
