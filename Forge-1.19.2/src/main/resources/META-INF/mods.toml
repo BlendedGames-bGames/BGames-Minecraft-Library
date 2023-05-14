@@ -1,14 +1,12 @@
 modLoader="javafml"
 loaderVersion="[43,)"
-license="Academic Free License v3.0"
+license="MIT"
 
 [[mods]]
 modId="bgames_library"
 version="1.0.0"
 displayName="bGames Library"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
-displayURL="https://mcreator.net"
-authors="simke, MCreator"
+authors="Gsimken"
 
 [[dependencies.bgames_library]]
     modId="minecraft"
