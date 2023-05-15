@@ -1,9 +1,0 @@
-{
-  "_fv": 39,
-  "_type": "command",
-  "definition": {
-    "commandName": "debug_spent_attribute",
-    "permissionLevel": "No requirement",
-    "argsxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"args_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"string\"><field name=\"type\">string</field><field name=\"name\">attribute_name</field><statement name=\"args\"><block type=\"number_default\"><field name=\"name\">point_spent</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">SpentAttribute</field></block></statement></block></statement></block></next></block></xml>"
-  }
-}
