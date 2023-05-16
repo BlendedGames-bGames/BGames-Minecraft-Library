@@ -1,0 +1,16 @@
+{
+
+  "login.bgameslibrary.not_logged": "Not logged, please login before play",
+  "login.bgameslibrary.logged": "Login successfully",
+
+  "debug_commands.bgameslibrary.attributes": "Attributes: %1$s",
+
+  "api.bgameslibrary.invalid_credentials": "Invalid credentials",
+  "api.bgameslibrary.player_not_found": "Player not found or not registered in bGames",
+  "api.bgameslibrary.not_enough_points": "You dont have enough points",
+  "api.bgameslibrary.api_unavailable": "API service unavailable",
+  "api.bgameslibrary.request_error": "Error in request",
+  "api.bgameslibrary.content_error": "API Content error"
+
+
+}

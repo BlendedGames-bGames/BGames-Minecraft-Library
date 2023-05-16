@@ -1,0 +1,13 @@
+{
+  "login.bgameslibrary.not_logged": "No has iniciado sesión, por favor hazlo antes de jugar",
+  "login.bgameslibrary.logged": "Iniciaste sesión correctamente",
+
+  "debug_commands.bgameslibrary.attributes": "Attributos del jugador: %1$s",
+
+  "api.bgameslibrary.request_error": "Error en la petición",
+  "api.bgameslibrary.player_not_found": "Jugador no encontrado o no registrado en bGames",
+  "api.bgameslibrary.not_enough_points": "No tienes puntos suficientes",
+  "api.bgameslibrary.invalid_credentials": "Credenciales inválidas",
+  "api.bgameslibrary.content_error": "Error en el contenido de la API",
+  "api.bgameslibrary.api_unavailable": "Servicio API no disponible"
+}
