@@ -53,14 +53,11 @@ public class BGamesPlayerData {
          setPassword(nbt.getString("bgames_password"));
     }
     public void attributeReset(){
-        id = -1;
         socialPoints = -1;
         physicalPoints = 1;
         linguisticPoints = -1;
         affectivePoints = -1;
         cognitivePoints = -1;
-        setEmail("");
-        setPassword("");
 
     }
     public void attributeRefresh(){

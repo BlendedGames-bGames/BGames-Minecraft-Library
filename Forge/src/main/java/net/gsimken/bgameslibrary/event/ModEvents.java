@@ -5,6 +5,7 @@ import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
 import net.gsimken.bgameslibrary.commands.DebugLoginCommand;
 import net.gsimken.bgameslibrary.commands.DebugPlayerAttributesByIdCommand;
 import net.gsimken.bgameslibrary.commands.DebugShowPlayerDataCommand;
+import net.gsimken.bgameslibrary.commands.LoginCommand;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -31,6 +32,7 @@ public class ModEvents {
         new DebugPlayerAttributesByIdCommand(event.getDispatcher());
         new DebugLoginCommand(event.getDispatcher());
         new DebugShowPlayerDataCommand(event.getDispatcher());
+        new LoginCommand(event.getDispatcher());
         ConfigCommand.register(event.getDispatcher());
     }
     @SubscribeEvent

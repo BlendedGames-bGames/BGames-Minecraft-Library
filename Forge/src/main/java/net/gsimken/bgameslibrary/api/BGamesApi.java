@@ -74,8 +74,13 @@ public class BGamesApi {
      * @return  @return user json (The response has code, error_description, response)
      */
     public ApiResponse getPlayerByLogin(String email,String password) {
+        ApiResponse requestResponse= new ApiResponse();
+        if(email.equals("") || password.equals("")){
+            requestResponse.setCodeError(401, "api.bgameslibrary.invalid_credentials");
+            return requestResponse;
+        }
         String url = API_USER_BASE_URL + "player_by_email/" + email;
-        ApiResponse requestResponse = this.makeGetRequest(url);
+        requestResponse = this.makeGetRequest(url);
         if (!requestResponse.isSuccess()) { //an error has occured in request
             return requestResponse;
         }

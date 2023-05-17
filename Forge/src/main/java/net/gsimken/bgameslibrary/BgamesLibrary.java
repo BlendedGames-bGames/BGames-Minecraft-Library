@@ -1,18 +1,12 @@
 package net.gsimken.bgameslibrary;
 
 import com.mojang.logging.LogUtils;
+import net.gsimken.bgameslibrary.client.gui.DisplayAttributesScreen;
+import net.gsimken.bgameslibrary.client.gui.LoginScreen;
 import net.gsimken.bgameslibrary.configs.BgamesCommonConfigs;
-import net.gsimken.bgameslibrary.effects.ModEffects;
-import net.gsimken.bgameslibrary.event.ModEvents;
 import net.gsimken.bgameslibrary.networking.ModMessages;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
+import net.gsimken.bgameslibrary.client.ModMenus;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,11 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -46,8 +36,7 @@ public class BgamesLibrary
 
         // Register the commonSetup method for modloading
         eventBus.addListener(this::commonSetup);
-        ModEffects.register(eventBus);
-
+        ModMenus.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -71,6 +60,9 @@ public class BgamesLibrary
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            MenuScreens.register(ModMenus.LOGIN.get(), LoginScreen::new);
+            MenuScreens.register(ModMenus.DISPLAY_ATTRIBUTES.get(), DisplayAttributesScreen::new);
+
 
         }
     }

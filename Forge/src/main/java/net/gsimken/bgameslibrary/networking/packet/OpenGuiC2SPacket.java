@@ -14,6 +14,7 @@ import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public class OpenGuiC2SPacket {
+
     public OpenGuiC2SPacket() {
 
     }
@@ -32,9 +33,9 @@ public class OpenGuiC2SPacket {
             // HERE WE ARE ON THE SERVER!
             ServerPlayer player = context.getSender();
             player.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(data -> {
+                data.attributeReset();
+                data.attributeRefresh();
 
-                player.sendSystemMessage(Component.literal(data.Stringify())
-                        .withStyle(ChatFormatting.AQUA));
                 /*
                    Al momento de abrir la gui se manda al jugador los datos del servidors para sincronizar
                  * */

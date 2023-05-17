@@ -2,6 +2,14 @@
   "login.bgameslibrary.not_logged": "No has iniciado sesión, por favor hazlo antes de jugar",
   "login.bgameslibrary.logged": "Iniciaste sesión correctamente",
 
+  "gui.bgameslibrary.login.label_blended_games": "Blended Games",
+
+  "gui.bgameslibrary.login.label_password": "Contraseña",
+  "gui.bgameslibrary.login.label_email": "Correo",
+  "gui.bgameslibrary.login.button_login": "Iniciar sesión",
+  "gui.bgameslibrary.login.Password": "Contraseña",
+  "gui.bgameslibrary.login.Email": "Correo",
+
   "debug_commands.bgameslibrary.attributes": "Attributos del jugador: %1$s",
 
   "api.bgameslibrary.request_error": "Error en la petición",
