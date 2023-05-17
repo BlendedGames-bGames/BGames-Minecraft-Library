@@ -2,8 +2,6 @@ package net.gsimken.bgameslibrary.networking.packet;
 
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
 import net.gsimken.bgameslibrary.client.triggers.DisplayAttributesTrigger;
-import net.gsimken.bgameslibrary.client.triggers.LoginTrigger;
-import net.gsimken.bgameslibrary.networking.ModMessages;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -32,7 +30,17 @@ public class ButtonOpenGuiC2SPacket {
         context.enqueueWork(() -> {
             // HERE WE ARE ON THE SERVER!
             ServerPlayer player = context.getSender();
-            NetworkHooks.openScreen((ServerPlayer) player,new DisplayAttributesTrigger());
+            player.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(data -> {
+                if(data.isLoggedIn()){
+                    NetworkHooks.openScreen((ServerPlayer) player,new DisplayAttributesTrigger());
+                }
+                else{
+                    player.sendSystemMessage(Component.translatable(  "login.bgameslibrary.not_logged").withStyle(ChatFormatting.RED));
+
+                }
+            });
+
+
 
         });
         return true;

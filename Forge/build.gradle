@@ -56,6 +56,11 @@ minecraft {
                     source sourceSets.main
                 }
             }
+
+        }
+        client2{
+            parent runs.client
+            args "--username","Dev2"
         }
 
         server {

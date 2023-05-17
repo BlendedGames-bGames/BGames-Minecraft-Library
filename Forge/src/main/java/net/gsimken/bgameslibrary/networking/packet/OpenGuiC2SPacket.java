@@ -2,13 +2,8 @@ package net.gsimken.bgameslibrary.networking.packet;
 
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
 import net.gsimken.bgameslibrary.networking.ModMessages;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;

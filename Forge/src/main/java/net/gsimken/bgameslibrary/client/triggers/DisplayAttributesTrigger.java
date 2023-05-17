@@ -2,7 +2,6 @@ package net.gsimken.bgameslibrary.client.triggers;
 
 import io.netty.buffer.Unpooled;
 import net.gsimken.bgameslibrary.client.menus.DisplayAttributesMenu;
-import net.gsimken.bgameslibrary.client.menus.LoginMenu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;

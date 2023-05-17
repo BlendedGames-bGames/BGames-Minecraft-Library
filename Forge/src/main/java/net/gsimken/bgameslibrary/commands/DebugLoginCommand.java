@@ -4,8 +4,6 @@ package net.gsimken.bgameslibrary.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.gsimken.bgameslibrary.api.ApiResponse;
-import net.gsimken.bgameslibrary.api.BGamesApi;
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
 import net.gsimken.bgameslibrary.networking.ModMessages;
 import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;

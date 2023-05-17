@@ -1,7 +1,6 @@
 package net.gsimken.bgameslibrary.bgames;
 
 import net.gsimken.bgameslibrary.BgamesLibrary;
-import net.gsimken.bgameslibrary.api.ApiResponse;
 import net.gsimken.bgameslibrary.utils.JsonUtils;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.nbt.CompoundTag;
@@ -71,10 +70,12 @@ public class BGamesPlayerData {
     }
 
 
-    public String Stringify(){
+    public String stringify(){
         String data= "" +
                 "===============\n" +
+                "id: " + id+"\n"+
                 "email: "+email +"\n"+
+                "password" + password + "\n" +
                 "social: "+ socialPoints+"\n"+
                 "físico: "+physicalPoints+"\n"+
                 "linguistico: "+linguisticPoints+"\n"+
@@ -84,6 +85,12 @@ public class BGamesPlayerData {
         return data;
     }
 
+    public boolean isLoggedIn() {;
+        if (this.getId()!=-1) {
+            return true;
+        }
+        return false;
+    }
     public void setEmail(String email) {
         this.email = email;
     }

@@ -2,9 +2,7 @@ package net.gsimken.bgameslibrary.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.gsimken.bgameslibrary.bgames.BGamesPlayerData;
-import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
-import net.gsimken.bgameslibrary.client.ClientBGamesPlayerData;
+import net.gsimken.bgameslibrary.bgames.ClientBGamesPlayerData;
 import net.gsimken.bgameslibrary.client.menus.DisplayAttributesMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -12,11 +10,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 
 import java.util.HashMap;
 
 public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttributesMenu> {
+	// modal display attributes
+	// uses Display Attributes menu & Display Attributes Trigger
 	private final static HashMap<String, Object> guistate = DisplayAttributesMenu.guistate;
 	private final Player player;
 

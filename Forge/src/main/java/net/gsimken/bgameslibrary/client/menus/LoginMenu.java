@@ -1,9 +1,6 @@
 package net.gsimken.bgameslibrary.client.menus;
 
 import net.gsimken.bgameslibrary.client.ModMenus;
-import net.gsimken.bgameslibrary.networking.ModMessages;
-import net.gsimken.bgameslibrary.networking.packet.LoginC2SPacket;
-import net.gsimken.bgameslibrary.networking.packet.OpenGuiC2SPacket;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;

@@ -1,4 +1,4 @@
-package net.gsimken.bgameslibrary.client;
+package net.gsimken.bgameslibrary.bgames;
 
 public class ClientBGamesPlayerData {
     /*
@@ -13,6 +13,12 @@ public class ClientBGamesPlayerData {
     private static String playerEmail;
     private static String playerPassword;
 
+    public static boolean isLoggedIn() {;
+        if (playerId!=-1) {
+            return true;
+        }
+        return false;
+    }
     public static int getPlayerId() {
         return playerId;
     }
