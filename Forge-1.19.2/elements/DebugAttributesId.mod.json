@@ -1,9 +1,0 @@
-{
-  "_fv": 39,
-  "_type": "command",
-  "definition": {
-    "commandName": "debug_attributes_id",
-    "permissionLevel": "No requirement",
-    "argsxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"args_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"number_default\"><field name=\"name\">id_player</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">GetAttributeId</field></block></statement></block></next></block></xml>"
-  }
-}
