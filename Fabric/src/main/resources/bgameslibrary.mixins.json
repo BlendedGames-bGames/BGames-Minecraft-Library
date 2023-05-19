@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.gsimken.bgameslibrary.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+"MixinInventoryScreen",
+    "BGamesPlayerDataMixin"
+  ],
+  "injectors": {
+	"defaultRequire": 1
+  }
+}
