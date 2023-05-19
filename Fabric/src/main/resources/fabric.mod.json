@@ -1,0 +1,43 @@
+
+{
+  "schemaVersion": 1,
+  "id": "bgameslibrary",
+  "version": "0.0.1",
+
+  "name": "bGames Library",
+  "description": "A library to interact with platform BGames",
+  "authors": [
+    "GSimken"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/bgameslibrary/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.gsimken.bgameslibrary.BgamesLibrary"
+    ],
+    "client": [
+      "net.gsimken.bgameslibrary.BgamesLibraryClient"
+    ]
+  },
+  "mixins": [
+    "bgameslibrary.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric-api": "*",
+    "minecraft": "~1.19.2",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
+
