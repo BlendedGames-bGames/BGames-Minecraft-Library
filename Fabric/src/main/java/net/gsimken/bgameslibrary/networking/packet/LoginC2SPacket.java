@@ -27,7 +27,10 @@ public class LoginC2SPacket {
         String password= buf.readString();
         BGamesPlayerData.attributeReset(playerDataHandler);
         int playerId= new PlayerUtils().GetIdByEmail(email, password);
-        if(playerId==-1){
+        BGamesPlayerData.setId(playerDataHandler,playerId);
+        if (!BGamesPlayerData.isLoggedIn(playerDataHandler)) { //player not found or invalid credentials
+            BGamesPlayerData.setEmail(playerDataHandler, "");
+            BGamesPlayerData.setPassword(playerDataHandler, "");
             player.sendMessage(Text.translatable(  "api.bgameslibrary.player_not_found").fillStyle(Style.EMPTY.withColor(Formatting.RED)));
         }
         else {

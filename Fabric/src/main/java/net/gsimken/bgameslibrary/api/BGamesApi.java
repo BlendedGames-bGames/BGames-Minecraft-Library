@@ -117,6 +117,7 @@ public class BGamesApi {
      * Obtain the user of a player
      * @param player_id Id of player to spent points
      * @param attribute_name name of the attribute to spent
+     * @param amount_spent ammount of point to spend
      * @return  @return user json (The response has code, error_description, response)
      */
     public ApiResponse spendAttribute(int player_id,String attribute_name,int amount_spent ) {
@@ -124,7 +125,10 @@ public class BGamesApi {
         ApiResponse requestResponse=new ApiResponse();
         String url_spend = API_POST_BASE_URL + "spend_attribute/";
         ApiResponse data= getPlayerAttributesById(player_id);
-
+        if(amount_spent<0){
+            requestResponse.setCodeError(400,"api.bgameslibrary.not_negative_points_allowed");
+            return requestResponse;
+        }
         int id_attribute= getAttributeIdByName(attribute_name);
         int available_points= new JsonUtils().getDataPlayerAttributeFromJson(data.getResponse(),attribute_name);
         if(available_points-amount_spent<0){
@@ -138,9 +142,6 @@ public class BGamesApi {
         payload.add(new BasicNameValuePair("new_data", String.valueOf(amount_spent) ));
 
         requestResponse = this.makepostRequest(url_spend, payload);
-        if (!requestResponse.isSuccess()) { //an error has occured in request
-            return requestResponse;
-        }
         return requestResponse;
     }
 

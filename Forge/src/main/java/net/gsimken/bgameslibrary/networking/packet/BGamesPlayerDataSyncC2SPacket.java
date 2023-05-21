@@ -8,13 +8,13 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class OpenGuiC2SPacket {
+public class BGamesPlayerDataSyncC2SPacket {
 
-    public OpenGuiC2SPacket() {
+    public BGamesPlayerDataSyncC2SPacket() {
 
     }
 
-    public OpenGuiC2SPacket(FriendlyByteBuf buf) {
+    public BGamesPlayerDataSyncC2SPacket(FriendlyByteBuf buf) {
 
     }
 

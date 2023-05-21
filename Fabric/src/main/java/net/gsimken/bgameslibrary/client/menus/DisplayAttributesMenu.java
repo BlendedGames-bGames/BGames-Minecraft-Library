@@ -27,7 +27,7 @@ import java.util.HashMap;
         super(ModScreens.BGAMES_DISPLAY_ATTRIBUTES, id);
         this.inventory = container;
         this.player = inv.player;
-        ClientPlayNetworking.send(ModMessages.OPEN_GUI_SYNC, PacketByteBufs.create());
+        ClientPlayNetworking.send(ModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
 
     }
 

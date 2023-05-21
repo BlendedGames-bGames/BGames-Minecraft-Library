@@ -91,7 +91,7 @@ public class DisplayAttributesScreen extends HandledScreen<DisplayAttributesMenu
 				Text.translatable("gui.bgameslibrary.display_attributes.points",
 						Text.literal(convertPoints(BGamesPlayerData.getCognitivePoints(playerData)))),
 				-71, 8, -12829636);
-		this.textRenderer.draw(poseStack, Text.translatable("gui.bgameslibrary.display_attributes.label_afective"), -128, -1, -12829636);
+		this.textRenderer.draw(poseStack, Text.translatable("gui.bgameslibrary.display_attributes.label_affective"), -128, -1, -12829636);
 		this.textRenderer.draw(poseStack, Text.translatable("gui.bgameslibrary.display_attributes.label_cognitive"), -73, -1, -12829636);
 		this.textRenderer.draw(poseStack, Text.translatable("gui.bgameslibrary.display_attributes.label_social"), -8, -1, -12829636);
 		this.textRenderer.draw(poseStack, Text.translatable("gui.bgameslibrary.display_attributes.label_linguistic"), 37, -1, -12829636);

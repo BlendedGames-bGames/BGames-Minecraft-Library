@@ -26,5 +26,6 @@
   "api.bgameslibrary.not_enough_points": "You dont have enough points",
   "api.bgameslibrary.api_unavailable": "API service unavailable",
   "api.bgameslibrary.request_error": "Error in request",
-  "api.bgameslibrary.content_error": "API Content error"
+  "api.bgameslibrary.content_error": "API Content error",
+  "api.bgameslibrary.not_negative_points_allowed":  "Can't spend negative points"
 }

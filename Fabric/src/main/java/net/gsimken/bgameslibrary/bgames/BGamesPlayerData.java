@@ -35,13 +35,23 @@ public class BGamesPlayerData {
         buf.writeInt(cognitivePoints) ;
         buf.writeString(email);
         buf.writeString(password);
-        ServerPlayNetworking.send(player, ModMessages.BGAMES_DATA_SYNC_ID,buf);
+        ServerPlayNetworking.send(player, ModMessages.BGAMES_SERVER_DATA_SYNC_ID,buf);
+    }
+    public static void setDefaultValues(IBGamesDataSaver player){
+        NbtCompound nbt = player.getPersistentData();
+        nbt.putInt("id",-1) ;
+        nbt.putInt("social_points",-1) ;
+        nbt.putInt("physical_points",-1);
+        nbt.putInt("linguistic_points",-1) ;
+        nbt.putInt("affective_points",-1) ;
+        nbt.putInt("cognitive_points",-1) ;
+        nbt.putString("email",""); ;
+        nbt.putString("password","") ;
     }
 
     public static void copyFrom(IBGamesDataSaver newPlayer,IBGamesDataSaver oldPlayer){
         NbtCompound oldNbt = oldPlayer.getPersistentData();
         NbtCompound newNbt = newPlayer.getPersistentData();
-
         int id = oldNbt.getInt("id");
         int socialPoints = oldNbt.getInt("social_points");
         int physicalPoints = oldNbt.getInt("physical_points");
@@ -69,10 +79,11 @@ public class BGamesPlayerData {
         nbt.putInt("affective_points",-1) ;
         nbt.putInt("cognitive_points",-1) ;
     }
+
     public static void attributeRefresh(IBGamesDataSaver player){
         NbtCompound nbt = player.getPersistentData();
         int id = getId(player);
-        System.out.println(nbt);
+
         ArrayList<Object> attributes= new PlayerUtils().GetAttributesById(id);
         JsonUtils comparator= new JsonUtils();
         int affectivePoints = comparator.getDataPlayerAttributeFromJson(attributes, BgamesLibrary.bgames_afective_name);
@@ -120,7 +131,10 @@ public class BGamesPlayerData {
         NbtCompound nbt = player.getPersistentData();
         nbt.putString("email", email);
     }
-
+    public static void setId(IBGamesDataSaver player,int id) {
+        NbtCompound nbt = player.getPersistentData();
+        nbt.putInt("id", id);
+    }
     public static void setPassword(IBGamesDataSaver player,String password) {
         NbtCompound nbt = player.getPersistentData();
         nbt.putString("password", password);

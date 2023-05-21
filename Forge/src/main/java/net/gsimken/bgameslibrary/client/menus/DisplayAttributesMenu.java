@@ -2,7 +2,7 @@
 
 import net.gsimken.bgameslibrary.client.ModMenus;
 import net.gsimken.bgameslibrary.networking.ModMessages;
-import net.gsimken.bgameslibrary.networking.packet.OpenGuiC2SPacket;
+import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncC2SPacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +18,7 @@ public class DisplayAttributesMenu extends AbstractContainerMenu {
         super(ModMenus.DISPLAY_ATTRIBUTES.get(), id);
         this.player = inv.player;
         //sync serverdata
-        ModMessages.sendToServer(new OpenGuiC2SPacket());
+        ModMessages.sendToServer(new BGamesPlayerDataSyncC2SPacket());
     }
 
 

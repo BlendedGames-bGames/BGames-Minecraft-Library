@@ -1,10 +1,7 @@
 package net.gsimken.bgameslibrary.networking;
 
 import net.gsimken.bgameslibrary.BgamesLibrary;
-import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
-import net.gsimken.bgameslibrary.networking.packet.ButtonOpenGuiC2SPacket;
-import net.gsimken.bgameslibrary.networking.packet.LoginC2SPacket;
-import net.gsimken.bgameslibrary.networking.packet.OpenGuiC2SPacket;
+import net.gsimken.bgameslibrary.networking.packet.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -30,10 +27,10 @@ public class ModMessages {
 
         INSTANCE = net;
 
-        net.messageBuilder(OpenGuiC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(OpenGuiC2SPacket::new)
-                .encoder(OpenGuiC2SPacket::toBytes)
-                .consumerMainThread(OpenGuiC2SPacket::handle)
+        net.messageBuilder(BGamesPlayerDataSyncC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(BGamesPlayerDataSyncC2SPacket::new)
+                .encoder(BGamesPlayerDataSyncC2SPacket::toBytes)
+                .consumerMainThread(BGamesPlayerDataSyncC2SPacket::handle)
                 .add();
         net.messageBuilder(BGamesPlayerDataSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(BGamesPlayerDataSyncS2CPacket::new)
@@ -50,6 +47,11 @@ public class ModMessages {
                 .decoder(ButtonOpenGuiC2SPacket::new)
                 .encoder(ButtonOpenGuiC2SPacket::toBytes)
                 .consumerMainThread(ButtonOpenGuiC2SPacket::handle)
+                .add();
+        net.messageBuilder(BGamesSpendPointsC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(BGamesSpendPointsC2SPacket::new)
+                .encoder(BGamesSpendPointsC2SPacket::toBytes)
+                .consumerMainThread(BGamesSpendPointsC2SPacket::handle)
                 .add();
     }
 

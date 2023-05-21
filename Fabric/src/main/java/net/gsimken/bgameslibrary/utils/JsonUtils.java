@@ -14,13 +14,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-public class JsonUtils {
+public  class JsonUtils {
     /**
      * A method to remove quotable text
      * @param string text that can or not be in quotes
      * @return  same text without the quotes in extreme
      */
-    public String removeQuotes(String string){
+    public static String removeQuotes(String string){
         if (string != null && string.length() >= 2
                 && string.charAt(0) == '\"' && string.charAt(string.length() - 1) == '\"') {
             string = string.substring(1, string.length() - 1);
@@ -32,7 +32,7 @@ public class JsonUtils {
      * @param json text with some fails Ex: {a=2,b=2020-02-03T03:04:10.444Z}
      * @return  same text in json format Ex: {"a":"2","b":"2020-02-03T03:04:10.444Z"}
      */
-    public String stringJsonFormating(String json){
+    public static String stringJsonFormating(String json){
         String[] splitted_json=json.toString().substring(1,json.toString().length()-1).split(",");
         String[] aux={};
         List<String> text_json_string= new ArrayList();
@@ -58,7 +58,7 @@ public class JsonUtils {
      * @param attribute_name name of attribute to search
      * @return  data of the attribute (-1 if doesnt exist)
      */
-    public int getDataPlayerAttributeFromJson(ArrayList<Object> attributes, String attribute_name){
+    public static int getDataPlayerAttributeFromJson(ArrayList<Object> attributes, String attribute_name){
         attribute_name=removeQuotes(attribute_name).toLowerCase();
 
         String attribute_name_i="";
@@ -83,7 +83,7 @@ public class JsonUtils {
      * @param attribute_name name of attribute to search
      * @return  id of the attribute (-1 if doesn't exist)
      */
-    public int getIdAttributeFromJson(ArrayList<Object> attributes, String attribute_name){
+    public static int getIdAttributeFromJson(ArrayList<Object> attributes, String attribute_name){
         attribute_name=removeQuotes(attribute_name).toLowerCase();
 
         String attribute_name_i="";

@@ -34,7 +34,7 @@ public abstract class BGamesPlayerDataMixin implements IBGamesDataSaver {
     @Inject(method = "readNbt", at = @At("HEAD"))
     protected void injectReadMethod(NbtCompound nbt, CallbackInfo info) {
         if (nbt.contains("bgameslibrary.bgames_data", 10)) {
-            persistentData = nbt.getCompound("tutorialmod.kaupen_data");
+            persistentData = nbt.getCompound("bgameslibrary.bgames_data");
         }
     }
 

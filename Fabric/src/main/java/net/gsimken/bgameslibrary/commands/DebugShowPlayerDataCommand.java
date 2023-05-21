@@ -26,7 +26,9 @@ public class DebugShowPlayerDataCommand {
 
 	public static int showAttributes(ServerCommandSource source) throws CommandSyntaxException {
 		ServerPlayerEntity player = source.getPlayerOrThrow();
-		player.sendMessage(Text.literal(BGamesPlayerData.stringify((IBGamesDataSaver) player)).fillStyle(Style.EMPTY.withColor(Formatting.GREEN)));
+		player.sendMessage(Text.literal("BGAMES DATA\n"+BGamesPlayerData.stringify((IBGamesDataSaver) player)).fillStyle(Style.EMPTY.withColor(Formatting.GREEN)));
+		player.sendMessage(Text.literal( "ALL DATA\n"+ ((IBGamesDataSaver) player).getPersistentData().toString() ).fillStyle(Style.EMPTY.withColor(Formatting.AQUA)));
+
 		return 1;
 
 	}
