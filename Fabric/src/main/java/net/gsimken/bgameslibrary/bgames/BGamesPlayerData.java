@@ -3,7 +3,7 @@ package net.gsimken.bgameslibrary.bgames;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.gsimken.bgameslibrary.BgamesLibrary;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.utils.IBGamesDataSaver;
 import net.gsimken.bgameslibrary.utils.JsonUtils;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
@@ -35,7 +35,7 @@ public class BGamesPlayerData {
         buf.writeInt(cognitivePoints) ;
         buf.writeString(email);
         buf.writeString(password);
-        ServerPlayNetworking.send(player, ModMessages.BGAMES_SERVER_DATA_SYNC_ID,buf);
+        ServerPlayNetworking.send(player, BGamesLibraryModMessages.BGAMES_SERVER_DATA_SYNC_ID,buf);
     }
     public static void setDefaultValues(IBGamesDataSaver player){
         NbtCompound nbt = player.getPersistentData();

@@ -4,7 +4,7 @@ package net.gsimken.bgameslibrary.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -26,7 +26,7 @@ public class DebugShowPlayerDataCommand {
 		player.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(data -> {
 			data.attributeRefresh();
 			player.sendSystemMessage(Component.literal(data.stringify())  );
-			ModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
+			BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
 					data.getSocialPoints(), data.getPhysicalPoints(), data.getLinguisticPoints(),
 					data.getAffectivePoints(), data.getCognitivePoints(),
 					data.getEmail(), data.getPassword()), player);

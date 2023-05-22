@@ -5,7 +5,7 @@ import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
 import net.gsimken.bgameslibrary.bgames.ClientBGamesPlayerData;
 import net.gsimken.bgameslibrary.client.triggers.LoginTrigger;
 import net.gsimken.bgameslibrary.commands.LoginCommand;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.ChatFormatting;
@@ -27,7 +27,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.server.command.ConfigCommand;
 @Mod.EventBusSubscriber(modid = BgamesLibrary.MOD_ID)
-public class ModEvents {
+public class BGamesLibraryModEvents {
     @SubscribeEvent
     public static void inventoryOpen(ScreenEvent.Init.Post event) {
         //if player its not login, every time he open the inventory will be a message for login
@@ -104,7 +104,7 @@ public class ModEvents {
                         data.attributeRefresh();
                         player.sendSystemMessage(Component.translatable(  "login.bgameslibrary.logged").withStyle(ChatFormatting.GREEN));
                         //sync the server player with the client player
-                        ModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
+                        BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
                                 data.getSocialPoints(), data.getPhysicalPoints(), data.getLinguisticPoints(),
                                 data.getAffectivePoints(), data.getCognitivePoints(),
                                 data.getEmail(), data.getPassword()), player);

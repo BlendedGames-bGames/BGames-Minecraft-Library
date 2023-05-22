@@ -1,7 +1,7 @@
 package net.gsimken.bgameslibrary.networking.packet;
 
+import net.gsimken.bgameslibrary.bgames.BGamesLibraryTools;
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
-import net.gsimken.bgameslibrary.bgames.BGamesTools;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
@@ -36,7 +36,7 @@ public class BGamesSpendPointsC2SPacket {
                 data.attributeReset();
                 data.attributeRefresh();
             });
-            BGamesTools.spendPoints(player,attribute,ammountSpent);
+            BGamesLibraryTools.spendPoints(player,attribute,ammountSpent);
 
         });
         return true;
@@ -49,7 +49,7 @@ public class BGamesSpendPointsC2SPacket {
         //serverside
         int points = buf.readInt();
         String attribute= buf.readString();
-        BGamesTools.spendPoints(player,attribute,points);
+        BGamesLibraryTools.spendPoints(player,attribute,points);
     }
     */
 

@@ -1,7 +1,7 @@
 package net.gsimken.bgameslibrary.networking.packet;
 
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
@@ -11,14 +11,14 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class LoginC2SPacket {
+public class BGamesLoginC2SPacket {
     private final String password,email;
-    public LoginC2SPacket(String email,String password) {
+    public BGamesLoginC2SPacket(String email, String password) {
         this.email = email;
         this.password = password;
 
     }
-    public LoginC2SPacket(FriendlyByteBuf buf) {
+    public BGamesLoginC2SPacket(FriendlyByteBuf buf) {
         this.email = buf.readUtf();
         this.password = buf.readUtf();
 
@@ -55,7 +55,7 @@ public class LoginC2SPacket {
                     data.attributeRefresh();
                     player.sendSystemMessage(Component.translatable(  "login.bgameslibrary.logged").withStyle(ChatFormatting.GREEN));
                 }
-                ModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
+                BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
                         data.getSocialPoints(), data.getPhysicalPoints(), data.getLinguisticPoints(),
                         data.getAffectivePoints(), data.getCognitivePoints(),
                         data.getEmail(), data.getPassword()), player);

@@ -11,7 +11,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class ModScreens {
+public class BGamesLibraryModScreens {
     public static ScreenHandlerType<DisplayAttributesMenu> BGAMES_DISPLAY_ATTRIBUTES;
     public static ScreenHandlerType<LoginMenu> LOGIN;
 

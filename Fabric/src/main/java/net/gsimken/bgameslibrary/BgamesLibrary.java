@@ -2,10 +2,10 @@ package net.gsimken.bgameslibrary;
 
 import net.fabricmc.api.ModInitializer;
 import net.gsimken.bgameslibrary.api.configs.BGamesApiConfigsModel;
-import net.gsimken.bgameslibrary.client.ModScreens;
-import net.gsimken.bgameslibrary.commands.ModCommands;
-import net.gsimken.bgameslibrary.event.ModEvents;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
+import net.gsimken.bgameslibrary.commands.BGamesLibraryModCommands;
+import net.gsimken.bgameslibrary.event.BGamesLibraryModEvents;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,10 +24,10 @@ public class BgamesLibrary implements ModInitializer {
 		init.loadConfigs();
 		init.printConfigs();
 
-		ModMessages.registerC2SPackets();
-		ModScreens.registerMenus();
-		ModCommands.register();
-		ModEvents.register();
+		BGamesLibraryModMessages.registerC2SPackets();
+		BGamesLibraryModScreens.registerMenus();
+		BGamesLibraryModCommands.register();
+		BGamesLibraryModEvents.register();
 
 	}
 

@@ -1,10 +1,7 @@
 package net.gsimken.bgameslibrary.networking.packet;
 
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerData;
-import net.gsimken.bgameslibrary.client.triggers.DisplayAttributesTrigger;
-import net.gsimken.bgameslibrary.networking.ModMessages;
 import net.gsimken.bgameslibrary.utils.IBGamesDataSaver;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.network.PacketByteBuf;

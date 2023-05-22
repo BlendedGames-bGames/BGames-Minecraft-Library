@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModMenus {
+public class BGamesLibraryModMenus {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, BgamesLibrary.MOD_ID);
 //    public static final RegistryObject<MenuType<BGamesDisplayAttributesMenu>> B_GAMES_DISPLAY_ATTRIBUTES = REGISTRY.register("b_games_display_attributes", () -> IForgeMenuType.create(BGamesDisplayAttributesMenu::new));
 //public static final RegistryObject<MenuType<DisplayAttributesMenu>> DISPLAY_ATTRIBUTES = REGISTRY.register("display_attributes", () -> IForgeMenuType.create(DisplayAttributesMenu::new));

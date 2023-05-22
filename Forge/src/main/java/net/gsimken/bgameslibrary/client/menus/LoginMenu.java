@@ -1,6 +1,6 @@
 package net.gsimken.bgameslibrary.client.menus;
 
-import net.gsimken.bgameslibrary.client.ModMenus;
+import net.gsimken.bgameslibrary.client.BGamesLibraryModMenus;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -14,7 +14,7 @@ public class LoginMenu extends AbstractContainerMenu {
     public final static HashMap<String, Object> guistate = new HashMap<>();
     public final Player player;
     public LoginMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-        super(ModMenus.LOGIN.get(), id);
+        super(BGamesLibraryModMenus.LOGIN.get(), id);
         this.player = inv.player;
 
     }

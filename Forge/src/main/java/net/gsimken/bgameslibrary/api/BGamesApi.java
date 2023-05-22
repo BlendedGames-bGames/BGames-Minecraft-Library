@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.gsimken.bgameslibrary.configs.BgamesCommonConfigs;
+import net.gsimken.bgameslibrary.configs.BGamesCommonConfigs;
 
 import net.gsimken.bgameslibrary.utils.JsonUtils;
 import org.apache.http.HttpEntity;
@@ -33,9 +33,9 @@ public class BGamesApi {
             .build();
     protected HttpClient CLIENT = HttpClientBuilder.create().build();
 
-    private static final String API_GET_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.GET_PORT.get()+"/";
-    private static final String API_USER_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.USER_PORT.get()+"/";
-    private static final String API_POST_BASE_URL = BgamesCommonConfigs.URL.get()+BgamesCommonConfigs.POST_PORT.get()+"/";
+    private static final String API_GET_BASE_URL = BGamesCommonConfigs.URL.get()+ BGamesCommonConfigs.GET_PORT.get()+"/";
+    private static final String API_USER_BASE_URL = BGamesCommonConfigs.URL.get()+ BGamesCommonConfigs.USER_PORT.get()+"/";
+    private static final String API_POST_BASE_URL = BGamesCommonConfigs.URL.get()+ BGamesCommonConfigs.POST_PORT.get()+"/";
     private static  final int MINECRAFT_BGAMES_ID= 2;
 
     //GET API

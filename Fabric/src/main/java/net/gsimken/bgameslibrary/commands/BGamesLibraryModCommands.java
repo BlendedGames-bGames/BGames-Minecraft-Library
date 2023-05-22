@@ -2,7 +2,7 @@ package net.gsimken.bgameslibrary.commands;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
-public class ModCommands {
+public class BGamesLibraryModCommands {
     public static void register(){
         //CommandRegistrationCallback.EVENT.register(DebugLoginCommand::register);
         //CommandRegistrationCallback.EVENT.register(DebugPlayerAttributesByIdCommand::register);

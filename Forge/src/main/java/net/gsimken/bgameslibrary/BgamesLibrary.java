@@ -3,9 +3,9 @@ package net.gsimken.bgameslibrary;
 import com.mojang.logging.LogUtils;
 import net.gsimken.bgameslibrary.client.gui.DisplayAttributesScreen;
 import net.gsimken.bgameslibrary.client.gui.LoginScreen;
-import net.gsimken.bgameslibrary.configs.BgamesCommonConfigs;
-import net.gsimken.bgameslibrary.networking.ModMessages;
-import net.gsimken.bgameslibrary.client.ModMenus;
+import net.gsimken.bgameslibrary.configs.BGamesCommonConfigs;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
+import net.gsimken.bgameslibrary.client.BGamesLibraryModMenus;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,21 +36,21 @@ public class BgamesLibrary
 
         // Register the commonSetup method for modloading
         eventBus.addListener(this::commonSetup);
-        ModMenus.register(eventBus);
+        BGamesLibraryModMenus.register(eventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         //load configs
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BgamesCommonConfigs.SPEC,"bgames-common-application.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, BgamesCommonConfigs.SPEC,"bgames-client-application.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BGamesCommonConfigs.SPEC,"bgames-common-application.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, BGamesCommonConfigs.SPEC,"bgames-client-application.toml");
 
 
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        ModMessages.register();
+        BGamesLibraryModMessages.register();
     }
 
      // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -60,8 +60,8 @@ public class BgamesLibrary
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            MenuScreens.register(ModMenus.LOGIN.get(), LoginScreen::new);
-            MenuScreens.register(ModMenus.DISPLAY_ATTRIBUTES.get(), DisplayAttributesScreen::new);
+            MenuScreens.register(BGamesLibraryModMenus.LOGIN.get(), LoginScreen::new);
+            MenuScreens.register(BGamesLibraryModMenus.DISPLAY_ATTRIBUTES.get(), DisplayAttributesScreen::new);
 
 
         }

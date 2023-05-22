@@ -1,6 +1,6 @@
 package net.gsimken.bgameslibrary.client.gui;
 
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.client.menus.LoginMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -12,7 +12,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 
-import net.gsimken.bgameslibrary.networking.packet.LoginC2SPacket;
+import net.gsimken.bgameslibrary.networking.packet.BGamesLoginC2SPacket;
 
 import java.util.HashMap;
 
@@ -112,7 +112,7 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
         guistate.put("text:Email", Email);
         this.addWidget(this.Email);
         button_login = new Button(this.leftPos + 58, this.topPos + 130, 51, 20, Component.translatable("gui.bgameslibrary.login.button_login"), e -> {
-            ModMessages.sendToServer(new LoginC2SPacket(LoginMenu.getEmailFromBox(),LoginMenu.getPasswordFromBox()));
+            BGamesLibraryModMessages.sendToServer(new BGamesLoginC2SPacket(LoginMenu.getEmailFromBox(),LoginMenu.getPasswordFromBox()));
             player.closeContainer();
         });
         guistate.put("button:button_login", button_login);

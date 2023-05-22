@@ -1,7 +1,7 @@
 package net.gsimken.bgameslibrary.networking.packet;
 
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
@@ -34,7 +34,7 @@ public class BGamesPlayerDataSyncC2SPacket {
                 /*
                    Al momento de abrir la gui se manda al jugador los datos del servidors para sincronizar
                  * */
-                ModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
+                BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
                         data.getSocialPoints(),data.getPhysicalPoints(),data.getLinguisticPoints(),
                         data.getAffectivePoints(),data.getCognitivePoints(),
                         data.getEmail(),data.getPassword()), player);

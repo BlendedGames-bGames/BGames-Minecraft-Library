@@ -9,7 +9,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
-public class ModMessages {
+public class BGamesLibraryModMessages {
     private static SimpleChannel INSTANCE;
 
     private static int packetId = 0;
@@ -38,10 +38,10 @@ public class ModMessages {
                 .consumerMainThread(BGamesPlayerDataSyncS2CPacket::handle)
                 .add();
 
-        net.messageBuilder(LoginC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(LoginC2SPacket::new)
-                .encoder(LoginC2SPacket::toBytes)
-                .consumerMainThread(LoginC2SPacket::handle)
+        net.messageBuilder(BGamesLoginC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(BGamesLoginC2SPacket::new)
+                .encoder(BGamesLoginC2SPacket::toBytes)
+                .consumerMainThread(BGamesLoginC2SPacket::handle)
                 .add();
         net.messageBuilder(ButtonOpenGuiC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
                 .decoder(ButtonOpenGuiC2SPacket::new)

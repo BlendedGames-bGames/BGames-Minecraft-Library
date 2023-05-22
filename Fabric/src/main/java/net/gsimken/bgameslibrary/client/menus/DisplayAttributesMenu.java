@@ -2,8 +2,8 @@
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.gsimken.bgameslibrary.client.ModScreens;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -24,10 +24,10 @@ import java.util.HashMap;
     }
 
     public DisplayAttributesMenu(int id, PlayerInventory inv, SimpleInventory container) {
-        super(ModScreens.BGAMES_DISPLAY_ATTRIBUTES, id);
+        super(BGamesLibraryModScreens.BGAMES_DISPLAY_ATTRIBUTES, id);
         this.inventory = container;
         this.player = inv.player;
-        ClientPlayNetworking.send(ModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
+        ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
 
     }
 

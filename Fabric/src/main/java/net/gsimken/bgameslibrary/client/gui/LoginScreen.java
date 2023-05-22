@@ -4,7 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.gsimken.bgameslibrary.client.menus.LoginMenu;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -116,7 +116,7 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeString(LoginMenu.getEmailFromBox());
             buf.writeString(LoginMenu.getPasswordFromBox());
-            ClientPlayNetworking.send(ModMessages.BGAMES_LOGIN, buf);
+            ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_LOGIN, buf);
 
         });
         guistate.put("button:button_login", button_login);

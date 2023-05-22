@@ -1,6 +1,6 @@
 package net.gsimken.bgameslibrary.client.menus;
 
-import net.gsimken.bgameslibrary.client.ModScreens;
+import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -23,7 +23,7 @@ public class LoginMenu extends ScreenHandler {
     }
 
     public LoginMenu(int id, PlayerInventory inv, SimpleInventory container) {
-        super(ModScreens.LOGIN, id);
+        super(BGamesLibraryModScreens.LOGIN, id);
         this.inventory = container;
         this.player = inv.player;
 

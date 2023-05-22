@@ -6,7 +6,7 @@ import net.gsimken.bgameslibrary.BgamesLibrary;
 import net.gsimken.bgameslibrary.networking.packet.*;
 import net.minecraft.util.Identifier;
 
-public class ModMessages {
+public class BGamesLibraryModMessages {
     public static final Identifier BGAMES_SERVER_DATA_SYNC_ID =new Identifier(BgamesLibrary.MOD_ID,"server_data_sync");
     public static final Identifier BGAMES_CLIENT_DATA_SYNC =new Identifier(BgamesLibrary.MOD_ID,"client_data_sync");
     public static final Identifier BGAMES_SPEND_POINT =new Identifier(BgamesLibrary.MOD_ID,"spend_point");

@@ -5,18 +5,27 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.gsimken.bgameslibrary.BgamesLibrary;
 import net.gsimken.bgameslibrary.api.ApiResponse;
 import net.gsimken.bgameslibrary.api.BGamesApi;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.utils.IBGamesDataSaver;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-public class BGamesTools {
+public class BGamesLibraryTools {
+    /**
+     * method to spent point in a name of player
+     * @param player the player in the server side who spend the point
+     * @param attribute the name of attribute, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param ammountSpend the ammount of point to spent
+     * @return bool if the points were spent
+     * */
     public static boolean spendPoints(ServerPlayerEntity player, String attribute, int ammountSpend){
+
         if(!permittedAttributtes(attribute) || ammountSpend<1 ){
             return false;
         }
@@ -32,11 +41,18 @@ public class BGamesTools {
         }
         return true;
     }
+    /**
+     * method to spent point in a name of player
+     * @param player the player in the client side who spend the point
+     * @param attribute the name of attribute, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param ammountSpend the ammount of point to spent
+     * @return bool if the points were spent
+     * */
     public static boolean spendPoints(ClientPlayerEntity player, String attribute, int ammountSpend){
         if(!permittedAttributtes(attribute) || ammountSpend<1 ){
             return false;
         }
-        ClientPlayNetworking.send(ModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
+        ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
         IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
         int player_id= new PlayerUtils().GetIdByEmail(BGamesPlayerData.getEmail(playerDataHandler),BGamesPlayerData.getPassword(playerDataHandler));
         if(player_id!=BGamesPlayerData.getId(playerDataHandler)){
@@ -45,9 +61,19 @@ public class BGamesTools {
         PacketByteBuf buffer = PacketByteBufs.create();
         buffer.writeInt(ammountSpend);
         buffer.writeString(attribute);
-        ClientPlayNetworking.send(ModMessages.BGAMES_SPEND_POINT,buffer );
+        ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_SPEND_POINT,buffer );
         return true;
     }
+    /**
+     * method to spent point in a name of player
+     * @param player the player to consult
+     * @return bool if the player is logged in bgmaes or not
+     * */
+    public static boolean isPlayerLogged(PlayerEntity player){
+        IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
+        return BGamesPlayerData.isLoggedIn(playerDataHandler);
+    }
+
     private static boolean permittedAttributtes(String attribute){
         if(attribute!=BgamesLibrary.bgames_afective_name &&
                 attribute!=BgamesLibrary.bgames_linguistic_name &&
@@ -58,4 +84,5 @@ public class BGamesTools {
         }
         return true;
     }
+
 }

@@ -5,7 +5,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.ChatFormatting;
@@ -43,7 +43,7 @@ public class DebugLoginCommand {
 			data.setPassword(password);
 			data.attributeRefresh();
 			player.sendSystemMessage(Component.translatable(  "login.bgameslibrary.logged").withStyle(ChatFormatting.GREEN));
-			ModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
+			BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
 					data.getSocialPoints(), data.getPhysicalPoints(), data.getLinguisticPoints(),
 					data.getAffectivePoints(), data.getCognitivePoints(),
 					data.getEmail(), data.getPassword()), player);

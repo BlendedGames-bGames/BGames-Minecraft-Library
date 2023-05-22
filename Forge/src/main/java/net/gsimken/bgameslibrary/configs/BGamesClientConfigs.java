@@ -2,7 +2,7 @@ package net.gsimken.bgameslibrary.configs;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class BgamesClientConfigs {
+public class BGamesClientConfigs {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SPEC;
 

@@ -1,7 +1,7 @@
 
 package net.gsimken.bgameslibrary.client.gui;
 
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.networking.packet.ButtonOpenGuiC2SPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ImageButton;
@@ -36,7 +36,7 @@ public class DisplayAttributeButtonInventoryOverlay {
 			if (entity != null) {
 				ImageButton bGamesLogo= new ImageButton(buttonPosX,buttonPosY , 20, 18, 0, 0, 19,  BGAMES_BUTTON_LOCATION,
 						e -> {
-							ModMessages.sendToServer(new ButtonOpenGuiC2SPacket());
+							BGamesLibraryModMessages.sendToServer(new ButtonOpenGuiC2SPacket());
 						});
 				event.addListener(bGamesLogo);
 			}

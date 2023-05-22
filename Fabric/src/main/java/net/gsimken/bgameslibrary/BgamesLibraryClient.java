@@ -1,14 +1,14 @@
 package net.gsimken.bgameslibrary;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.gsimken.bgameslibrary.client.ModScreens;
-import net.gsimken.bgameslibrary.networking.ModMessages;
+import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
+import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 
 public class BgamesLibraryClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModMessages.registerS2CPackets();
-        ModScreens.registerScreens();
+        BGamesLibraryModMessages.registerS2CPackets();
+        BGamesLibraryModScreens.registerScreens();
     }
 }
