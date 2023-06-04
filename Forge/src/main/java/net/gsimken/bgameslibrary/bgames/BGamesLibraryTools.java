@@ -5,6 +5,7 @@ import net.gsimken.bgameslibrary.api.ApiResponse;
 import net.gsimken.bgameslibrary.api.BGamesApi;
 import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncC2SPacket;
+import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
 import net.gsimken.bgameslibrary.networking.packet.BGamesSpendPointsC2SPacket;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
 import net.minecraft.ChatFormatting;
@@ -35,6 +36,11 @@ public class BGamesLibraryTools {
             player.sendSystemMessage(Component.translatable(response.getErrorDescription()).withStyle(ChatFormatting.RED));
             return false;
         }
+        BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
+                data.getSocialPoints(),data.getPhysicalPoints(),data.getLinguisticPoints(),
+                data.getAffectivePoints(),data.getCognitivePoints(),
+                data.getEmail(),data.getPassword()), player);
+
         return true;
     }
     /**

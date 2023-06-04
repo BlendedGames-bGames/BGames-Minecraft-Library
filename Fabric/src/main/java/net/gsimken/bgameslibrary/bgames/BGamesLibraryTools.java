@@ -2,6 +2,7 @@ package net.gsimken.bgameslibrary.bgames;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.gsimken.bgameslibrary.BgamesLibrary;
 import net.gsimken.bgameslibrary.api.ApiResponse;
 import net.gsimken.bgameslibrary.api.BGamesApi;
@@ -39,6 +40,7 @@ public class BGamesLibraryTools {
             player.sendMessage(Text.translatable(response.getErrorDescription()).fillStyle(Style.EMPTY.withColor(Formatting.RED)));
             return false;
         }
+        BGamesPlayerData.syncData(player);
         return true;
     }
     /**
