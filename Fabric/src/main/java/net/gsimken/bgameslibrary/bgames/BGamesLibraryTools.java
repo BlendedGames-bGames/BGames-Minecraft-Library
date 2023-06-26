@@ -40,6 +40,7 @@ public class BGamesLibraryTools {
             player.sendMessage(Text.translatable(response.getErrorDescription()).fillStyle(Style.EMPTY.withColor(Formatting.RED)));
             return false;
         }
+        BGamesPlayerData.attributeRefresh((IBGamesDataSaver) player);
         BGamesPlayerData.syncData(player);
         return true;
     }
@@ -72,6 +73,14 @@ public class BGamesLibraryTools {
      * @return bool if the player is logged in bgmaes or not
      * */
     public static boolean isPlayerLogged(PlayerEntity player){
+        IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
+        return BGamesPlayerData.isLoggedIn(playerDataHandler);
+    }
+    public static boolean isPlayerLogged(ServerPlayerEntity player){
+        IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
+        return BGamesPlayerData.isLoggedIn(playerDataHandler);
+    }
+    public static boolean isPlayerLogged(ClientPlayerEntity player){
         IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
         return BGamesPlayerData.isLoggedIn(playerDataHandler);
     }

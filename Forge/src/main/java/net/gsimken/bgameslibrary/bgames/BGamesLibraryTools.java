@@ -36,6 +36,7 @@ public class BGamesLibraryTools {
             player.sendSystemMessage(Component.translatable(response.getErrorDescription()).withStyle(ChatFormatting.RED));
             return false;
         }
+        data.attributeRefresh();
         BGamesLibraryModMessages.sendToPlayer(new BGamesPlayerDataSyncS2CPacket(data.getId(),
                 data.getSocialPoints(),data.getPhysicalPoints(),data.getLinguisticPoints(),
                 data.getAffectivePoints(),data.getCognitivePoints(),
