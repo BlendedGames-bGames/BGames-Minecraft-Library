@@ -16,18 +16,16 @@ public class BgamesLibrary implements ModInitializer {
 	public static String bgames_cognitive_name = "Cognitivo";
 	public static String bgames_linguistic_name = "Linguistico";
 	public static final String MOD_ID = "bgameslibrary";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
 		BGamesApiConfigsModel init = new BGamesApiConfigsModel(); // load the config
 		init.loadConfigs();
 		init.printConfigs();
-
 		BGamesLibraryModMessages.registerC2SPackets();
 		BGamesLibraryModScreens.registerMenus();
 		BGamesLibraryModCommands.register();
-		BGamesLibraryModEvents.register();
+		BGamesLibraryModEvents.registerServer();
 
 	}
 

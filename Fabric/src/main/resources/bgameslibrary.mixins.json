@@ -4,8 +4,10 @@
   "package": "net.gsimken.bgameslibrary.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BGamesLibraryMixinInventoryScreen",
     "BGamesPlayerDataMixin"
+  ],
+  "client": [
+    "BGamesLibraryMixinInventoryScreen"
   ],
   "injectors": {
 	"defaultRequire": 1

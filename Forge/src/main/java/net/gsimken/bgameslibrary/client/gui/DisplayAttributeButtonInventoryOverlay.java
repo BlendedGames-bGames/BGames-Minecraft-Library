@@ -15,7 +15,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber({Dist.CLIENT})
+@Mod.EventBusSubscriber(Dist.CLIENT)
 public class DisplayAttributeButtonInventoryOverlay {
 	//Button on Inventory
 	@SubscribeEvent(priority = EventPriority.NORMAL)
@@ -30,7 +30,7 @@ public class DisplayAttributeButtonInventoryOverlay {
 			RecipeBookComponent recipeBook = inv.getRecipeBookComponent();
 
 
-			Player entity = Minecraft.getInstance().player;
+			Player entity = inv.getMinecraft().player;
 			int buttonPosX=  posX + 64; //recipeBook.updateScreenPosition(posX + 64,20);
 			int buttonPosY =posY + -101;
 			if (entity != null) {

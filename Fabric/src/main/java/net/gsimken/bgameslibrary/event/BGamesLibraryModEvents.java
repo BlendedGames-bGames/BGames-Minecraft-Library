@@ -5,8 +5,11 @@ import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 
 public class BGamesLibraryModEvents {
-    public static void register(){
+    public static void registerServer(){
         ServerPlayerEvents.COPY_FROM.register(new ModCopyOnPlayerDeathEvent());
+
+    }
+    public static void registerClient(){
         ClientPlayConnectionEvents.JOIN.register(new ModClientPlayerLoginEvent());
         ScreenEvents.AFTER_INIT.register(new ModSpamOnInventoryOpenEvent());
     }

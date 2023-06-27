@@ -29,19 +29,6 @@ import net.minecraftforge.server.command.ConfigCommand;
 @Mod.EventBusSubscriber(modid = BgamesLibrary.MOD_ID)
 public class BGamesLibraryModEvents {
     @SubscribeEvent
-    public static void inventoryOpen(ScreenEvent.Init.Post event) {
-        //if player its not login, every time he open the inventory will be a message for login
-        if (event.getScreen() instanceof InventoryScreen) {
-            Player player = Minecraft.getInstance().player;
-            if(player instanceof LocalPlayer && !ClientBGamesPlayerData.isLoggedIn()) {
-                player.sendSystemMessage(Component.translatable("login.bgameslibrary.not_logged").withStyle(ChatFormatting.RED));
-            }
-        }
-
-
-
-        }
-    @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
         //command registrys,  debugs are off
         // new DebugPlayerAttributesByIdCommand(event.getDispatcher());
@@ -62,17 +49,17 @@ public class BGamesLibraryModEvents {
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         //if player dies its need to clone all the data for the new generated
-        if(event.isWasDeath()) {
-            Player deathPlayer= event.getOriginal();
-            Player clonedPlayer= event.getEntity();
-            deathPlayer.reviveCaps();
-            deathPlayer.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(oldStore -> {
-                    clonedPlayer.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                    });
-            });
-            deathPlayer.invalidateCaps();
-        }
+
+        Player deathPlayer= event.getOriginal();
+        Player clonedPlayer= event.getEntity();
+        deathPlayer.reviveCaps();
+        deathPlayer.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(oldStore -> {
+                clonedPlayer.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).ifPresent(newStore -> {
+                newStore.copyFrom(oldStore);
+                });
+        });
+        deathPlayer.invalidateCaps();
+
     }
 
 

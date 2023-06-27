@@ -2,8 +2,11 @@
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.gsimken.bgameslibrary.bgames.BGamesPlayerData;
 import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
 import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
+import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
+import net.gsimken.bgameslibrary.utils.IBGamesDataSaver;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -11,6 +14,7 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.HashMap;
 
@@ -27,8 +31,10 @@ import java.util.HashMap;
         super(BGamesLibraryModScreens.BGAMES_DISPLAY_ATTRIBUTES, id);
         this.inventory = container;
         this.player = inv.player;
-        ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
-
+        if(!this.player.getWorld().isClient()){
+            BGamesPlayerData.attributeRefresh((IBGamesDataSaver) player);
+            BGamesPlayerData.syncData((ServerPlayerEntity) player);
+        }
     }
 
     @Override
