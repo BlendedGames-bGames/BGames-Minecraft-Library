@@ -1,4 +1,8 @@
 # BGames Library Mod
+[![es](https://img.shields.io/badge/lang-es-green.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/README.md)
+[![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/Readme/README-EN.md)
+
+
 bGames Library Mod is a library for Fabric and Forge designed to integrate with other mods. It establishes a connection with bGames, allowing the player to authenticate and view their bGames points.
 
 ## Getting Started
