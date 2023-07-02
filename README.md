@@ -22,7 +22,7 @@ Al presionar este botón, se mostrarán los puntos obtenidos anteriormente en un
 
 ## Requisitos
 * ### **Conexión a Internet**
-    Dado que bGames es un módulo en la nube, se requiere una conexión a Internet para acceder a una página.
+    Dado que bGames es un módulo en la nube, se requiere una conexión a Internet para acceder.
 * ### **Cuenta de bGames**
     Es necesario contar con un perfil en bGames, ya que si el usuario no existe no tendrá puntos que utilizar.
 * ### **Minecraft Forge | FabricMc**
@@ -36,7 +36,7 @@ Al presionar este botón, se mostrarán los puntos obtenidos anteriormente en un
     Blended Games es un proyecto/framework de código abierto desarrollado por el Laboratorio InTeractiOn de la Universidad de Santiago de Chile. Su objetivo es promover el desarrollo de videojuegos que faciliten el equilibrio entre las tareas cotidianas y la vida virtual, con el fin de prevenir situaciones perjudiciales para los jugadores, como la adicción a los videojuegos.
 
 * ### **¿Cómo funciona bGames?**
-    bGames funciona a través de una serie de servicios que miden y almacenan la actividad de un jugador en un perfil en la nube. Los puntos que constituyen estos perfiles provienen de actividades rastreadas tanto por software como por hardware. Esto podría incluir, por ejemplo, las estadísticas de un jugador en Chess.com o el uso de su teléfono móvil. Estos puntos luego se categorizan en diversas dimensiones y atributos, que pueden ser intercambiados por ventajas en los videojuegos.
+    bGames funciona a través de una serie de servicios que miden y almacenan la actividad de un jugador en un perfil en la nube. Los puntos que constituyen estos perfiles provienen de actividades rastreadas tanto por software como por hardware. Esto podría incluir, por ejemplo, las estadísticas de un jugador en Chess.com o el tiempo de uso de su teléfono móvil. Estos puntos luego se categorizan en diversas dimensiones y atributos, que pueden ser intercambiados por ventajas en los videojuegos.
 
     **Nota:** Para obtener más información sobre bGames o su arquitectura, puedes visitar la sección bGames en la página de [InTeractiOn Labs](https://interaction-lab.info/publications).
 
