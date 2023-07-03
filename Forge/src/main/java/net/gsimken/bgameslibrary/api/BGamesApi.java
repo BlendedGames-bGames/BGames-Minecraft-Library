@@ -254,5 +254,14 @@ public class BGamesApi {
         return  requestResponse;
 
     }
+    public static void printConfigs(){
+        System.out.println("==========BGAMES LIBRARY==========");
+        System.out.println("=============CONFIGS=============");
+        System.out.println("URL: " + API_GET_BASE_URL);
+        System.out.println("USER PORT:"+API_USER_BASE_URL);
+        System.out.println("GET PORT:"+API_GET_BASE_URL);
+        System.out.println("POST PORT:"+API_POST_BASE_URL);
+        System.out.println("==========BGAMES LIBRARY==========");
+    }
 
 }

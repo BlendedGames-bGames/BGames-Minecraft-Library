@@ -29,7 +29,7 @@ public class BgamesLibrary
     public static String bgames_cognitive_name = "Cognitivo";
     public static String bgames_linguistic_name = "Linguistico";
     public static final String MOD_ID = "bgameslibrary";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public BgamesLibrary()
     {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();

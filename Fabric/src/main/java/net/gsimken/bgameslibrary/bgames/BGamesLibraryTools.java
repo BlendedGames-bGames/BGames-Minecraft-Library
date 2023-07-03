@@ -21,13 +21,13 @@ public class BGamesLibraryTools {
     /**
      * method to spent point in a name of player
      * @param player the player in the server side who spend the point
-     * @param attribute the name of attribute, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param dimension the name of dimension, can be use by BgamesLibrary.bgames_afective_name or similar
      * @param ammountSpend the ammount of point to spent
      * @return bool if the points were spent
      * */
-    public static boolean spendPoints(ServerPlayerEntity player, String attribute, int ammountSpend){
+    public static boolean spendPoints(ServerPlayerEntity player, String dimension, int ammountSpend){
 
-        if(!permittedAttributtes(attribute) || ammountSpend<1 ){
+        if(!permittedDimensions(dimension) || ammountSpend<1 ){
             return false;
         }
         IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
@@ -35,7 +35,7 @@ public class BGamesLibraryTools {
         if(player_id!=BGamesPlayerData.getId(playerDataHandler)){
             return false;
         }
-        ApiResponse response = new BGamesApi().spendAttribute(player_id,attribute,ammountSpend);
+        ApiResponse response = new BGamesApi().spendAttribute(player_id,dimension,ammountSpend);
         if(!response.isSuccess()){
             player.sendMessage(Text.translatable(response.getErrorDescription()).fillStyle(Style.EMPTY.withColor(Formatting.RED)));
             return false;
@@ -47,12 +47,12 @@ public class BGamesLibraryTools {
     /**
      * method to spent point in a name of player
      * @param player the player in the client side who spend the point
-     * @param attribute the name of attribute, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param dimension the name of dimension, can be use by BgamesLibrary.bgames_afective_name or similar
      * @param ammountSpend the ammount of point to spent
      * @return bool if the points were spent
      * */
-    public static boolean spendPoints(ClientPlayerEntity player, String attribute, int ammountSpend){
-        if(!permittedAttributtes(attribute) || ammountSpend<1 ){
+    public static boolean spendPoints(ClientPlayerEntity player, String dimension, int ammountSpend){
+        if(!permittedDimensions(dimension) || ammountSpend<1 ){
             return false;
         }
         ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_CLIENT_DATA_SYNC, PacketByteBufs.create());
@@ -63,7 +63,7 @@ public class BGamesLibraryTools {
         }
         PacketByteBuf buffer = PacketByteBufs.create();
         buffer.writeInt(ammountSpend);
-        buffer.writeString(attribute);
+        buffer.writeString(dimension);
         ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_SPEND_POINT,buffer );
         return true;
     }
@@ -76,24 +76,42 @@ public class BGamesLibraryTools {
         IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
         return BGamesPlayerData.isLoggedIn(playerDataHandler);
     }
-    public static boolean isPlayerLogged(ServerPlayerEntity player){
-        IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
-        return BGamesPlayerData.isLoggedIn(playerDataHandler);
-    }
-    public static boolean isPlayerLogged(ClientPlayerEntity player){
-        IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
-        return BGamesPlayerData.isLoggedIn(playerDataHandler);
-    }
 
-    private static boolean permittedAttributtes(String attribute){
-        if(attribute!=BgamesLibrary.bgames_afective_name &&
-                attribute!=BgamesLibrary.bgames_linguistic_name &&
-                attribute!=BgamesLibrary.bgames_cognitive_name &&
-                attribute!=BgamesLibrary.bgames_social_name &&
-                attribute!=BgamesLibrary.bgames_physical_name){
+    /**
+     * method to consult points of a player
+     * @param dimension dimension name, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param player the player to consult
+     * @return points, -1 if it doesn't exist
+     * */
+    public int getPoints(String dimension, PlayerEntity player){
+        if(permittedDimensions(dimension)) {
+            IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
+            if(dimension == BgamesLibrary.bgames_afective_name) {
+                return BGamesPlayerData.getAffectivePoints(playerDataHandler);
+            } else if (dimension == BgamesLibrary.bgames_linguistic_name) {
+                return BGamesPlayerData.getLinguisticPoints(playerDataHandler);
+            } else if (dimension == BgamesLibrary.bgames_cognitive_name) {
+                return BGamesPlayerData.getCognitivePoints(playerDataHandler);
+            } else if (dimension == BgamesLibrary.bgames_social_name) {
+                return BGamesPlayerData.getSocialPoints(playerDataHandler);
+            } else if (dimension == BgamesLibrary.bgames_physical_name) {
+                return BGamesPlayerData.getPhysicalPoints(playerDataHandler);
+            }
+        }
+        return -1;
+    }
+    private static boolean permittedDimensions(String dimension){
+        if(dimension!=BgamesLibrary.bgames_afective_name &&
+                dimension!=BgamesLibrary.bgames_linguistic_name &&
+                dimension!=BgamesLibrary.bgames_cognitive_name &&
+                dimension!=BgamesLibrary.bgames_social_name &&
+                dimension!=BgamesLibrary.bgames_physical_name){
             return false;
         }
         return true;
     }
+
+
+
 
 }

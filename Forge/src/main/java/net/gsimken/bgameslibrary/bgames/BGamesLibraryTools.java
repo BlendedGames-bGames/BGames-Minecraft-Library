@@ -18,12 +18,12 @@ public class BGamesLibraryTools {
     /**
      * method to spent point in a name of player
      * @param player the player in the server side who spend the point
-     * @param attribute the name of attribute, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param dimension the name of dimension, can be use by BgamesLibrary.bgames_afective_name or similar
      * @param ammountSpend the ammount of point to spent
      * @return bool if the points were spent
      * */
-    public static boolean spendPoints(ServerPlayer player, String attribute, int ammountSpend){
-        if(!permittedAttributtes(attribute) || ammountSpend<1 ){
+    public static boolean spendPoints(ServerPlayer player, String dimension, int ammountSpend){
+        if(!permittedDimensions(dimension) || ammountSpend<1 ){
             return false;
         }
         BGamesPlayerData data =  player.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).orElse(new BGamesPlayerData());
@@ -31,7 +31,7 @@ public class BGamesLibraryTools {
         if(player_id!=data.getId()){
             return false;
         }
-        ApiResponse response = new BGamesApi().spendAttribute(player_id,attribute,ammountSpend);
+        ApiResponse response = new BGamesApi().spendAttribute(player_id,dimension,ammountSpend);
         if(!response.isSuccess()){
             player.sendSystemMessage(Component.translatable(response.getErrorDescription()).withStyle(ChatFormatting.RED));
             return false;
@@ -47,12 +47,12 @@ public class BGamesLibraryTools {
     /**
      * method to spent point in a name of player
      * @param player the player in the client side who spend the point
-     * @param attribute the name of attribute, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param dimension the name of dimension, can be use by BgamesLibrary.bgames_afective_name or similar
      * @param ammountSpend the ammount of point to spent
      * @return bool if the points were spent
      * */
-    public static boolean spendPoints(LocalPlayer player, String attribute, int ammountSpend){
-        if(!permittedAttributtes(attribute) || ammountSpend<1 ){
+    public static boolean spendPoints(LocalPlayer player, String dimension, int ammountSpend){
+        if(!permittedDimensions(dimension) || ammountSpend<1 ){
             return false;
         }
         BGamesLibraryModMessages.sendToServer(new BGamesPlayerDataSyncC2SPacket());
@@ -61,7 +61,7 @@ public class BGamesLibraryTools {
         if(player_id!=ClientBGamesPlayerData.getPlayerId()){
             return false;
         }
-        BGamesLibraryModMessages.sendToServer(new BGamesSpendPointsC2SPacket(ammountSpend,attribute));
+        BGamesLibraryModMessages.sendToServer(new BGamesSpendPointsC2SPacket(ammountSpend,dimension));
 
         return true;
     }
@@ -82,15 +82,54 @@ public class BGamesLibraryTools {
             return data.isLoggedIn();
         }
     }
+    /**
+     * method to consult points of a player
+     * @param dimension dimension name, can be use by BgamesLibrary.bgames_afective_name or similar
+     * @param player the player to consult
+     * @return points, -1 if it doesn't exist
+     * */
+    public int getPoints(String dimension, Player player){
+        if(permittedDimensions(dimension)) {
+            if (player.isLocalPlayer()) {
+                if (dimension == BgamesLibrary.bgames_afective_name) {
+                    return ClientBGamesPlayerData.getPlayerAffectivePoints();
+                } else if (dimension == BgamesLibrary.bgames_linguistic_name) {
+                    return ClientBGamesPlayerData.getPlayerLinguisticPoints();
+                } else if (dimension == BgamesLibrary.bgames_cognitive_name) {
+                    return ClientBGamesPlayerData.getPlayerCognitivePoints();
+                } else if (dimension == BgamesLibrary.bgames_social_name) {
+                    return ClientBGamesPlayerData.getPlayerSocialPoints();
+                } else if (dimension == BgamesLibrary.bgames_physical_name) {
+                    return ClientBGamesPlayerData.getPlayerPhysicalPoints();
+                }
+            } else {
+                BGamesPlayerData data = player.getCapability(BGamesPlayerDataProvider.PLAYER_DATA).orElse(null);
+                if (data != null) {
+                    if (dimension == BgamesLibrary.bgames_afective_name) {
+                        return data.getAffectivePoints();
+                    } else if (dimension == BgamesLibrary.bgames_linguistic_name) {
+                        return data.getLinguisticPoints();
+                    } else if (dimension == BgamesLibrary.bgames_cognitive_name) {
+                        return data.getCognitivePoints();
+                    } else if (dimension == BgamesLibrary.bgames_social_name) {
+                        return data.getSocialPoints();
+                    } else if (dimension == BgamesLibrary.bgames_physical_name) {
+                        return data.getPhysicalPoints();
+                    }
+                }
+            }
+        }
+        return -1;
+    }
 
 
 
-    private static boolean permittedAttributtes(String attribute){
-        if(attribute!= BgamesLibrary.bgames_afective_name &&
-                attribute!=BgamesLibrary.bgames_linguistic_name &&
-                attribute!=BgamesLibrary.bgames_cognitive_name &&
-                attribute!=BgamesLibrary.bgames_social_name &&
-                attribute!=BgamesLibrary.bgames_physical_name){
+    private static boolean permittedDimensions(String dimension){
+        if(dimension!= BgamesLibrary.bgames_afective_name &&
+                dimension!=BgamesLibrary.bgames_linguistic_name &&
+                dimension!=BgamesLibrary.bgames_cognitive_name &&
+                dimension!=BgamesLibrary.bgames_social_name &&
+                dimension!=BgamesLibrary.bgames_physical_name){
             return false;
         }
         return true;

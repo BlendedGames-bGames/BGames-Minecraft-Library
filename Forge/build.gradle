@@ -1,7 +1,10 @@
+
 plugins {
     id 'eclipse'
+    id 'java'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
 version = project.mod_version
@@ -130,9 +133,15 @@ repositories {
 }
 
 dependencies {
+
+
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'org.apache.httpcomponents:httpcore:4.4.16'
+    implementation 'commons-logging:commons-logging:1.2'
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
+
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
@@ -148,6 +157,25 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
+shadowJar {
+    archiveClassifier.set('')
+
+    dependencies {
+        include(dependency('org.apache.httpcomponents:httpclient:4.5.13'))
+        include(dependency('org.apache.httpcomponents:httpcore:4.4.16'))
+        include(dependency('commons-logging:commons-logging:1.2'))
+    }
+
+    // But only relocate Guice
+    relocate 'org.apache.http', 'net.gsimken.bgameslibrary.org.apache.http'
+    relocate 'org.apache.commons.logging', 'net.gsimken.bgameslibrary.org.apache.commons.logging'
+    finalizedBy 'reobfShadowJar'
+}
+
+assemble.dependsOn shadowJar
+reobf {
+    shadowJar {}
+}
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
     manifest {
