@@ -9,22 +9,23 @@ modLoader="javafml" #mandatory
 loaderVersion="[43,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="MIT License"
+license="GPLv3"
 # A URL to refer people to when problems occur with this mod
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
-modId="bgameslibrary" #mandatory
+modId="bgameslibrary" #bmandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
 version="1.0.3-1.19.2" #mandatory
  # A display name for the mod
 displayName="BGames Library" #mandatory
-
+logoFile = "interaction_logo.png"
+displayURL = "https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/"
 # A text field displayed in the mod UI
-authors="Gsimken" #optional
+authors="Gsimken, InTeractiOn" #optional
 # Display Test controls the display for your mod in the server connection screen
 # MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
 # IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.
@@ -34,9 +35,7 @@ authors="Gsimken" #optional
 #displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''
-
-'''
+description='''bGames Library Mod is a library for Fabric and Forge designed to integrate with other mods. It establishes a connection with bGames, allowing the player to authenticate and view their bGames points.'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.bgameslibrary]] #optional
     # the modid of the dependency
@@ -59,4 +58,5 @@ description='''
     versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"
-
+[modproperties.bgameslibrary]
+catalogueImageIcon="interaction_logo.png"

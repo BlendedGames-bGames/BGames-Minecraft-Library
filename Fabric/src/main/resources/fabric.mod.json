@@ -5,17 +5,18 @@
   "version": "1.0.3-1.19.2",
 
   "name": "bGames Library",
-  "description": "A library to interact with platform BGames",
+  "description": "bGames Library Mod is a library for Fabric and Forge designed to integrate with other mods. It establishes a connection with bGames, allowing the player to authenticate and view their bGames points.",
   "authors": [
-    "GSimken"
+    "GSimken",
+    "InTeractiOn"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "",
+    "sources": "https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/"
   },
 
-  "license": "MIT License",
-  "icon": "assets/bgameslibrary/icon.png",
+  "license": "GPLv3",
+  "icon": "interaction_logo.png",
 
   "environment": "*",
   "entrypoints": {

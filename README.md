@@ -3,49 +3,79 @@
 [![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/Readme/README-EN.md)
 
 
-La Librería BGames Mod es una biblioteca para Fabric y Forge diseñada para integrarse con otros mods. Esta establece una conexión con bGames, permitiendo al jugador autenticarse y visualizar sus puntos bGames.
 
-## Primeros Pasos
-Al ingresar a un mundo, se solicitará un perfil válido de bGames, mostrando la siguiente pantalla de inicio de sesión:
+bGames Library Mod is a library for Fabric and Forge designed to integrate with other mods. It establishes a connection with bGames, allowing the player to authenticate and view their bGames points.
+## Before Starting
+Upon initializing Minecraft with the installed mod, a configuration file will be created depending on the modloader being used. This file will be located in the .minecraft/config folder and should be configured based on the bGames server you wish to connect to (if the bGames server is set to default, you would simply need to change the URL).
 
-![Inicio de sesión modal bGames](https://drive.google.com/uc?export=view&id=1AJ1Xfk4d5Xty88Yfup73VBMm5RyqbFpN)
+### Forge
+File: bgames-common-application.toml
 
-Esta pantalla permite al usuario conectarse a bGames y obtener sus puntos de dimensiones en Minecraft. Si la conexión falla por un error o ingreso inválido, la pantalla se cerrará e informará al usuario a través del chat. Esta ventana puede ser reabierta utilizando el comando "/login". 
+    ["Config Bgames API"]
+        #This is the url to make the request. Default: http://localhost:
+        "API URL" = "http://localhost:"
+        #This is the port to make get requests. Default: 3001
+        "API GET PORT" = 3001
+        #This is the port to make post requests. Default: 3002
+        "API POST PORT" = 3002
+        #This is the port to make user management requests. Default: 3010
+        "API USER PORT" = 3010
 
-Una vez que el usuario esté autenticado con bGames, podrá utilizar el botón de la librería presente en el inventario.
+### Fabric
+File: bGames-config.json
 
-![Inventario del jugador con botón en la parte superior](https://drive.google.com/uc?export=view&id=1O8BM-daC16On-hyt3umy52oSQ3RzO32K)
+    {
+        "URL":"http://localhost:",
+        "GET_PORT":3001,
+        "POST_PORT":3002,
+        "USER_PORT":3010
+    }
 
-Al presionar este botón, se mostrarán los puntos obtenidos anteriormente en una nueva ventana, informándole al usuario los puntos disponibles para su uso. Estos puntos se actualizan cada vez que se abre el modal. 
+Once the file has been modified and saved, don't forget to restart the game.
 
-![Modal con dimensiones](https://drive.google.com/uc?export=view&id=15WxeedXBPX0Pjoh9YdkHIQ6xtXDrhELl)
+## Getting Started
+Upon entering a world, a valid bGames profile will be requested, displaying the following login screen:
 
-**Nota:** En la versión 1.0.3 de la librería, solo se utilizan 5 clasificaciones de dimensiones, no se consideran los atributos. Esto puede variar en el futuro con la inclusión de nuevas dimensiones.
+![bGames modal login screen](https://drive.google.com/uc?export=view&id=1AJ1Xfk4d5Xty88Yfup73VBMm5RyqbFpN)
+
+This screen allows the user to connect to bGames and obtain their dimensions points in Minecraft. If the connection fails due to an error or invalid entry, the screen will close and inform the user through the chat. This window can be reopened using the "/login" command. 
+
+Once the user is authenticated with bGames, they will be able to use the library button present in the inventory.
+
+![Player inventory with button at the top](https://drive.google.com/uc?export=view&id=1O8BM-daC16On-hyt3umy52oSQ3RzO32K)
+
+Pressing this button will display the points previously obtained in a new window, informing the user of the points available for use. These points are updated every time the modal is opened.
+
+![Modal with dimensions](https://drive.google.com/uc?export=view&id=15WxeedXBPX0Pjoh9YdkHIQ6xtXDrhELl)
+
+**Note:** In version 1.0.3 of the library, only 5 dimensions classifications are used, attributes are not considered. This may vary in the future with the inclusion of new dimensions.
 
 ---
 
-## Requisitos
-* ### **Conexión a Internet**
-    Dado que bGames es un módulo en la nube, se requiere una conexión a Internet para acceder.
-* ### **Cuenta de bGames**
-    Es necesario contar con un perfil en bGames, ya que si el usuario no existe no tendrá puntos que utilizar.
+## Requirements
+* ### **Internet Connection**
+    Since bGames is a cloud-based module, an Internet connection is required to access.
+* ### **bGames Account**
+    It is necessary to have a bGames profile, as if the user does not exist, they will not have points to use.
 * ### **Minecraft Forge | FabricMc**
-    En caso de utilizar Forge, no existen pre-requisitos. Si se usa Fabric, el mod requiere [Fabric Api](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
+    In case of using Forge, there are no prerequisites. If Fabric is used, the mod requires [Fabric Api](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
 
 ---
 
-## Preguntas y Respuestas (FAQ)
+## Questions and Answers (FAQ)
 
-* ### **¿Qué es Blended Games (bGames)?**
-    Blended Games es un proyecto/framework de código abierto desarrollado por el Laboratorio InTeractiOn de la Universidad de Santiago de Chile. Su objetivo es promover el desarrollo de videojuegos que faciliten el equilibrio entre las tareas cotidianas y la vida virtual, con el fin de prevenir situaciones perjudiciales para los jugadores, como la adicción a los videojuegos.
+* ### **What is Blended Games (bGames)?**
 
-* ### **¿Cómo funciona bGames?**
-    bGames funciona a través de una serie de servicios que miden y almacenan la actividad de un jugador en un perfil en la nube. Los puntos que constituyen estos perfiles provienen de actividades rastreadas tanto por software como por hardware. Esto podría incluir, por ejemplo, las estadísticas de un jugador en Chess.com o el tiempo de uso de su teléfono móvil. Estos puntos luego se categorizan en diversas dimensiones y atributos, que pueden ser intercambiados por ventajas en los videojuegos.
+    Blended Games is an open source project/framework developed by the InTeractiOn Lab at the University of Santiago de Chile. Its goal is to promote the development of video games that facilitate a balance between day to day tasks and virtual life, in order to prevent harmful situations for players, such as video game addiction.
 
-    **Nota:** Para obtener más información sobre bGames o su arquitectura, puedes visitar la sección bGames en la página de [InTeractiOn Labs](https://interaction-lab.info/publications).
+* ### **How does bGames work?**
 
-* ### **¿Puedo desarrollar mods de Minecraft para bGames?**
-    ¡Por supuesto! Esta biblioteca busca ampliar el catálogo de bGames en Minecraft. Puedes utilizarla tanto en mods existentes como en nuevos. Para más detalles sobre las funcionalidades para desarrolladores, puedes consultar la wiki en el repositorio de [GitHub](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/wiki).
+    bGames works through a series of services that measure and store a player's activity in a cloud profile. The points that constitute these profiles come from activities tracked by software and hardware. This could include, for example, a player's statistics on Chess.com or their mobile phone time use. These points are then categorized into various dimensions and attributes, which can be exchanged for advantages in video games.
 
-* ### **¿bGames solo está disponible en Minecraft?**
-    No, bGames tiene la intención de llegar a todas las plataformas y juegos que los desarrolladores deseen, por lo que su integración no se limita solo a Minecraft. Hasta la fecha, se han hecho adaptaciones de algunos juegos como Tetris y Chess, así como juegos creados desde cero que permiten el uso de bGames.
+    **Note:** For more information about bGames or its architecture, you can visit the bGames section on the [InTeractiOn Labs](https://interaction-lab.info/publications) page.
+
+* ### **Can I develop Minecraft mods for bGames?**
+    Absolutely! This library seeks to expand the bGames catalog in Minecraft. You can use it in both existing mods and new ones. For more details on developer features, you can consult the wiki on the [GitHub](https://github.com/Gsimken/bGames-Minecraft-Library-Forge-Fabric/wiki) repository.
+
+* ### **Is bGames only available in Minecraft?**
+    No, bGames intends to reach all platforms and games that developers seek, so its integration is not limited only to Minecraft. To date, adaptations have been made of some games like Tetris and Chess, as well as games created from scratch that allow the use of bGames.
