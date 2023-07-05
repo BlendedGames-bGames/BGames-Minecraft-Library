@@ -1,7 +1,7 @@
 package net.gsimken.bgameslibrary;
 
 import net.fabricmc.api.ModInitializer;
-import net.gsimken.bgameslibrary.api.configs.BGamesApiConfigsModel;
+import net.gsimken.bgameslibrary.configs.BGamesApiConfigsModel;
 import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
 import net.gsimken.bgameslibrary.commands.BGamesLibraryModCommands;
 import net.gsimken.bgameslibrary.event.BGamesLibraryModEvents;

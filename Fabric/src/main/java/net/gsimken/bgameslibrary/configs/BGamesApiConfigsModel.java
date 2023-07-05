@@ -1,4 +1,4 @@
-package net.gsimken.bgameslibrary.api.configs;
+package net.gsimken.bgameslibrary.configs;
 
 
 import com.google.gson.Gson;
@@ -18,6 +18,7 @@ public class BGamesApiConfigsModel {
     public void loadConfigs(){
 
         String route=FabricLoader.getInstance().getGameDir().toFile().getPath() + "/config/bGames-config.json";
+        String folder_route=FabricLoader.getInstance().getGameDir().toFile().getPath() + "/config";
         try (FileReader reader = new FileReader(route)) {
             GsonBuilder gsonBuilder  = new GsonBuilder();
 
@@ -36,12 +37,24 @@ public class BGamesApiConfigsModel {
             System.out.println("File not found. Creating defaults");
 
             try {
+
+                File folder = new File(folder_route);
+                if(!folder.exists()){
+                    if(folder.mkdir()){
+                        System.out.println("Configs folder created successfully");
+                    }
+                    else{
+                        System.out.println("Error creating the config folder and config file, using defaults.");
+                        return;
+                    }
+                }
                 FileWriter writter = new FileWriter(route);
                 writter.write("{\n\"URL\":\"http://localhost:\",\n\"GET_PORT\":3001,\n\"POST_PORT\":3002,\n\"USER_PORT\":3010\n}");
                 writter.close();
                 System.out.println("Configs created successfully");
+
             } catch (IOException ex) {
-                System.out.println("Error creating the file, using defaults");
+                System.out.println("Error creating the file, using defaults.\nError: "+ex.toString());
             }
         } catch (IOException e) {
             System.out.println("Wrong text in files");
