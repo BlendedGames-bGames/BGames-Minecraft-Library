@@ -1,6 +1,6 @@
 # BGames Library Mod
-[![es](https://img.shields.io/badge/lang-es-green.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/README.md)
-[![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/Readme/README-EN.md)
+[![es](https://img.shields.io/badge/lang-es-green.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/Readme/README-ES.md)
+[![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/blob/master/README.md)
 
 
 
