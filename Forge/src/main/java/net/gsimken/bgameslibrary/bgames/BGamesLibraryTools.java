@@ -88,7 +88,7 @@ public class BGamesLibraryTools {
      * @param player the player to consult
      * @return points, -1 if it doesn't exist
      * */
-    public int getPoints(String dimension, Player player){
+    public static int getPoints(String dimension, Player player){
         if(permittedDimensions(dimension)) {
             if (player.isLocalPlayer()) {
                 if (dimension == BgamesLibrary.bgames_afective_name) {

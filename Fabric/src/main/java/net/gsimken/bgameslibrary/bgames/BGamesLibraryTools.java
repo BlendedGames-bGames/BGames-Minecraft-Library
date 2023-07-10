@@ -83,7 +83,7 @@ public class BGamesLibraryTools {
      * @param player the player to consult
      * @return points, -1 if it doesn't exist
      * */
-    public int getPoints(String dimension, PlayerEntity player){
+    public static int getPoints(String dimension, PlayerEntity player){
         if(permittedDimensions(dimension)) {
             IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
             if(dimension == BgamesLibrary.bgames_afective_name) {
