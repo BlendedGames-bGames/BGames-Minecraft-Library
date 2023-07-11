@@ -72,10 +72,10 @@ Pressing this button will display the points previously obtained in a new window
 
     bGames works through a series of services that measure and store a player's activity in a cloud profile. The points that constitute these profiles come from activities tracked by software and hardware. This could include, for example, a player's statistics on Chess.com or their mobile phone time use. These points are then categorized into various dimensions and attributes, which can be exchanged for advantages in video games.
 
-    **Note:** For more information about bGames or its architecture, you can visit the bGames section on the [InTeractiOn Labs](https://interaction-lab.info/publications) page.
+    **Note:** For more information about bGames or its architecture, you can visit the bGames section on the [InTeractiOn Labs](https://bgames.interaction-lab.info/publications)  page.
 
 * ### **Can I develop Minecraft mods for bGames?**
-    Absolutely! This library seeks to expand the bGames catalog in Minecraft. You can use it in both existing mods and new ones. For more details on developer features, you can consult the wiki on the [GitHub](https://github.com/Gsimken/bGames-Minecraft-Library-Forge-Fabric/wiki) repository.
+    Absolutely! This library seeks to expand the bGames catalog in Minecraft. You can use it in both existing mods and new ones. For more details on developer features, you can consult the wiki on the [GitHub](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Guide-for-bGames-Library-Developers) repository.
 
 * ### **Is bGames only available in Minecraft?**
     No, bGames intends to reach all platforms and games that developers seek, so its integration is not limited only to Minecraft. To date, adaptations have been made of some games like Tetris and Chess, as well as games created from scratch that allow the use of bGames.
