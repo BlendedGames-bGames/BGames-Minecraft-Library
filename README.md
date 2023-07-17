@@ -75,7 +75,7 @@ Pressing this button will display the points previously obtained in a new window
     **Note:** For more information about bGames or its architecture, you can visit the bGames section on the [InTeractiOn Labs](https://bgames.interaction-lab.info/publications)  page.
 
 * ### I don't have Minecraft, where can I get it and how can I use the library?
-A special guide has been prepared for these cases. You can find a tutorial in the "[Extra](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Extra:-Minecraft-and-Mods-Installation-Tutorial)" section of the wiki.
+    A special guide has been prepared for these cases. You can find a tutorial in the "[Extra](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Extra:-Minecraft-and-Mods-Installation-Tutorial)" section of the wiki.
 
 * ### **Can I develop Minecraft mods for bGames?**
     Absolutely! This library seeks to expand the bGames catalog in Minecraft. You can use it in both existing mods and new ones. For more details on developer features, you can consult the wiki on the [GitHub](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Guide-for-bGames-Library-Developers) repository.
