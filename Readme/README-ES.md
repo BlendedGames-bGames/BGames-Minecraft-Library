@@ -72,7 +72,10 @@ Al presionar este botón, se mostrarán los puntos obtenidos anteriormente en un
     bGames funciona a través de una serie de servicios que miden y almacenan la actividad de un jugador en un perfil en la nube. Los puntos que constituyen estos perfiles provienen de actividades rastreadas tanto por software como por hardware. Esto podría incluir, por ejemplo, las estadísticas de un jugador en Chess.com o el tiempo de uso de su teléfono móvil. Estos puntos luego se categorizan en diversas dimensiones y atributos, que pueden ser intercambiados por ventajas en los videojuegos.
 
     **Nota:** Para obtener más información sobre bGames o su arquitectura, puedes visitar la sección bGames en la página de [InTeractiOn Labs](https://interaction-lab.info/publications).
-
+  
+* ### No tengo minecraft, ¿Donde puedo obtenerlo y como puedo usar la biblioteca?
+    Se ha preparado una guía especial para estos casos, puede encontrar una guía en la sección "[Extra](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Extra:-Minecraft-and-Mods-Installation-Tutorial)" de la wiki
+  
 * ### **¿Puedo desarrollar mods de Minecraft para bGames?**
     ¡Por supuesto! Esta biblioteca busca ampliar el catálogo de bGames en Minecraft. Puedes utilizarla tanto en mods existentes como en nuevos. Para más detalles sobre las funcionalidades para desarrolladores, puedes consultar la wiki en el repositorio de [GitHub](https://github.com/Gsimken/BGames-Minecraft-Library-Forge-Fabric/wiki).
 
