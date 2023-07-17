@@ -78,7 +78,7 @@ Pressing this button will display the points previously obtained in a new window
     A special guide has been prepared for these cases. You can find a tutorial in the "[Extra](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Extra:-Minecraft-and-Mods-Installation-Tutorial)" section of the wiki.
 
 * ### **Can I develop Minecraft mods for bGames?**
-    Absolutely! This library seeks to expand the bGames catalog in Minecraft. You can use it in both existing mods and new ones. For more details on developer features, you can consult the wiki on the [GitHub](https://github.com/Gsimken/BGames-Minecraft-Library/wiki/Guide-for-bGames-Library-Developers) repository.
+    Absolutely! This library seeks to expand the bGames catalog in Minecraft. You can use it in both existing mods and new ones. For more details on developer features, you can consult the wiki on the [GitHub](https://github.com/Gsimken/BGames-Minecraft-Library/wiki) repository.
 
 * ### **Is bGames only available in Minecraft?**
     No, bGames intends to reach all platforms and games that developers seek, so its integration is not limited only to Minecraft. To date, adaptations have been made of some games like Tetris and Chess, as well as games created from scratch that allow the use of bGames.
