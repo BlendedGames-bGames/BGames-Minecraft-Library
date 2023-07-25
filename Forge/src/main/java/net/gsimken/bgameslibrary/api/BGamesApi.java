@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.gsimken.bgameslibrary.configs.BGamesCommonConfigs;
 
+import net.gsimken.bgameslibrary.utils.CSVwriter;
 import net.gsimken.bgameslibrary.utils.JsonUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -158,12 +159,17 @@ public class BGamesApi {
         try{ //executes the request with 10s to get the responses, else gives an excepción for timeout
             HttpGet request = new HttpGet(url);
             request.setConfig(this.requestConfig);
+            long startTime = System.currentTimeMillis();
             HttpResponse response = CLIENT.execute(request);
+            long endTime = System.currentTimeMillis();
+            long elapsedTime = endTime - startTime;
+            CSVwriter.updateCSV("data-get-request-time.csv","get", Long.toString(elapsedTime));
             requestResponse.setCode(response.getStatusLine().getStatusCode());
             entity = response.getEntity();
 
         }
         catch(Exception e){
+            CSVwriter.updateCSV("data-get-request-time.csv","get", "ERROR");
             System.out.println(e);
 
             requestResponse.setCodeError(503,"api.bgameslibrary.api_unavailable"); //server error
@@ -215,12 +221,16 @@ public class BGamesApi {
             HttpPost request = new HttpPost(url);
             request.setEntity(new UrlEncodedFormEntity(payload));
             request.setConfig(this.requestConfig);
-
+            long startTime = System.currentTimeMillis();
             HttpResponse response = CLIENT.execute(request);
+            long endTime = System.currentTimeMillis();
+            long elapsedTime = endTime - startTime;
+            CSVwriter.updateCSV("data-post-request-time.csv","post", Long.toString(elapsedTime));
             requestResponse.setCode(response.getStatusLine().getStatusCode());
             entity = response.getEntity();
         }
         catch(Exception e){
+            CSVwriter.updateCSV("data-get-request-time.csv","get", "ERROR");
             requestResponse.setCodeError(503,"api.bgameslibrary.api_unavailable"); //server error
             return requestResponse;
         }

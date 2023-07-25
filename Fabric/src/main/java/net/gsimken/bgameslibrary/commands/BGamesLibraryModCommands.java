@@ -8,6 +8,7 @@ public class BGamesLibraryModCommands {
         //CommandRegistrationCallback.EVENT.register(DebugPlayerAttributesByIdCommand::register);
         //CommandRegistrationCallback.EVENT.register(DebugShowPlayerDataCommand::register);
         CommandRegistrationCallback.EVENT.register(LoginCommand::register);
+        CommandRegistrationCallback.EVENT.register(StatsRequestsCommand::register);
     }
 }
 

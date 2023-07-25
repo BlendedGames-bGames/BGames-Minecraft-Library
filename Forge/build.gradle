@@ -138,6 +138,8 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     implementation 'org.apache.httpcomponents:httpcore:4.4.16'
     implementation 'commons-logging:commons-logging:1.2'
+    implementation 'org.apache.commons:commons-csv:1.8'
+
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
@@ -164,11 +166,13 @@ shadowJar {
         include(dependency('org.apache.httpcomponents:httpclient:4.5.13'))
         include(dependency('org.apache.httpcomponents:httpcore:4.4.16'))
         include(dependency('commons-logging:commons-logging:1.2'))
+        include(dependency('org.apache.commons:commons-csv:1.8'))
+
     }
 
     // But only relocate Guice
     relocate 'org.apache.http', 'net.gsimken.bgameslibrary.org.apache.http'
-    relocate 'org.apache.commons.logging', 'net.gsimken.bgameslibrary.org.apache.commons.logging'
+    relocate 'org.apache.commons', 'net.gsimken.bgameslibrary.org.apache.commons'
     finalizedBy 'reobfShadowJar'
 }
 

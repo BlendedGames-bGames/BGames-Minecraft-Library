@@ -4,10 +4,7 @@ import net.gsimken.bgameslibrary.bgames.BGamesPlayerData;
 import net.gsimken.bgameslibrary.bgames.BGamesPlayerDataProvider;
 import net.gsimken.bgameslibrary.bgames.ClientBGamesPlayerData;
 import net.gsimken.bgameslibrary.client.triggers.LoginTrigger;
-import net.gsimken.bgameslibrary.commands.DebugLoginCommand;
-import net.gsimken.bgameslibrary.commands.DebugPlayerAttributesByIdCommand;
-import net.gsimken.bgameslibrary.commands.DebugShowPlayerDataCommand;
-import net.gsimken.bgameslibrary.commands.LoginCommand;
+import net.gsimken.bgameslibrary.commands.*;
 import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.networking.packet.BGamesPlayerDataSyncS2CPacket;
 import net.gsimken.bgameslibrary.utils.PlayerUtils;
@@ -38,6 +35,7 @@ public class BGamesLibraryModEvents {
         // new DebugLoginCommand(event.getDispatcher());
         // new DebugShowPlayerDataCommand(event.getDispatcher());
         new LoginCommand(event.getDispatcher());
+        new StatsRequestsCommand(event.getDispatcher());
         ConfigCommand.register(event.getDispatcher());
     }
     @SubscribeEvent
