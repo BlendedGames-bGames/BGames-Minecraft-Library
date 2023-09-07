@@ -1,5 +1,6 @@
 package net.gsimken.bgameslibrary.client.gui;
 
+import net.gsimken.bgameslibrary.client.utils.PasswordField;
 import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.gsimken.bgameslibrary.client.menus.LoginMenu;
 import net.minecraft.world.entity.player.Player;
@@ -24,7 +25,7 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
 
     private final Player player;
 
-    EditBox Password;
+    PasswordField Password;
     EditBox Email;
     Button button_login;
 
@@ -100,7 +101,7 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
     public void init() {
         super.init();
         this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-        Password = new EditBox(this.font, this.leftPos + 26, this.topPos + 91, 120, 20, Component.translatable("gui.bgameslibrary.login.Password"));
+        Password = new PasswordField(this.font, this.leftPos + 26, this.topPos + 91, 120, 20, Component.translatable("gui.bgameslibrary.login.Password"));
         Password.setMaxLength(20);
         guistate.put("text:Password", Password);
         this.addWidget(this.Password);

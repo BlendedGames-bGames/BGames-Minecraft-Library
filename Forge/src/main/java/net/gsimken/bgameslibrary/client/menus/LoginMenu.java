@@ -1,6 +1,7 @@
 package net.gsimken.bgameslibrary.client.menus;
 
 import net.gsimken.bgameslibrary.client.BGamesLibraryModMenus;
+import net.gsimken.bgameslibrary.client.utils.PasswordField;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -23,7 +24,7 @@ public class LoginMenu extends AbstractContainerMenu {
         return email;
     }
     public static String getPasswordFromBox(){
-        String password = guistate.containsKey("text:Password") ? ((EditBox) guistate.get("text:Password")).getValue() : "";
+        String password = guistate.containsKey("text:Password") ? ((PasswordField) guistate.get("text:Password")).getRealText() : "";
         return password;
     }
 

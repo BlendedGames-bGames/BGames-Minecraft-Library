@@ -1,28 +1,26 @@
 {
   "login.bgameslibrary.not_logged": "No has iniciado sesión, por favor usa /login antes de jugar",
   "login.bgameslibrary.logged": "Iniciaste sesión correctamente",
-
+  "gui.bgameslibrary.display_attributes.points": "%1$s puntos",
+  "gui.bgameslibrary.display_attributes.label_affective": "Afectivo",
+  "gui.bgameslibrary.display_attributes.label_cognitive": "Cognitivo",
+  "gui.bgameslibrary.display_attributes.label_social": "Social",
+  "gui.bgameslibrary.display_attributes.label_linguistic": "Lingüístico",
+  "gui.bgameslibrary.display_attributes.label_physical": "Físico",
+  "gui.bgameslibrary.display_attributes.label_bgames_points": "Puntos BGames",
+  "gui.bgameslibrary.login.Password": "Contraseña",
+  "gui.bgameslibrary.login.Email": "Correo",
+  "gui.bgameslibrary.login.button_login": "Iniciar sesión",
   "gui.bgameslibrary.login.label_password": "Contraseña",
   "gui.bgameslibrary.login.label_email": "Correo",
   "gui.bgameslibrary.login.label_blended_games": "Blended Games",
-  "gui.bgameslibrary.login.button_login": "Iniciar sesión",
-
-  "gui.bgameslibrary.login.Password": "Contraseña",
-  "gui.bgameslibrary.login.Email": "Correo",
-  "gui.bgameslibrary.display_attributes.points": "%1$s puntos",
-  "gui.bgameslibrary.display_attributes.label_social": "Social",
-  "gui.bgameslibrary.display_attributes.label_physical": "Físico",
-  "gui.bgameslibrary.display_attributes.label_linguistic": "Lingüístico",
-  "gui.bgameslibrary.display_attributes.label_cognitive": "Cognitivo",
-  "gui.bgameslibrary.display_attributes.label_bgames_points": "Puntos BGames",
-  "gui.bgameslibrary.display_attributes.label_affective": "Afectivo",
-
-  "debug_commands.bgameslibrary.attributes": "Attributos del jugador: %1$s",
-
-  "api.bgameslibrary.request_error": "Error en la petición",
+  "debug_commands.bgameslibrary.attributes": "Attributos del jugador: %1$sC",
+  "api.bgameslibrary.status.connected": "Conectado",
+  "api.bgameslibrary.status.disconnected": "Desconectado",
+  "api.bgameslibrary.invalid_credentials": "Credenciales inválidas",
   "api.bgameslibrary.player_not_found": "Jugador no encontrado o no registrado en bGames",
   "api.bgameslibrary.not_enough_points": "No tienes puntos suficientes",
-  "api.bgameslibrary.invalid_credentials": "Credenciales inválidas",
-  "api.bgameslibrary.content_error": "Error en el contenido de la API",
-  "api.bgameslibrary.api_unavailable": "Servicio API no disponible"
+  "api.bgameslibrary.api_unavailable": "Servicio API no disponible",
+  "api.bgameslibrary.request_error": "Error en la petición",
+  "api.bgameslibrary.content_error": "Error en el contenido de la API"
 }
