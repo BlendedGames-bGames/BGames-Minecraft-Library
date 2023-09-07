@@ -11,6 +11,5 @@ public class BGamesLibraryModEvents {
     }
     public static void registerClient(){
         ClientPlayConnectionEvents.JOIN.register(new ModClientPlayerLoginEvent());
-        ScreenEvents.AFTER_INIT.register(new ModSpamOnInventoryOpenEvent());
     }
 }

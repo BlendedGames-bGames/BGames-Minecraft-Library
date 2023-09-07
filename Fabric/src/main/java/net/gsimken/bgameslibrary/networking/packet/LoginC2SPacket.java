@@ -28,14 +28,15 @@ public class LoginC2SPacket {
         if (!BGamesPlayerData.isLoggedIn(playerDataHandler)) { //player not found or invalid credentials
             BGamesPlayerData.setEmail(playerDataHandler, "");
             BGamesPlayerData.setPassword(playerDataHandler, "");
+            BGamesPlayerData.attributeReset(playerDataHandler);
             player.sendMessage(Text.translatable(  "api.bgameslibrary.player_not_found").fillStyle(Style.EMPTY.withColor(Formatting.RED)));
         }
         else {
             BGamesPlayerData.setIdEmailPassword(playerDataHandler,playerId,email,password );
             BGamesPlayerData.attributeRefresh(playerDataHandler);
             player.sendMessage(Text.translatable(  "login.bgameslibrary.logged").fillStyle(Style.EMPTY.withColor(Formatting.GREEN)));
-            BGamesPlayerData.syncData(player);
         }
+        BGamesPlayerData.syncData(player);
 
         player.closeHandledScreen();
 

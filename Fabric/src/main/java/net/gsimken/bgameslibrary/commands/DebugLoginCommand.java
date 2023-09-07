@@ -42,6 +42,7 @@ public class DebugLoginCommand {
 		if (!BGamesPlayerData.isLoggedIn(playerDataHandler)) { //player not found or invalid credentials
 			BGamesPlayerData.setEmail(playerDataHandler, "");
 			BGamesPlayerData.setPassword(playerDataHandler, "");
+			BGamesPlayerData.attributeReset(playerDataHandler);
 			player.sendMessage(Text.translatable(  "api.bgameslibrary.player_not_found").fillStyle(Style.EMPTY.withColor(Formatting.RED)));
 		}
 		else {

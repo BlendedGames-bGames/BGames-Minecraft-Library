@@ -22,6 +22,7 @@ public class ButtonOpenGuiC2SPacket {
         //serverside open gui
         IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
         if (!BGamesPlayerData.isLoggedIn(playerDataHandler)){
+            BGamesPlayerData.syncData( player);
             player.sendMessage(Text.translatable(  "login.bgameslibrary.not_logged").fillStyle(Style.EMPTY.withColor(Formatting.RED)));
         }
         else {

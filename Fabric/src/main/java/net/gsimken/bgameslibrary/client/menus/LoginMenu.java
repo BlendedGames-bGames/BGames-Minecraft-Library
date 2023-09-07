@@ -1,6 +1,7 @@
 package net.gsimken.bgameslibrary.client.menus;
 
 import net.gsimken.bgameslibrary.client.BGamesLibraryModScreens;
+import net.gsimken.bgameslibrary.client.utils.PasswordField;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -34,7 +35,7 @@ public class LoginMenu extends ScreenHandler {
         return email;
     }
     public static String getPasswordFromBox(){
-        String password = guistate.containsKey("text:Password") ? ((TextFieldWidget) guistate.get("text:Password")).getText() : "";
+        String password = guistate.containsKey("text:Password") ? ((PasswordField) guistate.get("text:Password")).getRealText() : "";
         return password;
     }
 

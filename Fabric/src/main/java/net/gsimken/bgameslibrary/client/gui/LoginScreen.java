@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.gsimken.bgameslibrary.client.menus.LoginMenu;
+import net.gsimken.bgameslibrary.client.utils.PasswordField;
 import net.gsimken.bgameslibrary.networking.BGamesLibraryModMessages;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -23,7 +24,7 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
 
     private final PlayerEntity player;
 
-    TextFieldWidget Password;
+    PasswordField Password;
     TextFieldWidget Email;
     ButtonWidget button_login;
 
@@ -101,7 +102,7 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
     public void init() {
         super.init();
         this.client.keyboard.setRepeatEvents(true);
-        Password = new TextFieldWidget(this.textRenderer, this.x + 26, this.y + 91, 120, 20, Text.translatable("gui.bgameslibrary.login.Password"));
+        Password = new PasswordField(this.textRenderer, this.x + 26, this.y + 91, 120, 20, Text.translatable("gui.bgameslibrary.login.Password"));
         Password.setMaxLength(20);
         guistate.put("text:Password", Password);
         this.addSelectableChild(this.Password);

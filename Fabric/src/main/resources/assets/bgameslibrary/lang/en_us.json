@@ -1,31 +1,27 @@
 {
-
-  "login.bgameslibrary.not_logged": "Not logged in bGames, please use /login command before play",
-  "login.bgameslibrary.logged": "Login successfully",
-
-  "gui.bgameslibrary.display_attributes.points": "%1$s points",
+  "api.bgameslibrary.api_unavailable": "API service unavailable",
+  "api.bgameslibrary.content_error": "API Content error",
+  "api.bgameslibrary.invalid_credentials": "Invalid credentials",
+  "api.bgameslibrary.not_enough_points": "You dont have enough points",
+  "api.bgameslibrary.not_negative_points_allowed": "Can't spend negative points",
+  "api.bgameslibrary.player_not_found": "Player not found or not registered in bGames",
+  "api.bgameslibrary.request_error": "Error in request",
+  "api.bgameslibrary.status.connected": "Connected",
+  "api.bgameslibrary.status.disconnected": "Disconnected",
+  "debug_commands.bgameslibrary.attributes": "Attributes: %1$s",
   "gui.bgameslibrary.display_attributes.label_affective": "Affective",
+  "gui.bgameslibrary.display_attributes.label_bgames_points": "BGames points",
   "gui.bgameslibrary.display_attributes.label_cognitive": "Cognitive",
-  "gui.bgameslibrary.display_attributes.label_social": "Social",
   "gui.bgameslibrary.display_attributes.label_linguistic": "Linguistic",
   "gui.bgameslibrary.display_attributes.label_physical": "Physical",
-  "gui.bgameslibrary.display_attributes.label_bgames_points": "BGames points",
-
-
-  "gui.bgameslibrary.login.Password": "Password",
+  "gui.bgameslibrary.display_attributes.label_social": "Social",
+  "gui.bgameslibrary.display_attributes.points": "%1$s points",
   "gui.bgameslibrary.login.Email": "Email",
+  "gui.bgameslibrary.login.Password": "Password",
   "gui.bgameslibrary.login.button_login": "Login",
-  "gui.bgameslibrary.login.label_password": "Password",
-  "gui.bgameslibrary.login.label_email": "Email",
   "gui.bgameslibrary.login.label_blended_games": "Blended Games",
-
-  "debug_commands.bgameslibrary.attributes": "Attributes: %1$s",
-
-  "api.bgameslibrary.invalid_credentials": "Invalid credentials",
-  "api.bgameslibrary.player_not_found": "Player not found or not registered in bGames",
-  "api.bgameslibrary.not_enough_points": "You dont have enough points",
-  "api.bgameslibrary.api_unavailable": "API service unavailable",
-  "api.bgameslibrary.request_error": "Error in request",
-  "api.bgameslibrary.content_error": "API Content error",
-  "api.bgameslibrary.not_negative_points_allowed":  "Can't spend negative points"
+  "gui.bgameslibrary.login.label_email": "Email",
+  "gui.bgameslibrary.login.label_password": "Password",
+  "login.bgameslibrary.logged": "Login successfully",
+  "login.bgameslibrary.not_logged": "Not logged in bGames, please use /login command before play"
 }
