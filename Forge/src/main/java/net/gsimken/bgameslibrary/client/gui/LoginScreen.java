@@ -112,7 +112,10 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
         Email.setMaxLength(100);
         guistate.put("text:Email", Email);
         this.addWidget(this.Email);
-        button_login = new Button(this.leftPos + 58, this.topPos + 130, 51, 20, Component.translatable("gui.bgameslibrary.login.button_login"), e -> {
+        int center = this.leftPos + this.imageWidth/2;
+        Component loginText =Component.translatable("gui.bgameslibrary.login.button_login");
+        int buttonWidth = this.font.width(loginText) >=53 ? this.font.width(loginText) + 4 : 53;
+        button_login = new Button(center - buttonWidth/2, this.topPos + 130, buttonWidth, 20, loginText, e -> {
             BGamesLibraryModMessages.sendToServer(new BGamesLoginC2SPacket(LoginMenu.getEmailFromBox(),LoginMenu.getPasswordFromBox()));
             player.closeContainer();
         });

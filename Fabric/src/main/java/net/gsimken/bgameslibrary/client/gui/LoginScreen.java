@@ -52,6 +52,7 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderTexture(0, texture);
+
         this.drawTexture(ms, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, this.backgroundWidth, this.backgroundHeight);
 
         RenderSystem.setShaderTexture(0, new Identifier("bgameslibrary:textures/screens/bgameslogo.png"));
@@ -113,7 +114,10 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
         Email.setMaxLength(100);
         guistate.put("text:Email", Email);
         this.addSelectableChild(this.Email);
-        button_login = new ButtonWidget(this.x + 58, this.y + 130, 51, 20, Text.translatable("gui.bgameslibrary.login.button_login"), e -> {
+        int center = this.x + this.backgroundWidth/2;
+        Text loginText =Text.translatable("gui.bgameslibrary.login.button_login");
+        int buttonWidth = this.textRenderer.getWidth(loginText) >=53 ? this.textRenderer.getWidth(loginText) + 4 : 53;
+        button_login = new ButtonWidget(center - buttonWidth/2, this.y + 130, buttonWidth, 20, loginText, e -> {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeString(LoginMenu.getEmailFromBox());
             buf.writeString(LoginMenu.getPasswordFromBox());
