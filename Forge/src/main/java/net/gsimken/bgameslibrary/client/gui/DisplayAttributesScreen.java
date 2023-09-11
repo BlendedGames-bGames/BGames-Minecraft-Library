@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttributesMenu> {
@@ -22,8 +23,8 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 	public DisplayAttributesScreen(DisplayAttributesMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
 		this.player = container.player;
-		this.imageWidth = 0;
-		this.imageHeight = 0;
+		this.imageWidth = 420;
+		this.imageHeight = 75;
 	}
 
 	@Override
@@ -35,14 +36,27 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 
 	@Override
 	protected void renderBg(PoseStack ms, float partialTicks, int gx, int gy) {
+		ArrayList<ResourceLocation> dimensionIcons =new ArrayList<>();
+		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/affective_button_20x18.png"));
+		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/cognitive_button_20x18.png"));
+		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/linguistic_button_20x18.png"));
+		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/physical_button_20x18.png"));
+		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/social_button_20x18.png"));
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 
-		RenderSystem.setShaderTexture(0, new ResourceLocation("bgameslibrary:textures/screens/container_button_v4.png"));
-		this.blit(ms, this.leftPos + -135, this.topPos + -46, 0, 0, 283, 68, 283, 68);
-
+		RenderSystem.setShaderTexture(0, new ResourceLocation("bgameslibrary:textures/screens/generic_background.png"));
+		this.blit(ms, this.leftPos , this.topPos , 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		int spacing = (this.imageWidth/(dimensionIcons.size()+1));
+		int position;
+		for (int i=0;i<dimensionIcons.size();i++){
+			position = this.leftPos + spacing*(i+1);
+			RenderSystem.setShaderTexture(0, dimensionIcons.get(i));
+			this.blit(ms, position-15 , this.topPos+15 , 0, 0,30, 27, 30, 55);
+		}
 		RenderSystem.disableBlend();
+
 	}
 
 	@Override
@@ -61,29 +75,31 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
+		ArrayList<Component> translationKeys = new ArrayList<>();
+		ArrayList<Component> points = new ArrayList<>();
+		translationKeys.add(Component.translatable("gui.bgameslibrary.display_attributes.label_affective"));
+		translationKeys.add(Component.translatable("gui.bgameslibrary.display_attributes.label_cognitive"));
+		translationKeys.add(Component.translatable("gui.bgameslibrary.display_attributes.label_social"));
+		translationKeys.add(Component.translatable("gui.bgameslibrary.display_attributes.label_linguistic"));
+		translationKeys.add(Component.translatable("gui.bgameslibrary.display_attributes.label_physical"));
+		points.add(Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerAffectivePoints())));
+		points.add(Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerSocialPoints())));
+		points.add(Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerPhysicalPoints())));
+		points.add(Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerLinguisticPoints())));
+		points.add(Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerCognitivePoints())));
+		Component title =Component.translatable("gui.bgameslibrary.display_attributes.label_bgames_points");
+		this.font.draw(poseStack, title , this.imageWidth/2-this.font.width(title)/2, 5, -12829636);
+		int spacing = (this.imageWidth/(translationKeys.size()+1));
+		int position;
+		Component pointText;
+		for (int i=0;i<translationKeys.size();i++){
+			position = spacing*(i+1);
+			pointText = Component.translatable("gui.bgameslibrary.display_attributes.points",points.get(i));
+			this.font.draw(poseStack, translationKeys.get(i) , position -this.font.width(translationKeys.get(i))/2,45, -12829636);
+			this.font.draw(poseStack,pointText,position -this.font.width(pointText)/2,55, -12829636);
 
+		}
 
-		this.font.draw(poseStack,
-
-				Component.translatable("gui.bgameslibrary.display_attributes.points",Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerAffectivePoints()))), -132, 8, -12829636);
-		this.font.draw(poseStack,
-
-				Component.translatable("gui.bgameslibrary.display_attributes.points",Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerSocialPoints()))), -11, 8, -12829636);
-		this.font.draw(poseStack,
-
-				Component.translatable("gui.bgameslibrary.display_attributes.points",Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerPhysicalPoints()))), 97, 8, -12829636);
-		this.font.draw(poseStack,
-
-				Component.translatable("gui.bgameslibrary.display_attributes.points",Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerLinguisticPoints()))), 42, 8, -12829636);
-		this.font.draw(poseStack,
-
-				Component.translatable("gui.bgameslibrary.display_attributes.points",Component.literal(convertPoints(ClientBGamesPlayerData.getPlayerCognitivePoints()))), -71, 8, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.display_attributes.label_affective"), -128, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.display_attributes.label_cognitive"), -73, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.display_attributes.label_social"), -8, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.display_attributes.label_linguistic"), 37, -1, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.display_attributes.label_physical"), 98, -2, -12829636);
-		this.font.draw(poseStack, Component.translatable("gui.bgameslibrary.display_attributes.label_bgames_points"), -27, -43, -12829636);
 	}
 
 	@Override
