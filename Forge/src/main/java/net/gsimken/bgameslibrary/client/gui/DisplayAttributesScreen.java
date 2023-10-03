@@ -105,13 +105,11 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 	public String convertPoints(int points){
 		if (points == -1) {

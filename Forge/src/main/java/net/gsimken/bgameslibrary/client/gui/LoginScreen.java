@@ -94,13 +94,11 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
     @Override
     public void onClose() {
         super.onClose();
-        Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
     }
 
     @Override
     public void init() {
         super.init();
-        this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
         Password = new PasswordField(this.font, this.leftPos + 26, this.topPos + 91, 120, 20, Component.translatable("gui.bgameslibrary.login.Password"));
         Password.setMaxLength(20);
         guistate.put("text:Password", Password);
@@ -115,10 +113,10 @@ public class LoginScreen extends AbstractContainerScreen<LoginMenu> {
         int center = this.leftPos + this.imageWidth/2;
         Component loginText =Component.translatable("gui.bgameslibrary.login.button_login");
         int buttonWidth = this.font.width(loginText) >=53 ? this.font.width(loginText) + 4 : 53;
-        button_login = new Button(center - buttonWidth/2, this.topPos + 130, buttonWidth, 20, loginText, e -> {
+        button_login = Button.builder(loginText,e -> {
             BGamesLibraryModMessages.sendToServer(new BGamesLoginC2SPacket(LoginMenu.getEmailFromBox(),LoginMenu.getPasswordFromBox()));
             player.closeContainer();
-        });
+        }).bounds(center - buttonWidth/2, this.topPos + 130, buttonWidth, 20).build();
         guistate.put("button:button_login", button_login);
         this.addRenderableWidget(button_login);
     }
