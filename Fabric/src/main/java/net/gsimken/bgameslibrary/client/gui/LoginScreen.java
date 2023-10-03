@@ -96,13 +96,11 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
     @Override
     public void close() {
         super.close();
-        MinecraftClient.getInstance().keyboard.setRepeatEvents(false);
     }
 
     @Override
     public void init() {
         super.init();
-        this.client.keyboard.setRepeatEvents(true);
         Password = new PasswordField(this.textRenderer, this.x + 26, this.y + 91, 120, 20, Text.translatable("gui.bgameslibrary.login.Password"));
         Password.setMaxLength(20);
         guistate.put("text:Password", Password);
@@ -117,13 +115,15 @@ public class LoginScreen extends HandledScreen<LoginMenu> {
         int center = this.x + this.backgroundWidth/2;
         Text loginText =Text.translatable("gui.bgameslibrary.login.button_login");
         int buttonWidth = this.textRenderer.getWidth(loginText) >=53 ? this.textRenderer.getWidth(loginText) + 4 : 53;
-        button_login = new ButtonWidget(center - buttonWidth/2, this.y + 130, buttonWidth, 20, loginText, e -> {
+        button_login = ButtonWidget.builder(loginText,(button) -> {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeString(LoginMenu.getEmailFromBox());
             buf.writeString(LoginMenu.getPasswordFromBox());
             ClientPlayNetworking.send(BGamesLibraryModMessages.BGAMES_LOGIN, buf);
 
-        });
+        }).dimensions(center - buttonWidth/2, this.y + 130, buttonWidth, 20).build();
+
+
         guistate.put("button:button_login", button_login);
         this.addDrawableChild(button_login);
     }

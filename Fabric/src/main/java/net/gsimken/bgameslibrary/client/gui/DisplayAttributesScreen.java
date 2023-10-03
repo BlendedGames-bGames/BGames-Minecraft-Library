@@ -110,13 +110,11 @@ public class DisplayAttributesScreen extends HandledScreen<DisplayAttributesMenu
 	@Override
 	public void close() {
 		super.close();
-		MinecraftClient.getInstance().keyboard.setRepeatEvents(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.client.keyboard.setRepeatEvents(true);
 
 
 	}

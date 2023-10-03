@@ -37,14 +37,16 @@ import java.util.HashMap;
         }
     }
 
-    @Override
+     @Override
+     public ItemStack quickMove(PlayerEntity player, int slot) {
+         return null;
+     }
+
+     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
     }
 
-    @Override
-    public ItemStack transferSlot(PlayerEntity player, int slot) {
-        return ItemStack.EMPTY;
-    }
+
 
 }
