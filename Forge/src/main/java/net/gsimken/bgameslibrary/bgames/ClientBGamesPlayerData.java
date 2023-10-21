@@ -4,14 +4,14 @@ public class ClientBGamesPlayerData {
     /*
     Class use in the client side its only one per client
     */
-    private static int playerId;
-    private static int playerSocialPoints;
-    private static int playerPhysicalPoints;
-    private static int playerLinguisticPoints;
-    private static int playerAffectivePoints;
-    private static int playerCognitivePoints;
-    private static String playerEmail;
-    private static String playerPassword;
+    private static int playerId = -1;
+    private static int playerSocialPoints = -1;
+    private static int playerPhysicalPoints= -1;
+    private static int playerLinguisticPoints= -1;
+    private static int playerAffectivePoints= -1;
+    private static int playerCognitivePoints= -1;
+    private static String playerEmail= "";
+    private static String playerPassword= "";
 
     public static boolean isLoggedIn() {;
         if (playerId!=-1) {

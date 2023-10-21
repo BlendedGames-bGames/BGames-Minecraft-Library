@@ -23,7 +23,7 @@ public class PlayerJoinC2SPacket {
         IBGamesDataSaver playerDataHandler = (IBGamesDataSaver) player;
         String email = BGamesPlayerData.getEmail(playerDataHandler);
         String password = BGamesPlayerData.getPassword(playerDataHandler);
-
+        BGamesPlayerData.setId(playerDataHandler,-1);
         BGamesPlayerData.attributeReset(playerDataHandler);
         if (email.equals("") || password.equals("")) {  // empty pass or email
             player.openHandledScreen(new LoginTrigger());
