@@ -39,9 +39,9 @@ public class DisplayAttributesScreen extends AbstractContainerScreen<DisplayAttr
 		ArrayList<ResourceLocation> dimensionIcons =new ArrayList<>();
 		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/affective_button_20x18.png"));
 		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/cognitive_button_20x18.png"));
+		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/social_button_20x18.png"));
 		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/linguistic_button_20x18.png"));
 		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/physical_button_20x18.png"));
-		dimensionIcons.add(new ResourceLocation("bgameslibrary:textures/screens/dimension_icon/social_button_20x18.png"));
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
